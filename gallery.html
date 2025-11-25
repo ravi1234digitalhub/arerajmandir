@@ -10,52 +10,79 @@ body {
   margin: 0;
   background: #000;
   font-family: sans-serif;
+  padding: 10px;
 }
 
-/* Gallery Box Height Controlled */
-#fullSlider {
-  position: relative;
+/* GRID GALLERY */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+
+.gallery img {
   width: 100%;
-  height: 350px;     /* ← FINAL SIZE (ना बड़ा, ना छोटा) */
-  overflow: hidden;
-  border-radius: 10px;
-  margin: 10px auto;
-  max-width: 900px;  /* PC पर control */
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-#slideBox {
-  display: flex;
-  width: 300%;
-  height: 100%;
-  transition: 0.6s ease;
+.gallery img:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
 }
 
-#slideBox img {
+/* POPUP BOX */
+#popup {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Crop करके सुंदर दिखे */
+  background: rgba(0,0,0,0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#popup img {
+  width: 90%;
+  max-width: 600px;
   border-radius: 10px;
+}
+
+#popup:active {
+  display: none;
 }
 </style>
 </head>
 <body>
 
-<!-- SLIDER SECTION -->
-<div id="fullSlider">
-  <div id="slideBox">
-    <img src="images/15.jpeg" alt="Photo 1">
-    <img src="images/60.jpeg" alt="Photo 2">
-    <img src="images/35.jpeg" alt="Photo 3">
-  </div>
+<h2 style="color:white; text-align:center;">📸 फोटो गैलरी</h2>
+
+<!-- GRID GALLERY -->
+<div class="gallery">
+  <img src="images/15.jpeg" onclick="openPopup(this.src)">
+  <img src="images/60.jpeg" onclick="openPopup(this.src)">
+  <img src="images/35.jpeg" onclick="openPopup(this.src)">
+</div>
+
+<!-- POPUP VIEW -->
+<div id="popup" onclick="closePopup()">
+  <img id="popupImg">
 </div>
 
 <script>
-let i = 0;
-setInterval(() => {
-  i++;
-  if (i > 2) i = 0;
-  document.getElementById("slideBox").style.transform = "translateX(" + (-i * 100) + "%)";
-}, 3000);
+function openPopup(src) {
+  document.getElementById("popup").style.display = "flex";
+  document.getElementById("popupImg").src = src;
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
 </script>
 
 </body>
