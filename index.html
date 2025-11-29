@@ -523,7 +523,14 @@
 }
 
 </style>
-</head>
+<style>
+@media(max-width:600px){
+  marquee{
+    font-size:0.95rem !important;
+    padding:10px !important;
+  }
+}
+</style></head>
 <body>
 <div class="navbar">
 <a href="#header-top">🏡 होम</a>
@@ -532,13 +539,15 @@
 <a href="#history">📜 इतिहास</a>
 <a href="gallery.html">📸 फोटो गैलरी</a>
 <a href="#contact-info">📞 संपर्क</a>
-
 </div>
 <header id="header-top">
 <span class="sub-title">ॐ **महादेव की नगरी** ॐ</span><br/>
     🔱 सोमेश्वरनाथ अरेराज धाम 🔱<br/>
 <small>ऑनलाइन पूजा एवं प्रसाद सेवा</small>
 </header><section class="puja-section" id="puja-list" style="padding:20px; background-color:#fff8ef;">
+<marquee behavior="scroll" direction="left" style="background:#ffe8d1;color:#5a2d00;padding:12px;border-radius:10px;margin:14px 0;font-size:1.1rem;font-weight:600;box-shadow:0 3px 10px rgba(0,0,0,0.15);">
+📌 भुगतान संबंधी सूचना: ArerajDham.in ऑनलाइन भुगतान स्वीकार नहीं करता। पूजा सम्पन्न होने के बाद ही भक्त श्रद्धा और सामर्थ्य अनुसार दक्षिणा देते हैं।
+</marquee>
 <h2 style="text-align:center; color:#c75100; border-bottom:2px solid #f4a300; padding-bottom:6px;">🕉️ महादेव की प्रमुख पूजाएँ</h2>
 <div class="search-box" style="text-align:center; margin:20px 0;">
 <input id="searchInput" placeholder="🔍 पूजा का नाम खोजें..." style="width:90%; max-width:400px; padding:10px; border:2px solid #f4a300; border-radius:10px; font-size:16px;" type="text"/>
@@ -565,44 +574,34 @@
 </div>
 </section>
 <section class="special-package" style="padding:40px; text-align:center; background:#fff9f0;">
-  <h2 style="font-size:32px; color:#b13f00; font-weight:800;">🌸 1 विशेष पूजा पैकेज (मासिक सेवा)</h2>
-  <p>हर महीने आपके नाम से सोमेश्वरनाथ शिव मंदिर में पूजा की जाएगी और WhatsApp पर वीडियो/फोटो भेजे जाएँगे।<br>(कोई प्रसाद/डिलीवरी नहीं)</p>
-
-  <div style="background:white; border-radius:18px; box-shadow:0 8px 25px rgba(0,0,0,0.15); padding:25px; max-width:520px; margin:auto; border:2px solid #ffb566;">
-
-    <h3 style="font-size:26px; margin:0; color:#c05a00; font-weight:800;">
+<h2 style="font-size:32px; color:#b13f00; font-weight:800;">🌸 1 विशेष पूजा पैकेज (मासिक सेवा)</h2>
+<p>हर महीने आपके नाम से सोमेश्वरनाथ शिव मंदिर में पूजा की जाएगी और WhatsApp पर वीडियो/फोटो भेजे जाएँगे।<br/>(कोई प्रसाद/डिलीवरी नहीं)</p>
+<div style="background:white; border-radius:18px; box-shadow:0 8px 25px rgba(0,0,0,0.15); padding:25px; max-width:520px; margin:auto; border:2px solid #ffb566;">
+<h3 style="font-size:26px; margin:0; color:#c05a00; font-weight:800;">
       🍃 पैकेज-1: सोमवार विशेष
     </h3>
-
-    <p style="font-size:18px; margin-top:5px;">
+<p style="font-size:18px; margin-top:5px;">
       हर महीने 4 सोमवार आपके नाम से <b>जलाभिषेक + 101 बेलपत्र अर्पण</b>
-    </p>
-
-    <div style="font-size:30px; font-weight:900; margin-bottom:12px; color:#000;">
+</p>
+<div style="font-size:30px; font-weight:900; margin-bottom:12px; color:#000;">
       ₹501 / महीना
     </div>
-
-    <div style="font-size:16px; color:#8b3a00; font-weight:600; margin-top:10px;">
+<div style="font-size:16px; color:#8b3a00; font-weight:600; margin-top:10px;">
       ⏳ सीमित स्लॉट — अगला मासिक चक्र <b>1 दिसंबर 2025</b> से शुरू
     </div>
-
-    <div style="font-size:18px; color:#d90000; font-weight:800; margin-top:6px;">
+<div style="font-size:18px; color:#d90000; font-weight:800; margin-top:6px;">
       🔥 उपलब्ध स्लॉट: <span id="slotCount">50</span> / 50
     </div>
-
-    <div style="font-size:16px; color:#008000; font-weight:700; margin-top:4px;">
-      <div class="slot-blink" style="font-size:16px; color:#008000; font-weight:700; margin-top:4px;">⚡ तेजी से स्लॉट भर रहे हैं!</div>
-    </div>
-
-    <div style="width:100%; background:#ffe1cc; height:8px; border-radius:10px; margin:12px 0;">
-      <div id="slotBar" style="height:8px; background:#ff4d00; border-radius:10px; width:100%;"></div>
-    </div>
-
-    <a href="#" class="btn" style="background:#ff7b00; color:white; padding:10px 20px; font-size:18px; font-weight:700; border-radius:10px; display:inline-block; margin-top:8px; box-shadow:0 5px 0 #b64300;" onclick="decreaseSlot(); openSpecialPuja()">
+<div style="font-size:16px; color:#008000; font-weight:700; margin-top:4px;">
+<div class="slot-blink" style="font-size:16px; color:#008000; font-weight:700; margin-top:4px;">⚡ तेजी से स्लॉट भर रहे हैं!</div>
+</div>
+<div style="width:100%; background:#ffe1cc; height:8px; border-radius:10px; margin:12px 0;">
+<div id="slotBar" style="height:8px; background:#ff4d00; border-radius:10px; width:100%;"></div>
+</div>
+<a class="btn" href="#" onclick="decreaseSlot(); openSpecialPuja()" style="background:#ff7b00; color:white; padding:10px 20px; font-size:18px; font-weight:700; border-radius:10px; display:inline-block; margin-top:8px; box-shadow:0 5px 0 #b64300;">
       📲 अभी बुक करें
     </a>
-
-  </div>
+</div>
 </section>
 <section id="reusable-puja-form-section" style="display:none; background-color: #f7e9d7; padding: 25px; margin: 20px; border-radius: 10px; border: 2px solid #c75100;">
 <h3 id="puja-form-heading" style="color: #c75100; margin-top: 0; border-bottom: 2px solid #f4a300; padding-bottom: 10px;">पूजा बुकिंग फॉर्म</h3>
@@ -617,9 +616,6 @@
 </form>
 <center><button onclick="closePujaBookingForm()" style="margin-top: 15px; background-color: #8a3324;">❌ फॉर्म बंद करें</button></center>
 </section>
-
-
-
 <hr class="separator"/>
 <section class="chalisa-box">
 <div class="chalisa-content-wrapper">
@@ -685,7 +681,6 @@
     </p>
 <center><a href="https://wa.me/917033066081"><button style="background-color: #c75100;">📲 WhatsApp पर तुरंत बुकिंग करें</button></a></center>
 </section>
-
 <hr class="separator"/>
 <section class="joti">
 <h2>🛕 सोमेश्वरनाथ महादेव ज्योतिर्लिंग, अरेराज (बिहार)</h2>
@@ -835,23 +830,8 @@
 <hr class="separator"/>
 <section id="hotel-info" style="background-color:#fff8ef; padding:30px 15px; text-align:center; border-top:3px solid #c75100; border-radius:10px 10px 0 0; margin-top:40px;"><h2 style="color:#c75100; font-size:26px; font-weight:800; margin-bottom:20px;">🏨 आवास एवं भोजन व्यवस्था</h2><div style="max-width:700px; margin:0 auto; background:#ffffff; border:1px solid #f4a300; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:20px;"><h3 style="color:#a13b00; font-size:26px; font-weight:900; text-transform:uppercase; text-shadow:1px 1px 4px rgba(0,0,0,0.2); margin-bottom:10px;">Om Shree Banquet Hall, Areraj</h3><p style="font-size:16px; color:#333333; margin:5px 0;">📍 सोमेश्वर नाथ मंदिर के पूर्व दिशा में स्थित</p><p style="font-size:16px; color:#333333; margin:5px 0;">🍛 शुद्ध शाकाहारी भोजन एवं ठहरने की उत्तम व्यवस्था उपलब्ध</p><p style="font-size:16px; color:#333333; margin:5px 0;">📞 संपर्क नंबर: <a href="tel:9709613281" style="color:#c75100; font-weight:600;">9709613281</a></p><button onclick="openHotelBookingForm()" style="background:linear-gradient(90deg,#c75100,#f4a300);color:white;font-weight:bold;padding:12px 25px;border:none;border-radius:10px;cursor:pointer;box-shadow:0 4px 6px rgba(0,0,0,0.2);margin-top:20px;font-size:18px;">📿 बुक करें</button>
 <div style="text-align:center; margin-top:15px;">
-
-<div style="text-align:center; margin-top:12px; display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
-
-<button onclick="window.location.href='hotel-gallery.html'"
-style="padding:6px 12px; font-size:14px; background:#c75100; color:white;
-border:none; border-radius:6px; cursor:pointer;">
-📸 होटल फोटो देखें
-</button>
-
-<button onclick="window.location.href='videos.html'"
-style="padding:6px 12px; font-size:14px; background:#8a3324; color:white;
-border:none; border-radius:6px; cursor:pointer;">
-🎥 होटल वीडियो देखें
-</button>
-
-</div>
-
+<button onclick="window.location.href='hotel-gallery.html'" style="padding:10px 20px; font-size:16px; background:#c75100; color:white; border:none; border-radius:8px; cursor:pointer;">📸 होटल फोटो देखें</button>
+<button onclick="window.location.href='videos.html'" style="padding:10px 20px; font-size:16px; background:#8a3324; color:white; border:none; border-radius:8px; cursor:pointer; margin-left:10px;">🎥 होटल वीडियो देखें</button>
 </div>
 </div></section>
 <script>
@@ -899,27 +879,24 @@ document.getElementById("searchInput").addEventListener("input", function(){
   renderPujaList(filtered);
 });
 </script>
-
 <section id="hotel-booking-form" style="display:none; background:#fff3e0; padding:20px; margin:20px; border-radius:10px; border:2px solid #c75100;">
 <h3 style="color:#c75100;">🏨 होटल बुकिंग फॉर्म</h3>
 <form id="hotel-form" onsubmit="sendHotelWhatsApp(event)">
-<input id="hotel-name" type="text" placeholder="पूरा नाम" required>
-<input id="hotel-phone" type="tel" placeholder="मोबाइल नंबर (WhatsApp)" required>
-<input id="hotel-checkin" type="date" required>
-<input id="hotel-checkout" type="date" required>
-<select id="hotel-room" required>
+<input id="hotel-name" placeholder="पूरा नाम" required="" type="text"/>
+<input id="hotel-phone" placeholder="मोबाइल नंबर (WhatsApp)" required="" type="tel"/>
+<input id="hotel-checkin" required="" type="date"/>
+<input id="hotel-checkout" required="" type="date"/>
+<select id="hotel-room" required="">
 <option value="">कमरा प्रकार चुनें</option>
-
 <option>Non-AC Room</option>
 <option>Family Room</option>
 </select>
-<input id="hotel-person" type="number" placeholder="कितने लोग" required>
-<textarea id="hotel-address" placeholder="पूरा पता" required></textarea>
+<input id="hotel-person" placeholder="कितने लोग" required="" type="number"/>
+<textarea id="hotel-address" placeholder="पूरा पता" required=""></textarea>
 <button style="background:#c75100;color:white;padding:10px 20px;border:none;border-radius:8px;">WhatsApp पर भेजें</button>
 </form>
 <center><button onclick="closeHotelBookingForm()" style="margin-top:10px;background:#8a3324;color:white;padding:8px 20px;border:none;border-radius:8px;">❌ बंद करें</button></center>
 </section>
-
 <script>
 function openHotelBookingForm(){
  document.getElementById('hotel-booking-form').style.display='block';
@@ -956,18 +933,14 @@ function sendHotelWhatsApp(event){
  window.location.href = url;
 }
 </script>
-
-
 <div id="parthiv-form-box" style="display:none; margin-top:20px; padding:20px; background:#fff3e0; border:2px solid #c75100; border-radius:10px;">
-    <h3 style="color:#c75100;">🔱 पार्थिव पूजा बुकिंग फॉर्म</h3>
-    <input type="text" id="parthiv-name" placeholder="आपका पूरा नाम" required />
-    <input type="tel" id="parthiv-phone" placeholder="आपका मोबाइल नंबर (WhatsApp)" required />
-    <textarea id="parthiv-sankalp" rows="2" placeholder="पूजा किसके नाम से होगी? (पूरा पता यदि प्रसाद चाहिए)" required></textarea>
-    <button style="background:#4CAF50; padding:10px 18px; margin-top:10px; color:white; border:none; border-radius:6px;"
-            onclick="sendParthivWhatsApp()">✅ विवरण WhatsApp पर भेजें</button>
-    <center><button onclick="closeParthivForm()" style="margin-top:15px; background:#8a3324; color:white; border:none; padding:8px 16px; border-radius:6px;">❌ फॉर्म बंद करें</button></center>
+<h3 style="color:#c75100;">🔱 पार्थिव पूजा बुकिंग फॉर्म</h3>
+<input id="parthiv-name" placeholder="आपका पूरा नाम" required="" type="text"/>
+<input id="parthiv-phone" placeholder="आपका मोबाइल नंबर (WhatsApp)" required="" type="tel"/>
+<textarea id="parthiv-sankalp" placeholder="पूजा किसके नाम से होगी? (पूरा पता यदि प्रसाद चाहिए)" required="" rows="2"></textarea>
+<button onclick="sendParthivWhatsApp()" style="background:#4CAF50; padding:10px 18px; margin-top:10px; color:white; border:none; border-radius:6px;">✅ विवरण WhatsApp पर भेजें</button>
+<center><button onclick="closeParthivForm()" style="margin-top:15px; background:#8a3324; color:white; border:none; padding:8px 16px; border-radius:6px;">❌ फॉर्म बंद करें</button></center>
 </div>
-
 <script>
 function openParthivForm(){
     document.getElementById("parthiv-form-box").style.display = "block";
@@ -989,7 +962,6 @@ function sendParthivWhatsApp(){
     window.open(url, "_blank");
 }
 </script>
-
 <script>
 function openParthivPujaForm() {
     document.getElementById("reusable-puja-form-section").style.display="block";
@@ -999,28 +971,21 @@ function openParthivPujaForm() {
     document.getElementById("reusable-puja-form-section").scrollIntoView({behavior:'smooth'});
 }
 </script>
-
 <!-- AUTO ADDED WORKING PUJA FORM -->
 <section id="reusable-puja-form-section" style="display:none;background:#fff3e0;padding:20px;margin:20px;border-radius:10px;border:2px solid #c75100;">
 <h3 id="puja-form-heading" style="color:#c75100;font-weight:900;">📿 पूजा बुकिंग फॉर्म</h3>
-
 <form id="generic-puja-order-form" onsubmit="sendGenericWhatsApp(event)">
-<input id="selected-puja-name" type="hidden">
-<input id="selected-puja-dakshina" type="hidden">
-
-<input id="generic-user-name" type="text" placeholder="पूरा नाम" required style="width:100%;padding:10px;margin-top:10px;">
-<input id="generic-user-phone" type="tel" placeholder="मोबाइल नंबर (WhatsApp)" required style="width:100%;padding:10px;margin-top:10px;">
-
-<textarea id="generic-user-sankalp" placeholder="संकल्प / पूरा पता" required style="width:100%;padding:10px;margin-top:10px;"></textarea>
-
+<input id="selected-puja-name" type="hidden"/>
+<input id="selected-puja-dakshina" type="hidden"/>
+<input id="generic-user-name" placeholder="पूरा नाम" required="" style="width:100%;padding:10px;margin-top:10px;" type="text"/>
+<input id="generic-user-phone" placeholder="मोबाइल नंबर (WhatsApp)" required="" style="width:100%;padding:10px;margin-top:10px;" type="tel"/>
+<textarea id="generic-user-sankalp" placeholder="संकल्प / पूरा पता" required="" style="width:100%;padding:10px;margin-top:10px;"></textarea>
 <button style="background:#c75100;color:white;padding:10px 20px;border:none;border-radius:8px;margin-top:10px;width:100%;">WhatsApp पर भेजें</button>
 </form>
-
 <center>
 <button onclick="closePujaBookingForm()" style="margin-top:15px;background:#8a3324;color:white;padding:8px 20px;border:none;border-radius:6px;">❌ फॉर्म बंद करें</button>
 </center>
 </section>
-
 <script>
 function openPujaBookingForm(name, amount) {
     document.getElementById("selected-puja-name").value = name;
@@ -1053,8 +1018,6 @@ function sendGenericWhatsApp(event) {
     window.open(url, "_blank");
 }
 </script>
-
-
 <script>
 function scrollToForm() {
     const formSection = document.getElementById("reusable-puja-form-section");
@@ -1063,8 +1026,6 @@ function scrollToForm() {
     }
 }
 </script>
-
-
 <script>
 function forceScrollToForm() {
     setTimeout(() => {
@@ -1075,8 +1036,6 @@ function forceScrollToForm() {
     }, 200);
 }
 </script>
-
-
 <script>
 function openSpecialPuja() {
     openPujaBookingForm('विशेष पूजा पैकेज - सोमवार विशेष','₹501 / महीना');
@@ -1086,8 +1045,6 @@ function openSpecialPuja() {
     }, 300);
 }
 </script>
-
-
 <script>
 // Fake slot system
 let totalSlots = 50;
@@ -1135,14 +1092,11 @@ document.addEventListener("DOMContentLoaded", updateBar);
 
 updateBar();
 </script>
-
-
 <footer style="text-align:center; padding:15px; font-size:14px; background:#f1f1f1;">
-    <a href="about.html">About</a> |
+<a href="about.html">About</a> |
     <a href="contact.html">Contact</a> |
     <a href="privacy.html">Policy</a> |
     <a href="terms.html">Terms</a> |
     <a href="disclaimer.html">Legal</a>
 </footer>
-
 </body></html>
