@@ -1491,7 +1491,7 @@ document.addEventListener("DOMContentLoaded", updateBar);
 
 updateBar();
   </script>
-<footer style="text-align:center; padding:15px; font-size:14px; background:#000; color:#fff;"><div id="visits" style="color:#f7c873;font-size:18px;font-weight:bold;margin-bottom:8px;text-align:center;">Visitors: Loading...</div>
+<footer style="text-align:center; padding:15px; font-size:14px; background:#000; color:#fff;">
 <a href="about.html" style="color:#fff;">
     About
    </a>
@@ -1514,12 +1514,6 @@ updateBar();
 <!-- Visitor Counter inside Black Footer -->
 
 <div style="text-align:center;margin-top:10px;color:#f7c873;font-size:14px;">© 2025 ArerajDham.in — All Rights Reserved</div><script>
-fetch('https://api.countapi.xyz/update/arerajdham/globalcounter/?amount=1')
-.then(res=>res.json())
-.then(res=>{
-let realCount = 1100 + res.value;
-document.getElementById('visits').innerText = "Visitors: " + realCount;
-});
 </script></footer>
 </body>
 </html>
