@@ -679,7 +679,56 @@ setInterval(updateBg,500);
 }
 </style>
 
-<style id="daily-video-gallery-css">.daily-video-gallery{background:#fff8ef;padding:25px 15px}.daily-video-gallery h2{color:#c75100;text-align:center;margin-bottom:8px}.daily-video-note{text-align:center;font-size:14px;color:#6b4a2a;margin-bottom:20px}.daily-video-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.daily-video-card{background:#fff;border:2px solid #f4a300;border-radius:12px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.12)}.daily-video-card video{width:100%;display:block;aspect-ratio:16/9;background:#000;object-fit:cover}.daily-video-info{padding:12px;text-align:center}.daily-video-date{color:#c75100;font-weight:900;font-size:17px}.daily-video-title{margin-top:5px;font-weight:700;font-size:15px;color:#3b250f}@media(max-width:900px){.daily-video-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.daily-video-gallery{padding:20px 10px}.daily-video-grid{grid-template-columns:1fr}}</style>
+
+<style id="github-daily-video-css">
+.daily-video-gallery{background:#fff8ef;padding:35px 15px;border-top:2px solid #d4a045}
+.daily-video-container{max-width:1100px;margin:0 auto}
+.daily-video-heading{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:20px}
+.daily-video-icon{font-size:32px}
+.daily-video-heading h2{color:#c75100;text-align:center;margin:0;font-size:30px}
+.daily-video-note{text-align:center;font-size:15px;color:#6b4a2a;margin:5px 0 0}
+.daily-video-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.daily-video-card{background:#fff;border:2px solid #f4a300;border-radius:14px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.12)}
+.daily-video-card video{width:100%;display:block;aspect-ratio:16/9;background:#000;object-fit:cover}
+.daily-video-info{padding:12px;text-align:center}
+.daily-video-title{margin-top:5px;font-weight:700;font-size:16px;color:#3b250f}
+.daily-video-date{color:#c75100;font-weight:900;font-size:17px}
+.daily-video-loading,.daily-video-empty{padding:30px;text-align:center;grid-column:1/-1;color:#555}
+@media(max-width:900px){.daily-video-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.daily-video-gallery{padding:25px 10px}.daily-video-grid{grid-template-columns:1fr}.daily-video-heading h2{font-size:25px}}
+</style>
+<style id="upper-daily-video-css">
+.daily-video-section{padding:50px 18px;background:linear-gradient(180deg,#fffaf0,#fff)}
+.daily-video-section .daily-video-container{max-width:1100px;margin:auto}
+.daily-video-section .daily-video-heading{display:flex;align-items:center;gap:14px;margin-bottom:24px;justify-content:center}
+.daily-video-section .daily-video-heading h2{margin:0;font-size:30px;color:#8b3d00}
+.daily-video-section .daily-video-heading p{margin:4px 0 0;color:#666}
+</style>
+
+<style id="today-video-center-fix">
+/* आज का वीडियो — वीडियो कार्ड बिल्कुल center में */
+#daily-video .daily-video-container{
+  max-width:1100px;
+  margin:0 auto;
+}
+#daily-video #dailyVideoGrid{
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  width:100%;
+}
+#daily-video #dailyVideoGrid .daily-video-card{
+  width:min(430px, 92vw);
+  max-width:430px;
+  margin:0 auto;
+}
+#daily-video #dailyVideoGrid .daily-video-empty,
+#daily-video #dailyVideoGrid .daily-video-loading{
+  margin-left:auto;
+  margin-right:auto;
+}
+</style>
+
 </head>
 <body>
 <div class="navbar">
@@ -695,15 +744,13 @@ setInterval(updateBg,500);
 <a href="#history">
     📜 इतिहास
    </a>
-<a href="#daily-video">
+<a href="#daily-video-gallery">
     🎥 वीडियो
    </a>
+<a href="#daily-video">🎥 वीडियो</a>
 <a href="gallery.html">
     📸 फोटो गैलरी
    </a>
-<a href="#daily-video-gallery">🎥 वीडियो</a>
-<a href="admin-video-upload.php">🔐 वीडियो अपलोड</a>
-
 <a href="#contact-info">
     📞 संपर्क
    </a>
@@ -757,14 +804,15 @@ setInterval(()=>{
 </script>
 
 
-<!-- ===== DAILY VIDEO SECTION ===== -->
 
+
+<hr class="separator"/>
 <section id="daily-video" class="daily-video-section">
   <div class="daily-video-container">
     <div class="daily-video-heading">
       <span class="daily-video-icon">🎥</span>
       <div>
-        <h2>दैनिक वीडियो</h2>
+        <h2>📅 आज का वीडियो</h2>
         <p>Areraj Dham के नवीनतम वीडियो</p>
       </div>
     </div>
@@ -773,79 +821,6 @@ setInterval(()=>{
     </div>
   </div>
 </section>
-
-<style>
-.daily-video-section{padding:50px 18px;background:linear-gradient(180deg,#fffaf0,#fff)}
-.daily-video-container{max-width:1100px;margin:auto}
-.daily-video-heading{display:flex;align-items:center;gap:14px;margin-bottom:24px}
-.daily-video-icon{font-size:36px}
-.daily-video-heading h2{margin:0;font-size:30px;color:#8b3d00}
-.daily-video-heading p{margin:4px 0 0;color:#666}
-.daily-video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
-.daily-video-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 6px 22px rgba(0,0,0,.10);border:1px solid #eee}
-.daily-video-card video{display:block;width:100%;aspect-ratio:16/9;background:#111}
-.daily-video-info{padding:14px 16px 17px}
-.daily-video-title{font-weight:700;font-size:18px;color:#333;margin-bottom:6px}
-.daily-video-date{font-size:14px;color:#777}
-.daily-video-loading,.daily-video-empty{padding:28px;text-align:center;background:#fff;border-radius:14px;color:#777;border:1px dashed #ccc}
-@media(max-width:600px){.daily-video-heading h2{font-size:25px}.daily-video-grid{grid-template-columns:1fr}}
-</style>
-
-<script>
-/*
-  GITHUB DAILY VIDEO SETTINGS
-  सिर्फ इन 2 चीजों को एक बार अपनी GitHub जानकारी से बदलें:
-  GITHUB_USER = आपका GitHub username
-  GITHUB_REPO = आपकी website वाली repository का नाम
-*/
-const GITHUB_USER = "YOUR_GITHUB_USERNAME";
-const GITHUB_REPO = "YOUR_GITHUB_REPOSITORY";
-const GITHUB_VIDEO_FOLDER = "videos";
-
-async function loadGithubDailyVideos(){
-  const grid = document.getElementById("dailyVideoGrid");
-
-  if(GITHUB_USER === "YOUR_GITHUB_USERNAME" || GITHUB_REPO === "YOUR_GITHUB_REPOSITORY"){
-    grid.innerHTML = '<div class="daily-video-empty">GitHub video folder अभी connect नहीं किया गया है।</div>';
-    return;
-  }
-
-  try{
-    const api = `https://api.github.com/repos/${encodeURIComponent(GITHUB_USER)}/${encodeURIComponent(GITHUB_REPO)}/contents/${GITHUB_VIDEO_FOLDER}`;
-    const res = await fetch(api, {cache:"no-store"});
-    if(!res.ok) throw new Error("GitHub folder not found");
-
-    const files = await res.json();
-    const videos = files
-      .filter(f => f.type === "file" && /\.mp4$/i.test(f.name))
-      .sort((a,b) => b.name.localeCompare(a.name, undefined, {numeric:true}));
-
-    if(!videos.length){
-      grid.innerHTML = '<div class="daily-video-empty">अभी कोई दैनिक वीडियो उपलब्ध नहीं है।</div>';
-      return;
-    }
-
-    grid.innerHTML = videos.map(file => {
-      const cleanName = file.name.replace(/\.mp4$/i,"");
-      const dateText = cleanName;
-      const title = "दैनिक वीडियो - " + cleanName;
-      return `
-        <article class="daily-video-card">
-          <video controls preload="metadata" src="${file.download_url}"></video>
-          <div class="daily-video-info">
-            <div class="daily-video-title">${title.replace(/</g,"&lt;")}</div>
-            <div class="daily-video-date">📅 ${dateText.replace(/</g,"&lt;")}</div>
-          </div>
-        </article>`;
-    }).join("");
-  }catch(err){
-    grid.innerHTML = '<div class="daily-video-empty">वीडियो लोड नहीं हो पाया। GitHub repository और videos folder की जानकारी जाँचें।</div>';
-  }
-}
-loadGithubDailyVideos();
-</script>
-
-<hr class="separator"/>
 <section class="puja-section" id="puja-list" style="padding:20px; background-color:#fff8ef;">
 <marquee behavior="scroll" direction="left" style="background:#ffe8d1;color:#5a2d00;padding:12px;border-radius:10px;margin:14px 0;font-size:1.1rem;font-weight:600;box-shadow:0 3px 10px rgba(0,0,0,0.15);">
     📌 भुगतान संबंधी सूचना: ArerajDham.in ऑनलाइन भुगतान स्वीकार नहीं करता। पूजा सम्पन्न होने के बाद ही भक्त श्रद्धा और सामर्थ्य अनुसार दक्षिणा देते हैं।
@@ -1275,10 +1250,17 @@ loadGithubDailyVideos();
 </div>
 </section>
 <div style="width:100%; height:2px; background:#d4a045; margin:0; padding:0;"></div><section id="daily-video-gallery" class="daily-video-gallery">
-  <h2>🎥 दैनिक वीडियो</h2>
-  <p class="daily-video-note">अरेराज धाम के प्रतिदिन के दर्शन एवं पूजा के वीडियो</p>
-  <div id="daily-video-grid" class="daily-video-grid">
-    <p style="text-align:center;grid-column:1/-1;">वीडियो लोड हो रहे हैं...</p>
+  <div class="daily-video-container">
+    <div class="daily-video-heading">
+      <span class="daily-video-icon">🎥</span>
+      <div>
+        <h2>🎥 दैनिक वीडियो</h2>
+        <p class="daily-video-note">अरेराज धाम के प्रतिदिन के दर्शन एवं पूजा के वीडियो</p>
+      </div>
+    </div>
+    <div id="daily-video-grid" class="daily-video-grid">
+      <p class="daily-video-loading">वीडियो लोड हो रहे हैं...</p>
+    </div>
   </div>
 </section>
 <footer id="footer-contact">
@@ -1696,25 +1678,56 @@ function sendGenericWhatsApp(event) {
 
 
 
+
 <script>
-(async function(){
-  const grid=document.getElementById('daily-video-grid');
-  if(!grid) return;
+/* GitHub Daily Video - Upper = Today's Video, Lower = Daily Video Archive */
+const GITHUB_USER = "ravi1234digitalhub";
+const GITHUB_REPO = "arerajmandir";
+const GITHUB_VIDEO_FOLDER = "videos";
+
+async function loadGithubDailyVideos(){
+  const upper = document.getElementById("dailyVideoGrid");
+  const lower = document.getElementById("daily-video-grid");
+
   try{
-    const res=await fetch('videos/videos.json?'+Date.now(),{cache:'no-store'});
-    if(!res.ok) throw new Error('videos.json not found');
-    const videos=await res.json();
-    grid.innerHTML='';
-    if(!videos.length){grid.innerHTML='<p style="text-align:center;grid-column:1/-1;">अभी कोई वीडियो उपलब्ध नहीं है।</p>';return;}
-    videos.sort((a,b)=>(b.date||'').localeCompare(a.date||''));
-    videos.forEach((v,i)=>{
-      const card=document.createElement('article'); card.className='daily-video-card';
-      card.innerHTML=`<video controls preload="metadata" playsinline ${v.poster?`poster="${v.poster}"`:''}><source src="${v.file}" type="video/mp4">आपका ब्राउज़र वीडियो नहीं चला सकता।</video>
-      <div class="daily-video-info"><div class="daily-video-date">${v.dateLabel||v.date||''} ${i===0?'<span style="background:#c75100;color:#fff;padding:3px 7px;border-radius:10px;font-size:11px;margin-left:5px;">नया</span>':''}</div><div class="daily-video-title">${v.title||'आज के दर्शन एवं पूजा'}</div></div>`;
-      grid.appendChild(card);
-    });
-  }catch(e){grid.innerHTML='<p style="text-align:center;grid-column:1/-1;">वीडियो अभी उपलब्ध नहीं हैं।</p>';}
-})();
+    const api = `https://api.github.com/repos/${encodeURIComponent(GITHUB_USER)}/${encodeURIComponent(GITHUB_REPO)}/contents/${GITHUB_VIDEO_FOLDER}`;
+    const res = await fetch(api, {cache:"no-store"});
+    if(!res.ok) throw new Error("GitHub folder not found");
+
+    const files = await res.json();
+    const videos = files
+      .filter(f => f.type === "file" && /\.mp4$/i.test(f.name))
+      .sort((a,b) => b.name.localeCompare(a.name, undefined, {numeric:true}));
+
+    if(!videos.length){
+      if(upper) upper.innerHTML='<div class="daily-video-empty">आज का वीडियो उपलब्ध नहीं है।</div>';
+      if(lower) lower.innerHTML='<div class="daily-video-empty">अभी कोई दैनिक वीडियो उपलब्ध नहीं है।</div>';
+      return;
+    }
+
+    function makeCard(file){
+      const date = file.name.replace(/\.mp4$/i,"");
+      const safe = date.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+      return `<article class="daily-video-card">
+        <video controls preload="metadata" playsinline src="${file.download_url}"></video>
+        <div class="daily-video-info">
+          <div class="daily-video-title">दैनिक वीडियो - ${safe}</div>
+          <div class="daily-video-date">📅 ${safe}</div>
+        </div>
+      </article>`;
+    }
+
+    // ऊपर: केवल सबसे नई तारीख वाला वीडियो
+    if(upper) upper.innerHTML = makeCard(videos[0]);
+
+    // नीचे: सभी वीडियो, नई तारीख सबसे ऊपर
+    if(lower) lower.innerHTML = videos.map(makeCard).join("");
+  }catch(err){
+    if(upper) upper.innerHTML='<div class="daily-video-empty">आज का वीडियो लोड नहीं हो पाया।</div>';
+    if(lower) lower.innerHTML='<div class="daily-video-empty">दैनिक वीडियो लोड नहीं हो पाया।</div>';
+  }
+}
+loadGithubDailyVideos();
 </script>
 </body>
 </html>
