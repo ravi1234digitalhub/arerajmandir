@@ -879,33 +879,291 @@ img,video,iframe{max-width:100%;height:auto}
 }
 </script>
 
+
+<style id="ad-modern-menu-fix">
+/* ===== Areraj Dham dropdown navigation ===== */
+.ad-nav{
+  position:relative;
+  z-index:9999;
+  width:100%;
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  padding:7px 8px;
+  box-sizing:border-box;
+  background:linear-gradient(180deg,#d45a08 0%,#b84200 100%);
+  border-top:3px solid #f7b000;
+  border-bottom:3px solid #8d2c00;
+  box-shadow:0 4px 12px rgba(0,0,0,.22);
+  overflow:visible;
+  white-space:nowrap;
+}
+.ad-nav > a,
+.ad-nav .ad-drop > button{
+  appearance:none;
+  -webkit-appearance:none;
+  box-sizing:border-box;
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  padding:10px 17px;
+  margin:0;
+  border:0;
+  border-radius:28px;
+  background:transparent;
+  color:#fff!important;
+  text-decoration:none!important;
+  font-family:inherit;
+  font-size:16px;
+  font-weight:800;
+  line-height:1.2;
+  cursor:pointer;
+}
+.ad-nav > a:hover,
+.ad-nav .ad-drop > button:hover,
+.ad-nav .ad-nav-home{
+  background:#ffb20a!important;
+  color:#4d2107!important;
+}
+.ad-nav .ad-youtube{
+  background:#fff!important;
+  color:#e22b13!important;
+  margin:0 3px;
+}
+.ad-drop{
+  position:relative;
+  display:flex;
+  align-items:center;
+  height:48px;
+}
+.ad-drop-menu{
+  display:none;
+  position:absolute;
+  top:calc(100% + 7px);
+  left:0;
+  width:245px;
+  min-width:245px;
+  max-width:calc(100vw - 20px);
+  padding:8px;
+  margin:0;
+  background:#fff!important;
+  border:1px solid #e7d5c5;
+  border-radius:13px;
+  box-shadow:0 10px 25px rgba(0,0,0,.28);
+  z-index:10000;
+  white-space:normal;
+  box-sizing:border-box;
+}
+.ad-drop:hover > .ad-drop-menu,
+.ad-drop.ad-open > .ad-drop-menu{
+  display:block;
+}
+.ad-drop-menu a{
+  display:flex!important;
+  align-items:center;
+  gap:8px;
+  width:100%;
+  min-height:38px;
+  box-sizing:border-box;
+  padding:9px 11px!important;
+  margin:0!important;
+  border:0!important;
+  border-radius:8px!important;
+  background:#fff!important;
+  color:#3d291b!important;
+  text-decoration:none!important;
+  font-family:inherit!important;
+  font-size:14px!important;
+  font-weight:700!important;
+  line-height:1.35!important;
+  white-space:normal!important;
+}
+.ad-drop-menu a:hover{
+  background:#fff0d7!important;
+  color:#a83e05!important;
+}
+.ad-contact-drop .ad-drop-menu{
+  left:auto;
+  right:0;
+}
+@media(max-width:1000px){
+  .ad-nav{
+    justify-content:flex-start;
+    overflow-x:auto;
+    overflow-y:visible;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .ad-nav::-webkit-scrollbar{display:none}
+  .ad-nav > a,.ad-nav .ad-drop > button{font-size:14px;padding:9px 13px}
+}
+@media(max-width:650px){
+  .ad-nav{min-height:54px;padding:6px}
+  .ad-drop-menu{
+    position:fixed;
+    top:calc(var(--ad-menu-top, 120px));
+    left:10px!important;
+    right:10px!important;
+    width:auto;
+    min-width:0;
+    max-height:65vh;
+    overflow:auto;
+  }
+}
+</style>
+
+
+<style id="ad-header-style">
+.ad-site-topbar{
+  width:100%;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;
+  gap:18px;padding:7px 30px;background:#7b2608;color:#fff;font-size:14px;font-weight:800;
+}
+.ad-site-brandbar{
+  width:100%;box-sizing:border-box;display:grid;grid-template-columns:1.1fr 1fr 1.1fr;
+  align-items:center;gap:20px;padding:13px 30px;background:#fffaf2;border-bottom:1px solid #e8d4bd;
+}
+.ad-brand{display:flex;align-items:center;gap:12px}
+.ad-brand-icon{font-size:48px;line-height:1}
+.ad-brand-main{font-size:29px;font-weight:900;color:#70280d;line-height:1.15}
+.ad-brand-sub{text-align:center;font-size:22px;font-weight:900;color:#8d3b16;margin-top:2px}
+.ad-brand-tagline{text-align:center;color:#4c2718}
+.ad-brand-tagline b{display:block;font-size:22px}
+.ad-brand-tagline span{display:block;font-size:15px;margin-top:3px}
+.ad-brand-actions{display:flex;justify-content:flex-end;align-items:center;gap:12px}
+.ad-search{display:flex;align-items:center;background:#fff;border:2px solid #eadfd2;border-radius:14px;overflow:hidden;box-shadow:0 2px 7px rgba(0,0,0,.08)}
+.ad-search input{width:185px;border:0;outline:0;padding:11px 12px;font-size:15px;background:#fff}
+.ad-search button{border:0;background:#fff;color:#7b2608;font-size:27px;padding:3px 12px;cursor:pointer}
+.ad-contact-top{background:#c84b06;color:#fff!important;text-decoration:none!important;padding:12px 19px;border-radius:13px;font-weight:900;white-space:nowrap}
+@media(max-width:900px){
+  .ad-site-topbar{font-size:12px;padding:6px 12px}
+  .ad-site-topbar>div:nth-child(2){display:none}
+  .ad-site-brandbar{grid-template-columns:1fr;padding:10px 12px;gap:7px}
+  .ad-brand{justify-content:center}
+  .ad-brand-main{font-size:24px}.ad-brand-sub{font-size:19px}.ad-brand-icon{font-size:37px}
+  .ad-brand-tagline{display:none}
+  .ad-brand-actions{justify-content:center}
+  .ad-search input{width:145px}
+}
+</style>
+
+
+<style id="global-click-hand">
+/* सभी clickable items पर हाथ वाला cursor */
+a, button, input[type="button"], input[type="submit"], input[type="reset"],
+[role="button"], summary, .ad-drop, .ad-drop-menu a,
+.puja-card, .book-btn, .contact, .ad-contact-top {
+  cursor: pointer !important;
+}
+a *, button *, [role="button"] *, summary * {
+  cursor: pointer !important;
+}
+</style>
+
 </head>
 <body>
-<div class="navbar">
-<a href="#header-top">
-    🏡 होम
-   </a>
-<a href="#puja-list">
-    📿 पूजा लिस्ट
-   </a>
-<a href="#home-service">
-    🏠 घर बैठे सेवा
-   </a>
-<a href="#history">
-    📜 इतिहास
-   </a>
-<a href="#daily-video-gallery">
-    🎥 वीडियो
-   </a>
-<a href="#daily-video">🎥 वीडियो</a>
-<a href="https://www.youtube.com/@SomeshwarnathDhamAreraj" target="_blank" rel="noopener noreferrer">▶️ YouTube चैनल</a>
-<a href="gallery.html">
-    📸 फोटो गैलरी
-   </a>
-<a href="#contact-info">
-    📞 संपर्क
-   </a>
+
+<div class="ad-site-topbar">
+  <div>🔱 ॐ || हर हर महादेव ||</div>
+  <div>आस्था • सेवा • संस्कृति • सनातन परंपरा</div>
+  <div>📍 अरेराज, पूर्वी चंपारण, बिहार</div>
 </div>
+<div class="ad-site-brandbar">
+  <div class="ad-brand">
+    <div class="ad-brand-icon">🔱</div>
+    <div>
+      <div class="ad-brand-main">श्री सोमेश्वरनाथ महादेव</div>
+      <div class="ad-brand-sub">अरेराज धाम</div>
+    </div>
+  </div>
+  <div class="ad-brand-tagline">
+    <b>“जहाँ श्रद्धा, वहाँ शिव”</b>
+    <span>आइए, महादेव की पावन भूमि अरेराज धाम में</span>
+  </div>
+  <div class="ad-brand-actions">
+    <div class="ad-search">
+      <input type="search" placeholder="खोजें..." aria-label="वेबसाइट खोजें">
+      <button type="button" onclick="adSearch()">⌕</button>
+    </div>
+    <a href="https://wa.me/917033066081" target="_blank" rel="noopener noreferrer" class="ad-contact-top">💬 संपर्क करें</a>
+  </div>
+</div>
+<nav class="ad-nav" aria-label="मुख्य मेनू">
+  <a class="ad-nav-home" href="index.html">🏠 होम</a>
+
+  <div class="ad-drop">
+    <button type="button">🔱 पूजा एवं सेवा <span>⌄</span></button>
+    <div class="ad-drop-menu">
+      <a href="puja-list.html">📋 सभी पूजा की सूची</a>
+      <a href="rudrabhishek.html">🔱 रुद्राभिषेक पूजा</a>
+      <a href="mahamrityunjay-jaap.html">ॐ महामृत्युंजय जाप</a>
+      <a href="parthiv-shiv-puja.html">🍃 पार्थिव शिव पूजा</a>
+      <a href="vishesh-puja.html">🌸 विशेष पूजा</a>
+      <a href="dakshina.html">₹ दक्षिणा विवरण</a>
+      <a href="puja-booking.html">📅 बुकिंग कैसे करें</a>
+      <a href="puja-faq.html">❓ अक्सर पूछे जाने वाले प्रश्न</a>
+    </div>
+  </div>
+
+  <div class="ad-drop">
+    <button type="button">🏠 घर बैठे सेवा <span>⌄</span></button>
+    <div class="ad-drop-menu">
+      <a href="ghar-baithe-seva.html">🏠 घर बैठे पूजा सेवा</a>
+      <a href="ghar-baithe-seva.html">💻 ऑनलाइन पूजा बुकिंग</a>
+      <a href="ghar-baithe-seva.html">🎁 प्रसाद एवं भस्म</a>
+      <a href="ghar-baithe-seva.html">📋 सेवा प्रक्रिया</a>
+      <a href="ghar-baithe-seva.html">₹ दक्षिणा एवं भुगतान</a>
+      <a href="ghar-baithe-seva.html">❤️ धार्मिक उद्देश्य</a>
+    </div>
+  </div>
+
+  <div class="ad-drop">
+    <button type="button">📖 मंदिर का इतिहास <span>⌄</span></button>
+    <div class="ad-drop-menu">
+      <a href="history.html">📖 अरेराज धाम का इतिहास</a>
+      <a href="history.html">🛕 धार्मिक महत्व</a>
+      <a href="history.html">📜 मान्यताएँ एवं परंपरा</a>
+      <a href="history.html">📅 प्रमुख पर्व एवं आयोजन</a>
+      <a href="history.html">⭐ शिव से जुड़ी कथाएँ</a>
+      <a href="history.html">📍 कैसे पहुँचें</a>
+    </div>
+  </div>
+
+  <div class="ad-drop">
+    <button type="button">🎥 वीडियो <span>⌄</span></button>
+    <div class="ad-drop-menu">
+      <a href="videos.html">▶️ आज का वीडियो</a>
+      <a href="videos.html">🎬 दैनिक वीडियो</a>
+      <a href="videos.html">📺 विशेष कार्यक्रम</a>
+      <a href="https://www.youtube.com/@SomeshwarnathDhamAreraj" target="_blank" rel="noopener noreferrer">▶️ YouTube पर देखें</a>
+    </div>
+  </div>
+
+  <div class="ad-drop">
+    <button type="button">📷 फोटो गैलरी <span>⌄</span></button>
+    <div class="ad-drop-menu">
+      <a href="gallery.html">🖼️ मंदिर फोटो</a>
+      <a href="gallery.html">📸 पूजा फोटो</a>
+      <a href="gallery.html">🌺 विशेष आयोजन</a>
+      <a href="gallery.html">👥 भक्तों की झलकियाँ</a>
+    </div>
+  </div>
+
+  <a class="ad-youtube" href="https://www.youtube.com/@SomeshwarnathDhamAreraj" target="_blank" rel="noopener noreferrer">▶️ YouTube चैनल</a>
+
+  <div class="ad-drop ad-contact-drop">
+    <button type="button">☎️ संपर्क <span>⌄</span></button>
+    <div class="ad-drop-menu">
+      <a href="contact.html">📞 संपर्क जानकारी</a>
+      <a href="contact.html">✉️ हमसे संदेश भेजें</a>
+      <a href="contact.html">📍 लोकेशन / मैप</a>
+      <a href="https://wa.me/917033066081" target="_blank" rel="noopener noreferrer">📲 WhatsApp</a>
+    </div>
+  </div>
+</nav>
 
 
 <style>
@@ -1885,5 +2143,65 @@ async function loadGithubDailyVideos(){
 }
 loadGithubDailyVideos();
 </script>
+
+<script id="ad-modern-menu-js">
+document.addEventListener('DOMContentLoaded',function(){
+  const drops=[...document.querySelectorAll('.ad-drop')];
+  drops.forEach(function(drop){
+    const btn=drop.querySelector(':scope > button');
+    if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      const was=drop.classList.contains('ad-open');
+      drops.forEach(d=>d.classList.remove('ad-open'));
+      if(!was){
+        drop.classList.add('ad-open');
+        if(window.innerWidth<=650){
+          document.documentElement.style.setProperty('--ad-menu-top',(drop.getBoundingClientRect().bottom+6)+'px');
+        }
+      }
+    });
+  });
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('.ad-drop')) drops.forEach(d=>d.classList.remove('ad-open'));
+  });
+});
+</script>
+
+
+<script id="ad-header-js">
+function adSearch(){
+  const q=(document.querySelector('.ad-search input')?.value||'').trim().toLowerCase();
+  if(!q){alert('कृपया खोजने के लिए शब्द लिखें।');return;}
+  const els=[...document.querySelectorAll('body *')].filter(e=>e.children.length===0);
+  const found=els.find(e=>(e.textContent||'').toLowerCase().includes(q));
+  if(found){found.scrollIntoView({behavior:'smooth',block:'center'});}
+  else alert('इस शब्द की जानकारी इस पेज पर नहीं मिली।');
+}
+</script>
+
+
+<script id="ad-dropdown-click-fix">
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.ad-drop > button').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      const box = btn.parentElement;
+      document.querySelectorAll('.ad-drop.ad-open').forEach(function(x){
+        if(x !== box) x.classList.remove('ad-open');
+      });
+      box.classList.toggle('ad-open');
+    });
+  });
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.ad-drop')){
+      document.querySelectorAll('.ad-drop.ad-open').forEach(x=>x.classList.remove('ad-open'));
+    }
+  });
+});
+</script>
+
 </body>
 </html>
