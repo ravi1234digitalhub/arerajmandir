@@ -940,6 +940,35 @@ img,video,iframe{max-width:100%;height:auto}
   align-items:center;
   height:48px;
 }
+.ad-puja-drop > button{
+  position:relative;
+  box-shadow:0 0 0 2px rgba(255,178,10,.22);
+}
+.ad-puja-drop > button .ad-drop-arrow{
+  font-size:13px;
+  transition:transform .2s ease;
+}
+.ad-puja-drop.ad-open > button .ad-drop-arrow{
+  transform:rotate(180deg);
+}
+.ad-click-hint{
+  display:inline-flex;
+  align-items:center;
+  padding:4px 8px;
+  margin-left:2px;
+  border-radius:12px;
+  background:#fff4c9;
+  color:#7b2608;
+  font-size:11px;
+  font-weight:900;
+  white-space:nowrap;
+}
+.ad-puja-drop > button:hover .ad-click-hint{
+  background:#fff;
+}
+@media(max-width:650px){
+  .ad-click-hint{font-size:10px;padding:3px 6px}
+}
 .ad-drop-menu{
   display:none;
   position:absolute;
@@ -958,7 +987,6 @@ img,video,iframe{max-width:100%;height:auto}
   white-space:normal;
   box-sizing:border-box;
 }
-.ad-drop:hover > .ad-drop-menu,
 .ad-drop.ad-open > .ad-drop-menu{
   display:block;
 }
@@ -1063,6 +1091,70 @@ a *, button *, [role="button"] *, summary * {
 }
 </style>
 
+
+
+
+
+
+
+
+
+
+
+<style id="ad-mobile-dropdown-working">
+@media (max-width:650px){
+  .ad-drop-menu{
+    position:fixed !important;
+    left:10px !important;
+    right:10px !important;
+    width:auto !important;
+    min-width:0 !important;
+    max-width:none !important;
+    max-height:70vh !important;
+    overflow-y:auto !important;
+    z-index:2147483647 !important;
+    border:2px solid #e7d5c5 !important;
+    box-shadow:0 12px 30px rgba(0,0,0,.35) !important;
+  }
+  .ad-drop.ad-open > .ad-drop-menu{
+    display:block !important;
+  }
+}
+</style>
+
+
+<style id="ad-dropdown-absolute-final">
+@media (max-width:650px){
+  .ad-nav{z-index:10000 !important;}
+  .ad-drop-menu{
+    z-index:2147483647 !important;
+    background:#fff !important;
+  }
+  .ad-drop.ad-open > .ad-drop-menu{
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+  }
+}
+</style>
+
+
+
+
+
+
+
+
+<style id="ad-final-menu-finger">
+.ad-drop-menu a::before{
+  content:"👉" !important;
+  display:inline-block !important;
+  flex:0 0 auto !important;
+  margin-right:6px !important;
+  font-size:15px !important;
+}
+</style>
+
 </head>
 <body>
 
@@ -1086,7 +1178,7 @@ a *, button *, [role="button"] *, summary * {
   <div class="ad-brand-actions">
     <div class="ad-search">
       <input type="search" placeholder="खोजें..." aria-label="वेबसाइट खोजें">
-      <button type="button" onclick="adSearch()">⌕</button>
+      <button type="button" onclick="toggleAdDrop(this,event)" onclick="adSearch()">⌕</button>
     </div>
     <a href="https://wa.me/917033066081" target="_blank" rel="noopener noreferrer" class="ad-contact-top">💬 संपर्क करें</a>
   </div>
@@ -1094,10 +1186,10 @@ a *, button *, [role="button"] *, summary * {
 <nav class="ad-nav" aria-label="मुख्य मेनू">
   <a class="ad-nav-home" href="index.html">🏠 होम</a>
 
-  <div class="ad-drop">
-    <button type="button">🔱 पूजा एवं सेवा <span>⌄</span></button>
+  <div class="ad-drop ad-puja-drop">
+    <button type="button" onclick="toggleAdDrop(this,event)" aria-label="पूजा एवं सेवा खोलें">🔱 पूजा एवं सेवा <span class="ad-drop-arrow">👈</span></button>
     <div class="ad-drop-menu">
-      <a href="puja-list.html">📋 सभी पूजा की सूची</a>
+      <a class="ad-menu-item" href="puja-list.html">📋 सभी पूजा की सूची</a>
       <a href="rudrabhishek.html">🔱 रुद्राभिषेक पूजा</a>
       <a href="mahamrityunjaya.html">ॐ महामृत्युंजय जाप</a>
       <a href="parthiv-shiv-puja.html">🍃 पार्थिव शिव पूजा</a>
@@ -1109,9 +1201,9 @@ a *, button *, [role="button"] *, summary * {
   </div>
 
   <div class="ad-drop">
-    <button type="button">🏠 घर बैठे सेवा <span>⌄</span></button>
+    <button type="button" onclick="toggleAdDrop(this,event)">🏠 घर बैठे सेवा <span>⌄</span> <span class="ad-drop-arrow">👈</span></button>
     <div class="ad-drop-menu">
-      <a href="ghar-baithe-seva.html">🏠 घर बैठे पूजा सेवा</a>
+      <a class="ad-menu-item" href="ghar-baithe-seva.html">🏠 घर बैठे पूजा सेवा</a>
       <a href="ghar-baithe-seva.html">💻 ऑनलाइन पूजा बुकिंग</a>
       <a href="ghar-baithe-seva.html">🎁 प्रसाद एवं भस्म</a>
       <a href="ghar-baithe-seva.html">📋 सेवा प्रक्रिया</a>
@@ -1121,9 +1213,9 @@ a *, button *, [role="button"] *, summary * {
   </div>
 
   <div class="ad-drop">
-    <button type="button">📖 मंदिर का इतिहास <span>⌄</span></button>
+    <button type="button" onclick="toggleAdDrop(this,event)">📖 मंदिर का इतिहास <span>⌄</span> <span class="ad-drop-arrow">👈</span></button>
     <div class="ad-drop-menu">
-      <a href="history.html">📖 अरेराज धाम का इतिहास</a>
+      <a class="ad-menu-item" href="history.html">📖 अरेराज धाम का इतिहास</a>
       <a href="history.html">🛕 धार्मिक महत्व</a>
       <a href="history.html">📜 मान्यताएँ एवं परंपरा</a>
       <a href="history.html">📅 प्रमुख पर्व एवं आयोजन</a>
@@ -1133,9 +1225,9 @@ a *, button *, [role="button"] *, summary * {
   </div>
 
   <div class="ad-drop">
-    <button type="button">🎥 वीडियो <span>⌄</span></button>
+    <button type="button" onclick="toggleAdDrop(this,event)">🎥 वीडियो <span>⌄</span> <span class="ad-drop-arrow">👈</span></button>
     <div class="ad-drop-menu">
-      <a href="videos.html">▶️ आज का वीडियो</a>
+      <a class="ad-menu-item" href="videos.html">▶️ आज का वीडियो</a>
       <a href="videos.html">🎬 दैनिक वीडियो</a>
       <a href="videos.html">📺 विशेष कार्यक्रम</a>
       <a href="https://www.youtube.com/@SomeshwarnathDhamAreraj" target="_blank" rel="noopener noreferrer">▶️ YouTube पर देखें</a>
@@ -1143,9 +1235,9 @@ a *, button *, [role="button"] *, summary * {
   </div>
 
   <div class="ad-drop">
-    <button type="button">📷 फोटो गैलरी <span>⌄</span></button>
+    <button type="button" onclick="toggleAdDrop(this,event)">📷 फोटो गैलरी <span>⌄</span> <span class="ad-drop-arrow">👈</span></button>
     <div class="ad-drop-menu">
-      <a href="gallery.html">🖼️ मंदिर फोटो</a>
+      <a class="ad-menu-item" href="gallery.html">🖼️ मंदिर फोटो</a>
       <a href="gallery.html">📸 पूजा फोटो</a>
       <a href="gallery.html">🌺 विशेष आयोजन</a>
       <a href="gallery.html">👥 भक्तों की झलकियाँ</a>
@@ -1155,9 +1247,9 @@ a *, button *, [role="button"] *, summary * {
   <a class="ad-youtube" href="https://www.youtube.com/@SomeshwarnathDhamAreraj" target="_blank" rel="noopener noreferrer">▶️ YouTube चैनल</a>
 
   <div class="ad-drop ad-contact-drop">
-    <button type="button">☎️ संपर्क <span>⌄</span></button>
+    <button type="button" onclick="toggleAdDrop(this,event)">☎️ संपर्क <span>⌄</span> <span class="ad-drop-arrow">👈</span></button>
     <div class="ad-drop-menu">
-      <a href="contact.html">📞 संपर्क जानकारी</a>
+      <a class="ad-menu-item" href="contact.html">📞 संपर्क जानकारी</a>
       <a href="contact.html">✉️ हमसे संदेश भेजें</a>
       <a href="contact.html">📍 लोकेशन / मैप</a>
       <a href="https://wa.me/917033066081" target="_blank" rel="noopener noreferrer">📲 WhatsApp</a>
@@ -2144,30 +2236,7 @@ async function loadGithubDailyVideos(){
 loadGithubDailyVideos();
 </script>
 
-<script id="ad-modern-menu-js">
-document.addEventListener('DOMContentLoaded',function(){
-  const drops=[...document.querySelectorAll('.ad-drop')];
-  drops.forEach(function(drop){
-    const btn=drop.querySelector(':scope > button');
-    if(!btn)return;
-    btn.addEventListener('click',function(e){
-      e.preventDefault();
-      e.stopPropagation();
-      const was=drop.classList.contains('ad-open');
-      drops.forEach(d=>d.classList.remove('ad-open'));
-      if(!was){
-        drop.classList.add('ad-open');
-        if(window.innerWidth<=650){
-          document.documentElement.style.setProperty('--ad-menu-top',(drop.getBoundingClientRect().bottom+6)+'px');
-        }
-      }
-    });
-  });
-  document.addEventListener('click',function(e){
-    if(!e.target.closest('.ad-drop')) drops.forEach(d=>d.classList.remove('ad-open'));
-  });
-});
-</script>
+
 
 
 <script id="ad-header-js">
@@ -2182,25 +2251,70 @@ function adSearch(){
 </script>
 
 
-<script id="ad-dropdown-click-fix">
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.ad-drop > button').forEach(function(btn){
-    btn.addEventListener('click', function(e){
-      e.preventDefault();
-      e.stopPropagation();
-      const box = btn.parentElement;
-      document.querySelectorAll('.ad-drop.ad-open').forEach(function(x){
-        if(x !== box) x.classList.remove('ad-open');
-      });
-      box.classList.toggle('ad-open');
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="ad-single-dropdown-controller">
+(function(){
+  function closeAll(except){
+    document.querySelectorAll('.ad-drop').forEach(function(drop){
+      if(drop !== except) drop.classList.remove('ad-open');
+      var menu=drop.querySelector('.ad-drop-menu');
+      if(menu && drop !== except){
+        menu.style.display='';
+        menu.style.visibility='';
+        menu.style.opacity='';
+        menu.style.position='';
+        menu.style.top='';
+        menu.style.left='';
+        menu.style.right='';
+        menu.style.width='';
+      }
     });
-  });
-  document.addEventListener('click', function(e){
-    if(!e.target.closest('.ad-drop')){
-      document.querySelectorAll('.ad-drop.ad-open').forEach(x=>x.classList.remove('ad-open'));
+  }
+
+  window.toggleAdDrop=function(btn,event){
+    if(event){ event.preventDefault(); event.stopPropagation(); }
+    var drop=btn.closest('.ad-drop');
+    if(!drop) return;
+    var menu=drop.querySelector('.ad-drop-menu');
+    if(!menu) return;
+    var wasOpen=drop.classList.contains('ad-open');
+
+    closeAll(null);
+    if(wasOpen) return;
+
+    drop.classList.add('ad-open');
+    if(window.innerWidth <= 650){
+      var rect=btn.getBoundingClientRect();
+      menu.style.position='fixed';
+      menu.style.top=Math.round(rect.bottom+6)+'px';
+      menu.style.left='10px';
+      menu.style.right='10px';
+      menu.style.width='auto';
+      menu.style.display='block';
+      menu.style.visibility='visible';
+      menu.style.opacity='1';
     }
+  };
+
+  document.addEventListener('click',function(event){
+    if(!event.target.closest('.ad-drop')) closeAll(null);
   });
-});
+
+  document.addEventListener('touchstart',function(event){
+    if(!event.target.closest('.ad-drop')) closeAll(null);
+  },{passive:true});
+})();
 </script>
 
 </body>
