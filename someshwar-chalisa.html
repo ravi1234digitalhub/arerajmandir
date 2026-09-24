@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ॐ श्री सोमेश्वर चालीसा पाठन ॐ | अरेराज धाम</title>
+<meta name="description" content="श्री सोमेश्वर चालीसा पाठ — सोमेश्वरनाथ महादेव अरेराज धाम।">
+<style>
+   body {
+            font-family: 'Noto Sans Devanagari', sans-serif; 
+            background-color: #fff8ef;
+            color: #2d1b00;
+            margin-top: 50px; /* Space for fixed navbar */
+            padding: 0;
+        }
+        
+        /* --- UPDATED HEADER STYLING --- */
+        header {
+            /* Gradient background for modern look */
+            background: linear-gradient(145deg, #c75100 0%, #f4a300 100%); 
+            color: white;
+            text-align: center;
+            padding: 35px 20px; /* Increased padding for prominence */
+            font-size: 28px; /* Larger font for main line */
+            font-weight: 900; /* Bolder font */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+            border-bottom: 6px solid #8a3324; /* Strong accent line */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Box shadow for lift */
+        }
+        /* Style for the first descriptive line */
+        header span.sub-title {
+            font-size: 22px; 
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+        }
+        header small {
+            font-size: 18px; /* Tagline size */
+            font-weight: 700;
+            display: block; /* Ensures it's on a new line */
+            margin-top: 8px; /* More spacing */
+        }
+        /* --- END UPDATED HEADER STYLING --- */
+
+
+        /* --- Navigation Bar Styling --- */
+        .navbar {
+            overflow: hidden;
+            background-color: #c75100; /* Darker tone for contrast */
+            position: fixed; /* Set the navbar to fixed position */
+            top: 0; /* Position the navbar at the top of the page */
+            width: 100%; /* Full width */
+            z-index: 1000; /* Ensure it stays on top */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            display: flex; /* Use flexbox for spacing */
+            justify-content: space-around; /* Equal space between items */
+            padding: 5px 0;
+            flex-wrap: nowrap; /* Ensure links stay in one line */
+        }
+
+        .navbar a {
+            flex-grow: 1; /* Make links take equal space */
+            color: #fff8ef;
+            text-align: center;
+            padding: 10px 10px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            transition: background-color 0.3s;
+            white-space: nowrap; /* Prevent text wrap */
+        }
+
+        .navbar a:hover {
+            background-color: #d97a00;
+            color: white;
+        }
+        /* --- END Navigation Styling --- */
+
+        section {
+            padding: 20px;
+        }
+        h2 {
+            color: #c75100;
+            border-bottom: 2px solid #f4a300;
+            padding-bottom: 5px;
+            font-weight: 700; 
+            font-size: 22px;
+            text-align: center; 
+        }
+        /* H2 Centering Utility */
+        .prasad-offer h2 {
+            display: inline-block;
+        }
+        
+        /* --- Default Table Styles (Desktop View) --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            display: table; 
+        }
+        table, th, td {
+            border: 1px solid #f4a300;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            white-space: normal;
+            display: table-cell; 
+        }
+        th {
+            background-color: #f4e0c4;
+            font-weight: 700;
+        }
+        
+        /* Utility class to hide 'Labh' column on mobile */
+        .hide-on-mobile {
+    display: table-cell !important;
+            display: table-cell; /* Default: Show on desktop */
+        }
+
+        /* Button Styling */
+        button {
+            background-color: #f4a300;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: background-color 0.2s;
+            white-space: nowrap;
+        }
+        button:hover {
+            background-color: #d97a00;
+        }
+        .joti {
+            background-color: #fff3e0;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid #f4a300;
+        }
+        
+        /* Section Separator HR Styling */
+        .separator {
+            border: none;
+            border-top: 3px solid #f4a300;
+            margin: 30px 20px; 
+            border-radius: 5px;
+        }
+        
+        /* Form inputs styling */
+        #prasad-order-form input[type="text"],
+        #prasad-order-form input[type="tel"],
+        #prasad-order-form textarea,
+        #prasad-order-form input[type="pincode"],
+        #generic-puja-order-form input[type="text"],
+        #generic-puja-order-form input[type="tel"],
+        #generic-puja-order-form textarea {
+            width: 90%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; 
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            font-size: 16px;
+        }
+        /* Offer Section Styling (MAHAPRASAD BOX) */
+        .prasad-offer {
+            background-color: #ffd700; /* Gold/Yellow Background */
+            color: #4a6d00;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 20px; 
+            text-align: center;
+            border: 3px dashed #c75100; 
+        }
+        
+        .prasad-offer .offer-text {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 15px 0;
+            line-height: 1.5;
+        }
+        .prasad-offer .offer-details {
+            background-color: #fff8ef;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px auto;
+            max-width: 400px;
+            border: 1px solid #c75100;
+        }
+        .prasad-offer .offer-details p {
+            margin: 5px 0;
+            font-size: 16px;
+            font-weight: 700;
+            color: #2d1b00;
+        }
+        .prasad-offer .includes {
+            color: #4a6d00;
+            font-weight: 900;
+        }
+        .prasad-offer .offer-button {
+    background-color: #c75100;
+    color: white;
+    font-size: 16px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 0 4px 0 #8a3324;
+    border: none;
+}
+        .prasad-offer .offer-button:active {
+            box-shadow: 0 2px 0 #8a3324;
+            transform: translateY(3px);
+        }
+        /* Form container styling */
+        #prasad-order-form-container, #reusable-puja-form-section {
+            margin-top: 30px; 
+            padding: 25px; 
+            border: 3px solid #c75100; 
+            background-color: #fff8ef; 
+            border-radius: 10px;
+            text-align: center; 
+        }
+        #prasad-order-form, #generic-puja-order-form {
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+        
+        /* --- CHALISA SECTION STYLES (MATCHING PRASAD SECTION) --- */
+        .chalisa-box {
+            background-color: #ffd700; /* Gold/Yellow Background MATCH */
+            color: #2d1b00; 
+            padding: 30px 0; /* Padding top/bottom, 0 sides for full width */
+            margin: 0; /* Full width */
+            border-top: 3px dashed #c75100; /* Border to match */
+            border-bottom: 3px dashed #c75100; /* Border to match */
+            text-align: center; 
+        }
+
+        /* Style for the collapsible header */
+        #chalisa-toggle-header {
+            cursor: pointer;
+            background-color: #c75100;
+            color: white;
+            padding: 15px;
+            margin: 10px auto;
+            border-radius: 8px;
+            max-width: 600px;
+            font-size: 22px;
+            font-weight: 900;
+            transition: background-color 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Added shadow for lift */
+        }
+        #chalisa-toggle-header:hover {
+            background-color: #d97a00;
+        }
+        /* Style for the icon */
+        #chalisa-toggle-header span {
+            margin-left: 10px;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+        
+        /* New wrapper to center the content inside the full-width background */
+        .chalisa-content-wrapper {
+            max-width: 800px; /* Limit content width */
+            margin: 0 auto; /* Center the content */
+            padding: 0 20px; /* Padding on sides for mobile view */
+            text-align: center;
+        }
+        
+        .chalisa-text {
+            column-count: 2; 
+            column-gap: 40px; 
+            text-align: center; /* Centering text inside columns */
+            font-size: 16px; 
+            line-height: 1.8; 
+            max-width: 600px; 
+            margin: 20px auto 0 auto; 
+        }
+        .chalisa-text .couplet {
+            margin: 0 0 10px 0; 
+            break-inside: avoid; 
+        }
+        .doha-section {
+            max-width: 600px; 
+            margin: 30px auto 0 auto;
+            padding: 20px; 
+            border: 2px solid #c75100; 
+            border-radius: 8px;
+            background-color: #fff8ef; /* Light background for the Doha box */
+            font-size: 20px; 
+            font-weight: 900; 
+            color: #c75100;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+        }
+        .doha-section .couplet {
+            font-size: 18px; 
+            font-weight: 700;
+            line-height: 1.6;
+            text-align: center;
+            color: #2d1b00;
+            margin-top: 10px;
+        }
+        /* --- END CHALISA FIX --- */
+
+        /* Joti/Temple Info Section Styles */
+        .joti {
+            background-color: #fff3e0;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid #f4a300;
+        }
+
+        /* Text Sajawat */
+        .joti p {
+            font-size: 17px; 
+            line-height: 1.8; 
+            text-align: justify; 
+            margin-bottom: 15px;
+            color: #444; 
+        }
+        
+        /* Shivling Image Styling */
+        .joti img {
+            max-width: 500px;
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+            margin: 10px auto 20px auto;
+            border: 2px solid #c75100; 
+        }
+
+
+        footer {
+            background-color: #f4a300;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            display: block;
+            margin: 10px auto;
+        }
+        #show-form-btn {
+            display: block; 
+            margin: 0 auto; 
+        }
+        .history h3 {
+            text-align: center;
+            color: #c75100;
+            margin-top: 15px;
+        }
+        .history p {
+            text-align: justify; /* Keeps paragraphs readable on desktop */
+        }
+        /* Online Info Section Styling (Emphasis) */
+        .online-info {
+            background-color: #f7e9d7; 
+            border: 2px solid #c75100; 
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .online-info p {
+             font-weight: 700; 
+        }
+
+        /* --- NEW STYLES FOR PUJA NAME --- */
+
+        /* Animation Keyframes for subtle rotation Wiggle */
+        @keyframes rotation-wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(0.5deg); } /* Slight clockwise rotation */
+            75% { transform: rotate(-0.5deg); } /* Slight anti-clockwise rotation */
+        }
+
+        /* Style and Animation for Puja Name Column */
+        .puja-name-cell { color: inherit; font-weight: 700; animation: none; }
+
+        /* ************************************************* */
+        /* --- MOBILE RESPONSIVENESS STYLES (Max Width 768px) --- */
+        /* ************************************************* */
+        @media only screen and (max-width: 768px) {
+            
+            /* Navigation Bar Adjustments */
+            .navbar a {
+                padding: 8px 5px; 
+                font-size: 11px; 
+            }
+
+            /* Hide the 'Labh' column on mobile (Kept for both landscape and portrait) */
+            .hide-on-mobile {
+    display: table-cell !important;
+                display: none !important; 
+            }
+            
+            /* Header adjustments for smaller screens */
+            header {
+                font-size: 24px; 
+                padding: 30px 15px;
+            }
+            header span.sub-title {
+                font-size: 20px;
+            }
+            header small {
+                font-size: 16px;
+            }
+
+            /* History paragraph text alignment fix for narrow screens */
+            .history p {
+                text-align: left !important; 
+            }
+            
+            /* Joti Text Alignment on Mobile */
+            .joti p {
+                text-align: left !important;
+            }
+            
+            /* Chalisa Adjustments */
+            .chalisa-text {
+                column-count: 1; 
+                text-align: center; 
+                font-size: 15px;
+                max-width: none; 
+            }
+            .doha-section {
+                 margin: 30px 10px 0 10px;
+            }
+        }
+        
+        /* --- TABLE CARD VIEW STYLES (Only for very narrow/PORTRAIT screens < 550px) --- */
+        @media only screen and (max-width: 550px) {
+            
+            /* Select only tables within the puja list sections and force block display */
+            #puja-list table, #home-service table, 
+            #puja-list thead, #home-service thead, 
+            #puja-list tbody, #home-service tbody, 
+            #puja-list th, #home-service th, 
+            #puja-list td, #home-service td, 
+            #puja-list tr, #home-service tr { 
+                display: block;
+            }
+            
+            /* Hide the actual table headers */
+            #puja-list thead tr, #home-service thead tr { 
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            /* Style the Table Row as a Card */
+            #puja-list tr, #home-service tr { 
+                border: 2px solid #f4a300;
+                margin-bottom: 15px;
+                border-radius: 8px;
+                background-color: #fff3e0;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            
+            /* Style the Table Data (Cell) */
+            #puja-list td, #home-service td { 
+                border: none;
+                border-bottom: 1px solid #f4a300;
+                position: relative;
+                padding-left: 50%; /* Make space for the pseudo-label */
+                text-align: right;
+                font-size: 15px;
+                line-height: 1.4;
+            }
+            
+            /* Use the data-label attribute to show the header name */
+            #puja-list td:before, #home-service td:before { 
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                text-align: left;
+                font-weight: 700;
+                color: #c75100;
+            }
+            
+            /* Remove border for the last cell (Book button) */
+            #puja-list td:last-child, #home-service td:last-child {
+                border-bottom: 0;
+                text-align: center;
+                padding-left: 10px; /* Reset padding for center align */
+            }
+            
+            /* Style the Book button in the card */
+            #puja-list td button, #home-service td button {
+                width: 80%;
+                padding: 10px 0;
+                font-size: 14px;
+            }
+        }
+    
+@keyframes blinkSmooth {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.15; }
+  100% { opacity: 1; }
+}
+.slot-blink {
+  animation: blinkSmooth 1s infinite;
+}
+  
+/* Animate heading */
+.puja-anim {
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  color: #b13f00 !important;
+  animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(1); text-shadow: 0 0 5px #ff9900; }
+  50% { transform: scale(1.08); text-shadow: 0 0 15px #ff6600; }
+  100% { transform: scale(1); text-shadow: 0 0 5px #ff9900; }
+}
+
+</style>
+<style>
+body{margin:0;background:#fff8ef;color:#4b250f;font-family:Arial,"Noto Sans Devanagari",sans-serif}
+.simple-head{background:linear-gradient(135deg,#7b2609,#c75100);color:#fff;text-align:center;padding:22px 15px}
+.simple-head .icon{font-size:45px}
+.simple-head h1{margin:5px 0;font-size:30px}
+.simple-head p{margin:3px}
+.homebar{text-align:center;background:#fff1d9;padding:12px}
+.homebar a{display:inline-block;background:#c75100;color:#fff;text-decoration:none;padding:9px 20px;border-radius:24px;font-weight:700}
+.page-wrap{max-width:1050px;margin:0 auto;padding:10px 15px 35px}
+#chalisa-text-content{display:block!important}
+#chalisa-toggle-header{cursor:default}
+footer{background:#1c1c1c;color:#fff;text-align:center;padding:22px;line-height:1.8}
+</style>
+</head>
+<body>
+<header class="simple-head">
+<div class="icon">🔱</div>
+<h1>श्री सोमेश्वरनाथ महादेव</h1>
+<p>अरेराज धाम</p>
+</header>
+<div class="homebar"><a href="index.html">🏠 Home</a></div>
+<main class="page-wrap">
+<section class="chalisa-box">
+<div class="chalisa-content-wrapper">
+<div id="chalisa-toggle-header" onclick="toggleChalisa()">
+     ॐ श्री सोमेश्वर चालीसा पाठन ॐ
+     <span id="chalisa-icon">
+      ▼
+     </span>
+</div>
+<div id="chalisa-text-content" style="display:none;">
+<div class="chalisa-text">
+<p class="couplet">
+       **श्री सोमेश्वर सोम भाल पर।**
+       <br/>
+       **उमा संग शिव मृगछाल पर।।**
+      </p>
+<p class="couplet">
+       **लटा-जटा में गंग समाये।**
+       <br/>
+       **सर्पमाल तन भस्म लगाये ।।**
+      </p>
+<p class="couplet">
+       **कर में डमरु त्रिशूधारी।**
+       <br/>
+       **भव्य त्रिपुंड नयन सुखकारी ।।**
+      </p>
+<p class="couplet">
+       **कानन कुंडल की छवि न्यारी।**
+       <br/>
+       **मगन होत सब रूप निहारी।।**
+      </p>
+<p class="couplet">
+       **आगे नन्दी राजीव लोचन।**
+       <br/>
+       **गोद गणेश लिए भवमोचन ।।**
+      </p>
+<p class="couplet">
+       **श्री सोमेश्वर जय सुखकंदा।**
+       <br/>
+       **वरदहस्त शिव अति आनंदा।।**
+      </p>
+<p class="couplet">
+       **जो निज उर छवि धरे-सुजाना。**
+       <br/>
+       **तापर कृपा करहिं भगवाना।।**
+      </p>
+<p class="couplet">
+       **पुत्र प्राप्ति सुख-सम्पति नाना。**
+       <br/>
+       **देत मुदित मन कृपानिधाना।।**
+      </p>
+<p class="couplet">
+       **जय सोमेश्वर जय परमेश्वर।**
+       <br/>
+       **नमो नamo जय हे अखिलेश्वर ।।**
+      </p>
+<p class="couplet">
+       **तुमहीं दाता, तुमहीं भिखारी।**
+       <br/>
+       **धन्य हो तुम भोला भंडारी।।**
+      </p>
+<p class="couplet">
+       **तेरी महिमा जग में न्यारी।**
+       <br/>
+       **मह-मह करे, ज्यों केशर क्यारी ।।**
+      </p>
+<p class="couplet">
+       **तुम बिनु कौन करे-जग पारा।**
+       <br/>
+       **नाम तुम्हारो विदित संसारा।।**
+      </p>
+<p class="couplet">
+       **त्रिविध ताप हर्ता त्रिपुरारी。**
+       <br/>
+       **शिव समान नहीं पर उपकारी ।।**
+      </p>
+<p class="couplet">
+       **सकल-सुमंगल के हर दाता।**
+       <br/>
+       **त्रैलोकी भये जग विख्याता।।**
+      </p>
+<p class="couplet">
+       **सुख-शान्ति, ऐश्वर्य के दाता।**
+       <br/>
+       **छप्पर फाड़ के देत विधाता ।।**
+      </p>
+<p class="couplet">
+       **कनक सिंहासन पल में देते।**
+       <br/>
+       **दुःख दारिद्र क्षणहिं हर लेते।।**
+      </p>
+<p class="couplet">
+       **लेन-देन व्यापार दोगुना।**
+       <br/>
+       **बढ़ जाये साहस चौगुना ।।**
+      </p>
+<p class="couplet">
+       **जो नर मन से शिव को ध्यावे।**
+       <br/>
+       **सकल मनोरथ का फल पावे ।।**
+      </p>
+<p class="couplet">
+       **श्री सोमेश्वर दीनदयाला।**
+       <br/>
+       **सचर-अचर सबके प्रतिपाला ।।**
+      </p>
+<p class="couplet">
+       **जहाँ-जहाँ शिव करहिं निवासा।**
+       <br/>
+       **माँ अन्नपूर्णा के तहँ वासा।।**
+      </p>
+<p class="couplet">
+       **मातु-पिता, बन्धु-सुत दारा।**
+       <br/>
+       **छुटहिं सकल कुटुम्ब परिवारा।।**
+      </p>
+<p class="couplet">
+       **शिव महिमा कlikal जो गावे 。**
+       <br/>
+       **नरयोनि पुni पुni वह पावे।।**
+      </p>
+<p class="couplet">
+       **ओम् नमः शिवाय जपहिं जो प्राणी।**
+       <br/>
+       **सुर-असुर, ऋषि-मुनि, नर ज्ञानी ।।**
+      </p>
+<p class="couplet">
+       **अंध-गूंगा, बधिर अरू काना。**
+       <br/>
+       **सबकर शिव करहिं कल्याना ।।**
+      </p>
+<p class="couplet">
+       **श्री सोमेश्वर औढरदानी 。**
+       <br/>
+       **पूजे शिव जो संग भवानी।।**
+      </p>
+<p class="couplet">
+       **सो नर पावे मंच विशाला।**
+       <br/>
+       **खुलहिं बन्द भाग्य के ताला।।**
+      </p>
+<p class="couplet">
+       **बेलपत्र, अक्षत, फूल चन्दन।**
+       <br/>
+       **भांग-धतूरा अरु गंगाजल ।।**
+      </p>
+<p class="couplet">
+       **हर-हर करिके जो नहलावे 。**
+       <br/>
+       **बम-बम करि नैवेद्य चढ़ावे।।**
+      </p>
+<p class="couplet">
+       **जे नर शिव पूजहिं करजोरी।**
+       <br/>
+       **सिर नवाय करे विनय बहोरी ।।**
+      </p>
+<p class="couplet">
+       **सकल पाप क्षय ताको होई।**
+       <br/>
+       **जलाभिषेक करे जो कोई ।।**
+      </p>
+<p class="couplet">
+       **हे मृत्युंजय, हे देवपाल。**
+       <br/>
+       **कालों के हो तुम महाकाल।।**
+      </p>
+<p class="couplet">
+       **अल्पमृत्युभय नहीं सतावें 。**
+       <br/>
+       **रूद्राभिषेक जो करे-करावें ।।**
+      </p>
+<p class="couplet">
+       **श्री सोमेश्वर एक आधारा。**
+       <br/>
+       **पूजे नर भव उतरहिं पारा।।**
+      </p>
+<p class="couplet">
+       **कहहीं भक्त मिलि शिव अनूपा。**
+       <br/>
+       **सो नर नाहीं गिरहीं भवकूपा।।**
+      </p>
+<p class="couplet">
+       **तीस दिवस नित्य पाठ जो करहीं।**
+       <br/>
+       **उमा सहित शिव छवि उर धरहीं।।**
+      </p>
+<p class="couplet">
+       **अंतहिं दिवस सप्रेम बुलावे।**
+       <br/>
+       **कोढ़ी-अपंग, दरिद्र खिलावे।।**
+      </p>
+<p class="couplet">
+       **ता घर नाहिं रहे बुद्धिहीना।**
+       <br/>
+       **लक्ष्मीवास करहिं सब दिना।।**
+      </p>
+<p class="couplet">
+       **बंश बढ़े, सुत रवि समाना.।**
+       <br/>
+       **ऊँच पद पावे चतुर सुजाना।।**
+      </p>
+<p class="couplet">
+       **श्री सोमेश्वर का इतिहासा。**
+       <br/>
+       **जय गोविन्द कत करहिं प्रकाशा।।**
+      </p>
+<p class="couplet">
+       **चालीसा यह पढ़े जो संता。**
+       <br/>
+       **तापर खुश रहहिं भगवंता।।**
+      </p>
+</div>
+<div class="doha-section">
+      **॥ दोहा ॥**
+      <p class="couplet" style="color: #2d1b00;">
+       **हे दुःखहर्त्ता, मंगलकर्त्ता, श्री सोमेश्वर नाथ।**
+       <br/>
+       **नमन करूँ सिर नाय के, जोरी युगल पुनि हाथ॥**
+      </p>
+</div>
+<center>
+<a href="https://wa.me/917033066081">
+<button style="margin-top: 20px;">
+        ॐ नमः शिवाय - पूजा बुक करें
+       </button>
+</a>
+</center>
+</div>
+</div>
+</section>
+</main>
+<footer>
+📲 WhatsApp: <a href="https://wa.me/917033066081" style="color:#ffd27a">7033066081</a><br>
+🔱 सोमेश्वरनाथ महादेव अरेराज — हर हर महादेव<br>
+© 2026 ArerajDham.in
+</footer>
+</body>
+</html>
