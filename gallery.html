@@ -1,89 +1,93 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="utf-8">
-<title>Photo Gallery - Someshwar Nath Dham</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📷 फोटो गैलरी - सोमेश्वरनाथ महादेव अरेराज</title>
+<meta name="description" content="सोमेश्वरनाथ महादेव अरेराज धाम की फोटो गैलरी।">
 <style>
-body {
-  margin: 0;
-  background: #000;
-  font-family: sans-serif;
-  padding: 10px;
-}
-
-/* GRID GALLERY */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 10px;
-}
-
-.gallery img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.gallery img:hover {
-  transform: scale(1.03);
-  opacity: 0.9;
-}
-
-/* POPUP BOX */
-#popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.9);
-  display: none;
-  justify-content: center;
-  align-items: center;
-}
-
-#popup img {
-  width: 90%;
-  max-width: 600px;
-  border-radius: 10px;
-}
-
-#popup:active {
-  display: none;
+*{box-sizing:border-box}
+body{margin:0;background:#080808;color:#fff;font-family:Arial,"Noto Sans Devanagari",sans-serif}
+.top{background:linear-gradient(135deg,#6b2108,#b94b08);padding:14px;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 3px 12px rgba(0,0,0,.4)}
+.top a{display:inline-block;background:#fff;color:#8b2d08;text-decoration:none;font-weight:700;padding:9px 18px;border-radius:22px}
+h1{margin:16px 0 4px;text-align:center;font-size:30px;color:#ffd27a}
+.subtitle{text-align:center;color:#e8c7a0;margin:0 15px 22px}
+.gallery{width:min(1200px,94%);margin:0 auto 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:#171717;border:1px solid #4b2b16;border-radius:14px;overflow:hidden;box-shadow:0 5px 18px rgba(0,0,0,.35)}
+.card img{display:block;width:100%;height:230px;object-fit:cover;cursor:pointer;transition:transform .25s}
+.card img:hover{transform:scale(1.03)}
+.name{text-align:center;padding:10px;color:#f5d5aa;font-size:14px}
+.status{text-align:center;color:#bbb;padding:30px;font-size:17px}
+footer{text-align:center;color:#aaa;padding:20px;border-top:1px solid #292929;font-size:13px}
+#viewer{display:none;position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:50;align-items:center;justify-content:center;padding:20px}
+#viewer.show{display:flex}
+#viewer img{max-width:95vw;max-height:88vh;object-fit:contain;border-radius:10px}
+.close{position:absolute;top:18px;right:22px;font-size:34px;color:#fff;cursor:pointer}
+@media(max-width:600px){
+ h1{font-size:25px}.gallery{grid-template-columns:repeat(2,1fr);gap:10px}.card img{height:170px}.name{font-size:12px}
 }
 </style>
 </head>
 <body>
+<div class="top"><a href="index.html">🏠 Home</a></div>
+<h1>📷 फोटो गैलरी</h1>
+<p class="subtitle">सोमेश्वरनाथ महादेव अरेराज धाम की नवीनतम तस्वीरें</p>
 
-<h2 style="color:white; text-align:center;">📸 फोटो गैलरी</h2>
+<div id="status" class="status">📷 फोटो लोड हो रही हैं...</div>
+<div id="gallery" class="gallery"></div>
 
-<!-- GRID GALLERY -->
-<div class="gallery">
-  <img src="images/15.jpeg" onclick="openPopup(this.src)">
-  <img src="images/60.jpeg" onclick="openPopup(this.src)">
-  <img src="images/35.jpeg" onclick="openPopup(this.src)">
+<div id="viewer" onclick="closeViewer()">
+  <span class="close">×</span>
+  <img id="viewerImg" src="" alt="बड़ी फोटो" onclick="event.stopPropagation()">
 </div>
 
-<!-- POPUP VIEW -->
-<div id="popup" onclick="closePopup()">
-  <img id="popupImg">
-</div>
+<footer>© 2026 ArerajDham.in — सभी अधिकार सुरक्षित</footer>
 
 <script>
-function openPopup(src) {
-  document.getElementById("popup").style.display = "flex";
-  document.getElementById("popupImg").src = src;
+const GITHUB_USER="ravi1234digitalhub";
+const GITHUB_REPO="arerajmandir";
+const IMAGE_FOLDER="images";
+
+async function loadGallery(){
+  const gallery=document.getElementById("gallery");
+  const status=document.getElementById("status");
+  try{
+    const api=`https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${IMAGE_FOLDER}`;
+    const res=await fetch(api,{cache:"no-store"});
+    if(!res.ok) throw new Error("GitHub images folder not found");
+    const files=await res.json();
+
+    const images=files
+      .filter(f=>f.type==="file" && /\.(jpg|jpeg|png|webp|gif)$/i.test(f.name))
+      .sort((a,b)=>a.name.localeCompare(b.name,undefined,{numeric:true,sensitivity:"base"}));
+
+    if(!images.length){
+      status.textContent="अभी कोई फोटो उपलब्ध नहीं है।";
+      return;
+    }
+
+    status.style.display="none";
+    gallery.innerHTML=images.map(file=>{
+      const safe=file.name.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+      return `<div class="card">
+        <img src="${file.download_url}" alt="${safe}" loading="lazy" onclick="openViewer('${file.download_url.replace(/'/g,"%27")}')">
+        <div class="name">📷 ${safe}</div>
+      </div>`;
+    }).join("");
+  }catch(e){
+    status.textContent="फोटो लोड नहीं हो पाई। कृपया थोड़ी देर बाद फिर देखें।";
+  }
 }
 
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
+function openViewer(url){
+  document.getElementById("viewerImg").src=url;
+  document.getElementById("viewer").classList.add("show");
 }
+function closeViewer(){
+  document.getElementById("viewer").classList.remove("show");
+  document.getElementById("viewerImg").src="";
+}
+loadGallery();
 </script>
-
 </body>
 </html>
