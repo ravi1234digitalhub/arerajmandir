@@ -1228,9 +1228,9 @@ a *, button *, [role="button"] *, summary * {
   <div class="ad-drop">
     <button type="button" onclick="toggleAdDrop(this,event)">🎥 वीडियो <span>⌄</span> <span class="ad-drop-arrow">👈</span></button>
     <div class="ad-drop-menu">
-      <a class="ad-menu-item" href="#daily-video">▶️ आज का वीडियो</a>
-      <a href="#daily-video-gallery">🎬 दैनिक वीडियो</a>
-      <a href="#daily-video-gallery">📺 विशेष कार्यक्रम</a>
+      <a class="ad-menu-item" href="videos.html">▶️ आज का वीडियो</a>
+      <a href="videos.html">🎬 दैनिक वीडियो</a>
+      <a href="videos.html">📺 विशेष कार्यक्रम</a>
       <a href="https://www.youtube.com/@SomeshwarnathDhamAreraj" target="_blank" rel="noopener noreferrer">▶️ YouTube पर देखें</a>
     </div>
   </div>
@@ -1915,35 +1915,16 @@ function sendGenericWhatsApp(event) {
     }, 200);
 }
   </script>
-<footer style="text-align:center; padding:15px; font-size:14px; background:#000; color:#fff;">
-<a href="about.html" style="color:#fff;">
-    About
-   </a>
-   |
-   <a href="contact.html" style="color:#fff;">
-    Contact
-   </a>
-   |
-   <a href="privacy.html" style="color:#fff;">
-    Policy
-   </a>
-   |
-   <a href="terms.html" style="color:#fff;">
-    Terms
-   </a>
-   |
-   <a href="disclaimer.html" style="color:#fff;">
-    Legal
-   </a>
-<!-- Visitor Counter inside Black Footer -->
-
-<div style="text-align:center;margin:12px 0;font-size:14px;">
-<a href="privacy.html" style="margin:0 8px;">Privacy Policy</a>
-<a href="terms.html" style="margin:0 8px;">Terms &amp; Conditions</a>
-<a href="disclaimer.html" style="margin:0 8px;">Disclaimer</a>
-</div>
-<div style="text-align:center;margin-top:10px;color:#f7c873;font-size:14px;">© 2025 ArerajDham.in — All Rights Reserved</div><script>
-</script></footer>
+<footer style="text-align:center; padding:18px 12px; font-size:14px; background:#000; color:#fff;">
+  <div style="line-height:2;">
+    <a href="about.html" style="color:#fff; margin:0 7px;">About Us</a> |
+    <a href="contact.html" style="color:#fff; margin:0 7px;">Contact Us</a> |
+    <a href="privacy.html" style="color:#fff; margin:0 7px;">Privacy Policy</a> |
+    <a href="terms.html" style="color:#fff; margin:0 7px;">Terms &amp; Conditions</a> |
+    <a href="disclaimer.html" style="color:#fff; margin:0 7px;">Disclaimer</a>
+  </div>
+  <div style="text-align:center;margin-top:12px;color:#f7c873;font-size:14px;">© 2026 ArerajDham.in — All Rights Reserved</div>
+</footer>
 
 
 
@@ -2006,39 +1987,6 @@ loadGithubDailyVideos();
 
 
 
-
-<script id="ad-dropdown-js">
-(function(){
-  function closeAll(except){
-    document.querySelectorAll('.ad-drop.ad-open').forEach(function(d){
-      if(d!==except) d.classList.remove('ad-open');
-    });
-  }
-  window.toggleAdDrop=function(btn,event){
-    if(event) event.stopPropagation();
-    var drop=btn.closest('.ad-drop');
-    if(!drop) return;
-    var isOpen=drop.classList.contains('ad-open');
-    closeAll(drop);
-    if(!isOpen){
-      drop.classList.add('ad-open');
-      var menu=drop.querySelector('.ad-drop-menu');
-      if(menu && window.innerWidth<=650){
-        var r=btn.getBoundingClientRect();
-        menu.style.setProperty('--ad-menu-top', Math.max(55, r.bottom+6)+'px');
-      }
-    }
-  };
-  document.addEventListener('click',function(e){
-    if(!e.target.closest('.ad-drop')) closeAll(null);
-  });
-  window.addEventListener('resize',function(){
-    document.querySelectorAll('.ad-drop-menu').forEach(function(menu){
-      if(window.innerWidth>650) menu.style.removeProperty('--ad-menu-top');
-    });
-  });
-})();
-</script>
 
 <script id="ad-header-js">
 function adSearch(){
