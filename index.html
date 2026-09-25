@@ -1228,9 +1228,9 @@ a *, button *, [role="button"] *, summary * {
   <div class="ad-drop">
     <button type="button" onclick="toggleAdDrop(this,event)">🎥 वीडियो <span>⌄</span> <span class="ad-drop-arrow">👈</span></button>
     <div class="ad-drop-menu">
-      <a class="ad-menu-item" href="videos.html">▶️ आज का वीडियो</a>
-      <a href="videos.html">🎬 दैनिक वीडियो</a>
-      <a href="videos.html">📺 विशेष कार्यक्रम</a>
+      <a class="ad-menu-item" href="#daily-video">▶️ आज का वीडियो</a>
+      <a href="#daily-video-gallery">🎬 दैनिक वीडियो</a>
+      <a href="#daily-video-gallery">📺 विशेष कार्यक्रम</a>
       <a href="https://www.youtube.com/@SomeshwarnathDhamAreraj" target="_blank" rel="noopener noreferrer">▶️ YouTube पर देखें</a>
     </div>
   </div>
@@ -2006,6 +2006,39 @@ loadGithubDailyVideos();
 
 
 
+
+<script id="ad-dropdown-js">
+(function(){
+  function closeAll(except){
+    document.querySelectorAll('.ad-drop.ad-open').forEach(function(d){
+      if(d!==except) d.classList.remove('ad-open');
+    });
+  }
+  window.toggleAdDrop=function(btn,event){
+    if(event) event.stopPropagation();
+    var drop=btn.closest('.ad-drop');
+    if(!drop) return;
+    var isOpen=drop.classList.contains('ad-open');
+    closeAll(drop);
+    if(!isOpen){
+      drop.classList.add('ad-open');
+      var menu=drop.querySelector('.ad-drop-menu');
+      if(menu && window.innerWidth<=650){
+        var r=btn.getBoundingClientRect();
+        menu.style.setProperty('--ad-menu-top', Math.max(55, r.bottom+6)+'px');
+      }
+    }
+  };
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('.ad-drop')) closeAll(null);
+  });
+  window.addEventListener('resize',function(){
+    document.querySelectorAll('.ad-drop-menu').forEach(function(menu){
+      if(window.innerWidth>650) menu.style.removeProperty('--ad-menu-top');
+    });
+  });
+})();
+</script>
 
 <script id="ad-header-js">
 function adSearch(){
