@@ -7,175 +7,230 @@
 <meta name="description" content="अरेराज धाम और भगवान शिव से जुड़ी धार्मिक कथाओं एवं लोक-परंपराओं की जानकारी।">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+:root{
+  --saffron:#d94801;
+  --deep:#7b2508;
+  --gold:#f5a623;
+  --cream:#fff8ed;
+  --paper:#fffdf9;
+  --ink:#3b2418;
+  --muted:#765d4c;
+}
 *{box-sizing:border-box}
-body{margin:0;font-family:'Noto Sans Devanagari',sans-serif;background:#fff8ed;color:#3d2615;line-height:1.8}
-header{background:linear-gradient(135deg,#e65100,#ff8f00);color:#fff;text-align:center;padding:28px 16px 24px;box-shadow:0 3px 12px #0002}
-header .om{font-size:34px;font-weight:800}
-header h1{margin:4px 0 0;font-size:27px}
-header p{margin:4px 0 0;font-size:14px}
-nav{padding:14px 16px;text-align:center;background:#fff3df}
-.home{display:inline-block;text-decoration:none;background:#fff;color:#b53b00;border:2px solid #e65100;border-radius:25px;padding:7px 20px;font-weight:700}
-main{max-width:950px;margin:auto;padding:22px 15px 45px}
-.hero,.card{background:#fff;border-radius:18px;padding:24px;margin-bottom:18px;box-shadow:0 4px 18px #00000012}
-.hero{border-top:5px solid #e65100}
-h2{color:#c43d00;margin-top:0;font-size:25px}
-h3{color:#a83400;margin-bottom:7px}
-.card{border-left:4px solid #f08a24}
-.note{background:#fff3d9;border-left:5px solid #e65100;border-radius:10px;padding:16px;margin:20px 0}
-.story{display:flex;gap:16px;align-items:flex-start}
-.icon{font-size:32px;min-width:42px}
-.whatsapp{display:inline-block;background:#168a45;color:#fff;text-decoration:none;padding:10px 20px;border-radius:25px;font-weight:700;margin-top:8px}
-footer{background:#4a2a16;color:#fff;text-align:center;padding:22px 15px;font-size:14px}
-footer a{color:#ffd7a3;text-decoration:none}
-@media(max-width:600px){header h1{font-size:23px}.hero,.card{padding:18px}.story{gap:10px}.icon{font-size:27px;min-width:34px}}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:'Noto Sans Devanagari',sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%,#ffe0a8 0,transparent 22%),
+    radial-gradient(circle at 90% 30%,#ffd7b0 0,transparent 20%),
+    var(--cream);
+  color:var(--ink);line-height:1.85;
+}
+.topbar{
+  background:var(--deep);color:#fff;padding:8px 18px;
+  display:flex;justify-content:space-between;gap:10px;
+  font-size:13px;align-items:center;
+}
+.header{
+  background:linear-gradient(135deg,#fffaf1,#ffe4bd);
+  text-align:center;padding:28px 16px 24px;
+  border-bottom:1px solid #e7b36d;
+}
+.trishul{font-size:44px;line-height:1}
+.header h1{margin:4px 0;color:var(--deep);font-size:30px;font-weight:800}
+.header .sub{color:#9a3b13;font-weight:700}
+.nav{
+  position:sticky;top:0;z-index:10;
+  background:linear-gradient(90deg,#b93200,#ed6900,#b93200);
+  padding:10px;text-align:center;box-shadow:0 4px 15px #0002;
+}
+.home{
+  display:inline-flex;align-items:center;gap:7px;
+  color:#fff;text-decoration:none;background:#ff9f1c;
+  padding:8px 22px;border-radius:30px;font-weight:800;
+  border:2px solid #ffd27d;
+}
+.hero{
+  max-width:1000px;margin:28px auto 22px;padding:0 16px;
+}
+.hero-box{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#7b2508,#bd430e);
+  color:#fff;border-radius:28px;padding:34px 30px;
+  box-shadow:0 12px 35px #7b250833;
+}
+.hero-box:before,.hero-box:after{
+  content:"ॐ";position:absolute;color:#ffffff18;font-size:150px;font-weight:800;
+}
+.hero-box:before{right:-5px;top:-45px}
+.hero-box:after{left:-15px;bottom:-70px}
+.hero-box>*{position:relative;z-index:1}
+.badge{
+  display:inline-block;background:#ffd36b;color:#6f2409;
+  padding:5px 14px;border-radius:20px;font-weight:800;font-size:13px;
+}
+.hero h2{font-size:31px;margin:12px 0 8px}
+.hero p{max-width:780px;margin:0;color:#fff1df}
+main{max-width:1000px;margin:auto;padding:0 16px 50px}
+.section-title{text-align:center;margin:30px 0 20px}
+.section-title h3{font-size:24px;color:var(--deep);margin:0}
+.section-title span{color:#a56839;font-size:13px}
+.story{
+  display:grid;grid-template-columns:72px 1fr;gap:20px;
+  background:var(--paper);border:1px solid #efd6b7;
+  border-radius:22px;margin:18px 0;padding:22px;
+  box-shadow:0 7px 22px #6f2b1210;
+  position:relative;overflow:hidden;
+}
+.story:before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:5px;
+  background:linear-gradient(#f5a623,#d94801);
+}
+.icon{
+  width:62px;height:62px;border-radius:50%;
+  background:linear-gradient(135deg,#fff0c8,#ffc15c);
+  display:flex;align-items:center;justify-content:center;
+  font-size:30px;border:2px solid #f1b24b;
+}
+.story h4{margin:0 0 5px;color:var(--deep);font-size:20px}
+.story p{margin:0;color:var(--muted)}
+.quote{
+  margin:26px 0;padding:24px;text-align:center;
+  background:#fff0d2;border:1px solid #e7b35e;border-radius:20px;
+  color:#6e2a0b;font-weight:700;font-size:18px;
+}
+.note{
+  background:#fff;border:1px solid #e4c69e;border-radius:20px;
+  padding:22px;box-shadow:0 6px 20px #0000000d;
+}
+.note strong{color:var(--deep)}
+.contact{
+  margin-top:24px;text-align:center;
+  background:linear-gradient(135deg,#fff3dd,#ffe0b0);
+  border-radius:24px;padding:25px;border:1px solid #e7b36d;
+}
+.whatsapp{
+  display:inline-block;margin-top:10px;
+  background:#168a45;color:#fff;text-decoration:none;
+  padding:11px 24px;border-radius:28px;font-weight:800;
+  box-shadow:0 5px 14px #168a4533;
+}
+footer{background:#4b220f;color:#ffe8c9;text-align:center;padding:24px 15px}
+footer a{color:#ffd27d;text-decoration:none;font-weight:700}
+@media(max-width:650px){
+  .topbar{font-size:11px}
+  .header h1{font-size:24px}
+  .hero-box{padding:27px 20px;border-radius:22px}
+  .hero h2{font-size:25px}
+  .story{grid-template-columns:50px 1fr;gap:13px;padding:18px}
+  .icon{width:50px;height:50px;font-size:24px}
+  .story h4{font-size:18px}
+}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="om">🔱</div>
+<div class="topbar">
+  <span>🔱 ॐ नमः शिवाय</span>
+  <span>📍 अरेराज, पूर्वी चंपारण, बिहार</span>
+</div>
+
+<header class="header">
+  <div class="trishul">🔱</div>
   <h1>श्री सोमेश्वरनाथ महादेव</h1>
-  <p>अरेराज धाम, पूर्वी चंपारण, बिहार</p>
+  <div class="sub">अरेराज धाम</div>
 </header>
 
-<nav>
+<nav class="nav">
   <a class="home" href="index.html">🏠 Home</a>
 </nav>
 
-<main>
 <section class="hero">
-  <h2>⭐ शिव से जुड़ी कथाएँ</h2>
-  <p>
-    भगवान शिव से जुड़ी अनेक धार्मिक कथाएँ भारतीय परंपरा में प्रचलित हैं।
-    अरेराज धाम में भी श्रद्धालुओं के बीच शिव आराधना, सोमेश्वरनाथ नाम और
-    स्थानीय धार्मिक परंपराओं से जुड़ी कथाएँ सुनाई जाती हैं।
-  </p>
-  <p>
-    इस पृष्ठ पर दी गई बातें धार्मिक आस्था, स्थानीय परंपरा और प्रचलित
-    कथाओं के संदर्भ में हैं। अलग-अलग परंपराओं में कथाओं का विवरण अलग
-    हो सकता है।
-  </p>
+  <div class="hero-box">
+    <span class="badge">⭐ धार्मिक कथा एवं परंपरा</span>
+    <h2>शिव से जुड़ी कथाएँ</h2>
+    <p>
+      भगवान शिव से जुड़ी अनेक धार्मिक कथाएँ भारतीय परंपरा में प्रचलित हैं।
+      अरेराज धाम में भी श्रद्धालुओं के बीच शिव आराधना, सोमेश्वरनाथ नाम और
+      स्थानीय धार्मिक परंपराओं से जुड़ी कथाएँ सुनाई जाती हैं।
+    </p>
+  </div>
 </section>
 
-<section class="card">
-  <div class="story">
+<main>
+  <div class="quote">“जहाँ श्रद्धा, वहाँ शिव” 🙏</div>
+
+  <div class="section-title">
+    <h3>🕉️ प्रमुख धार्मिक कथाएँ एवं परंपराएँ</h3>
+    <span>श्रद्धा • परंपरा • स्थानीय मान्यता</span>
+  </div>
+
+  <article class="story">
     <div class="icon">🔱</div>
     <div>
-      <h3>भगवान शिव और सोमेश्वरनाथ</h3>
-      <p>
-        स्थानीय धार्मिक परंपरा में “सोमेश्वरनाथ” नाम को भगवान शिव और
-        “सोम” अर्थात चंद्रमा से जुड़ी मान्यता के संदर्भ में समझाया जाता है।
-        श्रद्धालु इस नाम को शिव आराधना की परंपरा से जोड़कर देखते हैं।
-      </p>
+      <h4>भगवान शिव और सोमेश्वरनाथ</h4>
+      <p>स्थानीय धार्मिक परंपरा में “सोमेश्वरनाथ” नाम को भगवान शिव और “सोम” अर्थात चंद्रमा से जुड़ी मान्यता के संदर्भ में समझाया जाता है। श्रद्धालु इस नाम को शिव आराधना की परंपरा से जोड़कर देखते हैं।</p>
     </div>
-  </div>
-</section>
+  </article>
 
-<section class="card">
-  <div class="story">
+  <article class="story">
     <div class="icon">🌙</div>
     <div>
-      <h3>शिव और चंद्रमा से जुड़ी धार्मिक मान्यता</h3>
-      <p>
-        हिंदू धार्मिक परंपरा में भगवान शिव के मस्तक पर चंद्रमा धारण करने
-        का वर्णन मिलता है। इसी धार्मिक संदर्भ में “सोम” शब्द का संबंध
-        चंद्रमा से बताया जाता है। यह धार्मिक कथा-परंपरा का विषय है।
-      </p>
+      <h4>शिव और चंद्रमा से जुड़ी मान्यता</h4>
+      <p>हिंदू धार्मिक परंपरा में भगवान शिव के मस्तक पर चंद्रमा धारण करने का वर्णन मिलता है। इसी धार्मिक संदर्भ में “सोम” शब्द का संबंध चंद्रमा से बताया जाता है।</p>
     </div>
-  </div>
-</section>
+  </article>
 
-<section class="card">
-  <div class="story">
-    <div class="icon">🕉️</div>
+  <article class="story">
+    <div class="icon">💧</div>
     <div>
-      <h3>भगवान शिव की आराधना की परंपरा</h3>
-      <p>
-        शिव पूजा में जलाभिषेक, बेलपत्र अर्पण, धूप-दीप, मंत्र-जाप और
-        प्रार्थना जैसी परंपराएँ प्रचलित हैं। श्रद्धालु अपनी आस्था के
-        अनुसार भगवान शिव के समक्ष संकल्प और प्रार्थना करते हैं।
-      </p>
+      <h4>जलाभिषेक की परंपरा</h4>
+      <p>शिव पूजा में जल अर्पित करना एक प्रमुख धार्मिक परंपरा मानी जाती है। श्रद्धालु जलाभिषेक के साथ भगवान शिव के समक्ष अपनी श्रद्धा और प्रार्थना व्यक्त करते हैं।</p>
     </div>
-  </div>
-</section>
+  </article>
 
-<section class="card">
-  <div class="story">
+  <article class="story">
     <div class="icon">🌿</div>
     <div>
-      <h3>सावन और शिव भक्ति</h3>
-      <p>
-        सावन मास को भगवान शिव की आराधना से विशेष रूप से जोड़ा जाता है।
-        इस अवधि में श्रद्धालु जलाभिषेक, बेलपत्र अर्पण और शिव पूजा जैसी
-        धार्मिक परंपराओं में भाग लेते हैं।
-      </p>
+      <h4>बेलपत्र और शिव पूजा</h4>
+      <p>भगवान शिव की पूजा में बेलपत्र अर्पित करने की परंपरा है। श्रद्धालु इसे श्रद्धा के साथ अर्पित कर पूजा एवं प्रार्थना करते हैं।</p>
     </div>
-  </div>
-</section>
+  </article>
 
-<section class="card">
-  <div class="story">
+  <article class="story">
+    <div class="icon">🌧️</div>
+    <div>
+      <h4>सावन और शिव भक्ति</h4>
+      <p>सावन मास को भगवान शिव की आराधना से विशेष रूप से जोड़ा जाता है। इस अवधि में श्रद्धालु जलाभिषेक, बेलपत्र अर्पण और शिव पूजा जैसी धार्मिक परंपराओं में भाग लेते हैं।</p>
+    </div>
+  </article>
+
+  <article class="story">
     <div class="icon">🌺</div>
     <div>
-      <h3>महाशिवरात्रि की धार्मिक कथा-परंपरा</h3>
-      <p>
-        महाशिवरात्रि भगवान शिव की उपासना का प्रमुख पर्व है। इस अवसर पर
-        श्रद्धालु उपवास, पूजा, जलाभिषेक, मंत्र-जाप और रात्रि जागरण जैसी
-        धार्मिक परंपराओं का पालन करते हैं। पर्व से जुड़ी कथाएँ विभिन्न
-        धार्मिक ग्रंथों और परंपराओं में अलग-अलग रूपों में मिलती हैं।
-      </p>
+      <h4>महाशिवरात्रि की कथा-परंपरा</h4>
+      <p>महाशिवरात्रि भगवान शिव की उपासना का प्रमुख पर्व है। इस अवसर पर पूजा, जलाभिषेक, मंत्र-जाप और रात्रि-जागरण जैसी धार्मिक परंपराएँ प्रचलित हैं। अलग-अलग परंपराओं में इससे जुड़ी कथाओं का विवरण भिन्न हो सकता है।</p>
     </div>
-  </div>
-</section>
+  </article>
 
-<section class="card">
-  <div class="story">
+  <article class="story">
     <div class="icon">🙏</div>
     <div>
-      <h3>अरेराज धाम से जुड़ी स्थानीय मान्यताएँ</h3>
-      <p>
-        अरेराज धाम के संबंध में स्थानीय स्तर पर कई धार्मिक कथाएँ और
-        मान्यताएँ श्रद्धालुओं के बीच प्रचलित हैं। इनमें धाम की प्राचीनता,
-        शिव आराधना और विभिन्न धार्मिक परंपराओं से जुड़े संदर्भ शामिल हैं।
-      </p>
-      <p>
-        इन कथाओं को यहाँ स्थानीय धार्मिक परंपरा के रूप में प्रस्तुत किया
-        जा रहा है; इन्हें स्वतंत्र आधुनिक ऐतिहासिक प्रमाण के रूप में
-        प्रस्तुत नहीं किया जा रहा है।
-      </p>
+      <h4>अरेराज धाम की स्थानीय मान्यताएँ</h4>
+      <p>अरेराज धाम के संबंध में स्थानीय स्तर पर कई धार्मिक कथाएँ और मान्यताएँ श्रद्धालुओं के बीच प्रचलित हैं। इनमें धाम की प्राचीनता, शिव आराधना और विभिन्न धार्मिक परंपराओं से जुड़े संदर्भ शामिल हैं।</p>
     </div>
+  </article>
+
+  <div class="note">
+    <strong>📌 महत्वपूर्ण सूचना</strong><br>
+    इस पृष्ठ की कथाएँ और विवरण धार्मिक आस्था, लोक-परंपरा तथा प्रचलित मान्यताओं के संदर्भ में दिए गए हैं। विभिन्न स्रोतों और परंपराओं में विवरण अलग हो सकते हैं। इन्हें स्वतंत्र आधुनिक ऐतिहासिक प्रमाण या किसी निश्चित धार्मिक, आर्थिक अथवा स्वास्थ्य परिणाम की गारंटी के रूप में प्रस्तुत नहीं किया जा रहा है।
   </div>
-</section>
 
-<section class="card">
-  <div class="story">
-    <div class="icon">🌼</div>
-    <div>
-      <h3>श्रद्धा और प्रार्थना</h3>
-      <p>
-        श्रद्धालु भगवान शिव के समक्ष परिवार के मंगल, शांति और आध्यात्मिक
-        कल्याण की प्रार्थना करते हैं। ऐसी प्रार्थनाएँ व्यक्तिगत धार्मिक
-        आस्था का विषय हैं और किसी निश्चित परिणाम की गारंटी नहीं मानी
-        जानी चाहिए।
-      </p>
-    </div>
+  <div class="contact">
+    <h3 style="color:#7b2508;margin:0 0 5px">📞 अधिक जानकारी</h3>
+    <p style="margin:0">अरेराज धाम की पूजा एवं धार्मिक परंपराओं से संबंधित जानकारी के लिए संपर्क करें।</p>
+    <a class="whatsapp" href="index.html#panda-booking-demo">📅 पंडा चुनकर जानकारी लें</a>
   </div>
-</section>
-
-<div class="note">
-  <strong>📌 महत्वपूर्ण सूचना:</strong><br>
-  इस पृष्ठ की कथाएँ और विवरण धार्मिक आस्था, लोक-परंपरा तथा प्रचलित
-  मान्यताओं के संदर्भ में दिए गए हैं। विभिन्न स्रोतों और परंपराओं में
-  विवरण अलग हो सकते हैं। इन्हें स्वतंत्र ऐतिहासिक प्रमाण या किसी निश्चित
-  धार्मिक, आर्थिक अथवा स्वास्थ्य परिणाम की गारंटी के रूप में प्रस्तुत नहीं
-  किया जा रहा है।
-</div>
-
-<section class="card" style="text-align:center">
-  <h3>📞 अधिक जानकारी</h3>
-  <p>अरेराज धाम की पूजा एवं धार्मिक परंपराओं से संबंधित जानकारी के लिए संपर्क करें:</p>
-  <a class="whatsapp" href="https://wa.me/917033066081?text=%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%E0%A4%85%E0%A4%B0%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%9C%20%E0%A4%A7%E0%A4%BE%E0%A4%AE%20%E0%A4%95%E0%A5%80%20%E0%A4%A7%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%AE%E0%A4%BF%E0%A4%95%20%E0%A4%95%E0%A4%A5%E0%A4%BE%E0%A4%93%E0%A4%82%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%bf%E0%A4%8F%E0%A5%A4">💬 WhatsApp: 7033066081</a>
-</section>
 </main>
 
 <footer>
