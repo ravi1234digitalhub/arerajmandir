@@ -867,7 +867,7 @@ img,video,iframe{max-width:100%;height:auto}
 </style>
 
 
-<meta name="description" content="अरेराज धाम सोमेश्वरनाथ महादेव मंदिर की जानकारी, पूजा सेवाएं, दर्शन और दैनिक वीडियो।">
+<meta name="description" content="अरेराज धाम सोमेश्वरनाथ महादेव मंदिर की जानकारी, इतिहास, धार्मिक परंपराएँ, पूजा सेवाएँ, दर्शन और दैनिक वीडियो।">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://arerajdham.in/">
 
@@ -1181,7 +1181,7 @@ a *, button *, [role="button"] *, summary * {
   <div class="ad-brand-actions">
     <div class="ad-search">
       <input type="search" placeholder="खोजें..." aria-label="वेबसाइट खोजें">
-      <button type="button" onclick="toggleAdDrop(this,event)" onclick="adSearch()">⌕</button>
+      <button type="button" onclick="adSearch()">⌕</button>
     </div>
     <a href="index.html#panda-booking-demo" class="ad-contact-top">📅 पहले पंडा चुनें</a>
   </div>
@@ -1397,8 +1397,6 @@ setInterval(()=>{
     </button>
 </center>
 </section>
-<hr class="separator"/>
-
 <hr class="separator"/>
 <section class="history" id="history">
 <h2>
@@ -1861,76 +1859,6 @@ function sendParthivWhatsApp(){
     document.getElementById("selected-puja-dakshina").value="श्रद्धा अनुसार";
     document.getElementById("puja-form-heading").innerText="घर बैठे पार्थिव पूजा सेवा - बुकिंग फॉर्म";
     document.getElementById("reusable-puja-form-section").scrollIntoView({behavior:'smooth'});
-}
-  </script>
-<!-- AUTO ADDED WORKING PUJA FORM -->
-<section id="reusable-puja-form-section" style="display:none;background:#fff3e0;padding:20px;margin:20px;border-radius:10px;border:2px solid #c75100;">
-<h3 id="puja-form-heading" style="color:#c75100;font-weight:900;">
-    📿 पूजा बुकिंग फॉर्म
-   </h3>
-<form id="generic-puja-order-form" onsubmit="sendGenericWhatsApp(event)">
-<input id="selected-puja-name" type="hidden"/>
-<input id="selected-puja-dakshina" type="hidden"/>
-<input id="generic-user-name" placeholder="पूरा नाम" required="" style="width:100%;padding:10px;margin-top:10px;" type="text"/>
-<input id="generic-user-phone" placeholder="मोबाइल नंबर (WhatsApp)" required="" style="width:100%;padding:10px;margin-top:10px;" type="tel"/>
-<textarea id="generic-user-sankalp" placeholder="संकल्प / पूरा पता" required="" style="width:100%;padding:10px;margin-top:10px;"></textarea>
-<button style="background:#c75100;color:white;padding:10px 20px;border:none;border-radius:8px;margin-top:10px;width:100%;">
-     WhatsApp पर भेजें
-    </button>
-</form>
-<center>
-<button onclick="closePujaBookingForm()" style="margin-top:15px;background:#8a3324;color:white;padding:8px 20px;border:none;border-radius:6px;">
-     ❌ फॉर्म बंद करें
-    </button>
-</center>
-</section>
-<script>
-   function openPujaBookingForm(name, amount) {
-    const pandaSection = document.getElementById("panda-booking-demo");
-    if (pandaSection) {
-        pandaSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-}
-
-function closePujaBookingForm() {
-    document.getElementById("reusable-puja-form-section").style.display = "none";
-}
-
-function sendGenericWhatsApp(event) {
-    event.preventDefault();
-
-    let puja = document.getElementById("selected-puja-name").value;
-    let name = document.getElementById("generic-user-name").value;
-    let mobile = document.getElementById("generic-user-phone").value;
-    let sankalp = document.getElementById("generic-user-sankalp").value;
-
-    let msg =
-        "📿 पूजा बुकिंग\n\n" +
-        "🙏 पूजा : " + puja + "\n" +
-        "👤 नाम : " + name + "\n" +
-        "📱 मोबाइल : " + mobile + "\n" +
-        "📍 संकल्प / पता : " + sankalp;
-
-    let url = "https://wa.me/917033066081?text=" + encodeURIComponent(msg);
-    window.open(url, "_blank");
-}
-  </script>
-<script>
-   function scrollToForm() {
-    const formSection = document.getElementById("reusable-puja-form-section");
-    if (formSection) {
-        formSection.scrollIntoView({ behavior: "smooth" });
-    }
-}
-  </script>
-<script>
-   function forceScrollToForm() {
-    setTimeout(() => {
-        const formSection = document.getElementById("reusable-puja-form-section");
-        if (formSection) {
-            formSection.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-    }, 200);
 }
   </script>
 <footer style="text-align:center; padding:18px 12px; font-size:14px; background:#000; color:#fff;">
