@@ -867,7 +867,7 @@ img,video,iframe{max-width:100%;height:auto}
 </style>
 
 
-<meta name="description" content="अरेराज धाम सोमेश्वरनाथ महादेव मंदिर की जानकारी, इतिहास, धार्मिक परंपराएँ, पूजा सेवाएँ, दर्शन और दैनिक वीडियो।">
+<meta name="description" content="अरेराज धाम सोमेश्वरनाथ महादेव मंदिर की जानकारी, इतिहास, पूजा सेवाएँ, दर्शन और नवीनतम वीडियो।">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://arerajdham.in/">
 
@@ -878,7 +878,7 @@ img,video,iframe{max-width:100%;height:auto}
   "@type":"WebSite",
   "name":"Areraj Dham",
   "url":"https://arerajdham.in/",
-  "description":"अरेराज धाम सोमेश्वरनाथ महादेव मंदिर की जानकारी, पूजा सेवाएं, दर्शन और दैनिक वीडियो।"
+  "description":"अरेराज धाम सोमेश्वरनाथ महादेव मंदिर की जानकारी, इतिहास, पूजा सेवाएँ, दर्शन और नवीनतम वीडियो।"
 }
 </script>
 
@@ -1181,7 +1181,7 @@ a *, button *, [role="button"] *, summary * {
   <div class="ad-brand-actions">
     <div class="ad-search">
       <input type="search" placeholder="खोजें..." aria-label="वेबसाइट खोजें">
-      <button type="button" onclick="adSearch()">⌕</button>
+      <button type="button" onclick="toggleAdDrop(this,event)" onclick="adSearch()">⌕</button>
     </div>
     <a href="index.html#panda-booking-demo" class="ad-contact-top">📅 पहले पंडा चुनें</a>
   </div>
@@ -1232,8 +1232,6 @@ a *, button *, [role="button"] *, summary * {
     <button type="button" onclick="toggleAdDrop(this,event)">🎥 वीडियो <span>⌄</span> <span class="ad-drop-arrow">👈</span></button>
     <div class="ad-drop-menu">
       <a class="ad-menu-item" href="#daily-video">▶️ आज का वीडियो</a>
-      <a href="#daily-video-gallery">🎬 दैनिक वीडियो</a>
-      <a href="videos.html">📺 विशेष कार्यक्रम</a>
       <a href="https://www.youtube.com/@SomeshwarnathDhamAreraj" target="_blank" rel="noopener noreferrer">▶️ YouTube पर देखें</a>
     </div>
   </div>
@@ -1241,10 +1239,7 @@ a *, button *, [role="button"] *, summary * {
   <div class="ad-drop">
     <button type="button" onclick="toggleAdDrop(this,event)">📷 फोटो गैलरी <span>⌄</span> <span class="ad-drop-arrow">👈</span></button>
     <div class="ad-drop-menu">
-      <a class="ad-menu-item" href="gallery.html">🖼️ मंदिर फोटो</a>
-      <a href="gallery.html">📸 पूजा फोटो</a>
-      <a href="gallery.html">🌺 विशेष आयोजन</a>
-      <a href="gallery.html">👥 भक्तों की झलकियाँ</a>
+      <a class="ad-menu-item" href="gallery.html">📸 पूजा फोटो</a>
     </div>
   </div>
 
@@ -1318,7 +1313,7 @@ setInterval(()=>{
       <span class="daily-video-icon">🎥</span>
       <div>
         <h2>📅 आज का वीडियो</h2>
-        <p>Areraj Dham के नवीनतम वीडियो</p>
+        <p>अरेराज धाम के नवीनतम दर्शन एवं पूजा का वीडियो</p>
       </div>
     </div>
     <div id="dailyVideoGrid" class="daily-video-grid">
@@ -1397,6 +1392,8 @@ setInterval(()=>{
     </button>
 </center>
 </section>
+<hr class="separator"/>
+
 <hr class="separator"/>
 <section class="history" id="history">
 <h2>
@@ -1549,21 +1546,6 @@ setInterval(()=>{
   </div>
 </section>
 <div class="panda-modal" id="pandaDemoModal"><div class="panda-modal-box"><button type="button" class="panda-close" aria-label="फॉर्म बंद करें" title="बंद करें" onclick="closePandaDemo()">×</button><h3>🔱 पूजा Booking Request</h3><p id="selectedPandaDemo"></p><div class="panda-form"><label>भक्त का नाम</label><input id="pdName" placeholder="अपना नाम"><label>मोबाइल नंबर</label><input id="pdMobile" placeholder="मोबाइल नंबर" inputmode="numeric"><label>पता</label><textarea id="pdAddress" rows="2" placeholder="गाँव / शहर, जिला, राज्य"></textarea><label>पूजा</label><select id="pdPuja"><option>शिव दर्शन</option><option>पार्थिव पूजा</option><option>सतनारायण पूजा</option><option>बच्चे का मुंडन</option><option>महामृत्युंजय जाप</option><option>रुद्राभिषेक</option><option>लखराव पूजा</option><option>अष्टजाम पूजा</option><option>पगड़ी पूजा</option><option>ग्रह के अनुसार जाप</option><option>शिव तांडव स्तोत्र पाठ</option></select><label>पूजा की तारीख</label><input id="pdDate" type="date"><label>विशेष संदेश</label><textarea id="pdMsg" rows="3" placeholder="यदि कोई विशेष जानकारी हो"></textarea><button onclick="sendPandaDemo()">📱 Booking WhatsApp पर भेजें</button></div></div></div><script>let selectedPandaDemo='';let selectedPandaPhone='';function openPandaDemo(n){selectedPandaDemo=n;selectedPandaPhone=(n==='पंडा बिंदा गिरि')?'917033066081':'';document.getElementById('selectedPandaDemo').textContent='चुने गए पंडा: '+n;document.getElementById('pandaDemoModal').style.display='block'}function closePandaDemo(){document.getElementById('pandaDemoModal').style.display='none'}function sendPandaDemo(){const n=document.getElementById('pdName').value.trim(),m=document.getElementById('pdMobile').value.trim(),a=document.getElementById('pdAddress').value.trim(),p=document.getElementById('pdPuja').value,d=document.getElementById('pdDate').value,msg=document.getElementById('pdMsg').value.trim();if(!n||!m||!a||!d){alert('कृपया नाम, मोबाइल नंबर, पता और तारीख भरें।');return}if(!selectedPandaPhone){alert('इस पंडा का WhatsApp नंबर अभी उपलब्ध नहीं है।');return}const text='🔱 अरेराज धाम पूजा Booking Request%0A%0Aपंडा: '+encodeURIComponent(selectedPandaDemo)+'%0Aभक्त का नाम: '+encodeURIComponent(n)+'%0Aमोबाइल: '+encodeURIComponent(m)+'%0Aपता: '+encodeURIComponent(a)+'%0Aपूजा: '+encodeURIComponent(p)+'%0Aपूजा की तारीख: '+encodeURIComponent(d)+'%0Aविशेष संदेश: '+encodeURIComponent(msg||'कोई नहीं');window.open('https://wa.me/'+selectedPandaPhone+'?text='+text,'_blank')}</script>
-<div style="width:100%; height:2px; background:#d4a045; margin:0; padding:0;"></div><section id="daily-video-gallery" class="daily-video-gallery">
-  <div class="daily-video-container">
-    <div class="daily-video-heading">
-      <span class="daily-video-icon">🎥</span>
-      <div>
-        <h2>🎥 दैनिक वीडियो</h2>
-        <p class="daily-video-note">अरेराज धाम के प्रतिदिन के दर्शन एवं पूजा के वीडियो</p>
-      </div>
-    </div>
-    <div id="daily-video-grid" class="daily-video-grid">
-      <p class="daily-video-loading">वीडियो लोड हो रहे हैं...</p>
-    </div>
-  </div>
-</section>
-
 <script>
    // --- MAHAPRASAD FORM LOGIC ---
 
@@ -1859,6 +1841,76 @@ function sendParthivWhatsApp(){
     document.getElementById("selected-puja-dakshina").value="श्रद्धा अनुसार";
     document.getElementById("puja-form-heading").innerText="घर बैठे पार्थिव पूजा सेवा - बुकिंग फॉर्म";
     document.getElementById("reusable-puja-form-section").scrollIntoView({behavior:'smooth'});
+}
+  </script>
+<!-- AUTO ADDED WORKING PUJA FORM -->
+<section id="reusable-puja-form-section" style="display:none;background:#fff3e0;padding:20px;margin:20px;border-radius:10px;border:2px solid #c75100;">
+<h3 id="puja-form-heading" style="color:#c75100;font-weight:900;">
+    📿 पूजा बुकिंग फॉर्म
+   </h3>
+<form id="generic-puja-order-form" onsubmit="sendGenericWhatsApp(event)">
+<input id="selected-puja-name" type="hidden"/>
+<input id="selected-puja-dakshina" type="hidden"/>
+<input id="generic-user-name" placeholder="पूरा नाम" required="" style="width:100%;padding:10px;margin-top:10px;" type="text"/>
+<input id="generic-user-phone" placeholder="मोबाइल नंबर (WhatsApp)" required="" style="width:100%;padding:10px;margin-top:10px;" type="tel"/>
+<textarea id="generic-user-sankalp" placeholder="संकल्प / पूरा पता" required="" style="width:100%;padding:10px;margin-top:10px;"></textarea>
+<button style="background:#c75100;color:white;padding:10px 20px;border:none;border-radius:8px;margin-top:10px;width:100%;">
+     WhatsApp पर भेजें
+    </button>
+</form>
+<center>
+<button onclick="closePujaBookingForm()" style="margin-top:15px;background:#8a3324;color:white;padding:8px 20px;border:none;border-radius:6px;">
+     ❌ फॉर्म बंद करें
+    </button>
+</center>
+</section>
+<script>
+   function openPujaBookingForm(name, amount) {
+    const pandaSection = document.getElementById("panda-booking-demo");
+    if (pandaSection) {
+        pandaSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+}
+
+function closePujaBookingForm() {
+    document.getElementById("reusable-puja-form-section").style.display = "none";
+}
+
+function sendGenericWhatsApp(event) {
+    event.preventDefault();
+
+    let puja = document.getElementById("selected-puja-name").value;
+    let name = document.getElementById("generic-user-name").value;
+    let mobile = document.getElementById("generic-user-phone").value;
+    let sankalp = document.getElementById("generic-user-sankalp").value;
+
+    let msg =
+        "📿 पूजा बुकिंग\n\n" +
+        "🙏 पूजा : " + puja + "\n" +
+        "👤 नाम : " + name + "\n" +
+        "📱 मोबाइल : " + mobile + "\n" +
+        "📍 संकल्प / पता : " + sankalp;
+
+    let url = "https://wa.me/917033066081?text=" + encodeURIComponent(msg);
+    window.open(url, "_blank");
+}
+  </script>
+<script>
+   function scrollToForm() {
+    const formSection = document.getElementById("reusable-puja-form-section");
+    if (formSection) {
+        formSection.scrollIntoView({ behavior: "smooth" });
+    }
+}
+  </script>
+<script>
+   function forceScrollToForm() {
+    setTimeout(() => {
+        const formSection = document.getElementById("reusable-puja-form-section");
+        if (formSection) {
+            formSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }, 200);
 }
   </script>
 <footer style="text-align:center; padding:18px 12px; font-size:14px; background:#000; color:#fff;">
