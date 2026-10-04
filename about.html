@@ -1,101 +1,148 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ArerajDham.in — About Us</title>
-  <meta name="description" content="ArerajDham.in — अरेराज स्थित सोमेश्वरनाथ महादेव मंदिर से जुड़ी जानकारी, ऑनलाइन पूजा-बुकिंग और दूरस्थ भक्तों के लिए मार्गदर्शन।">
-  <style>
-    :root{--bg:#f8fafc;--card:#ffffff;--muted:#6b7280;--accent:#0f766e}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans",Arial,"Helvetica Neue",sans-serif;background:var(--bg);color:#0f172a;line-height:1.55}
-    .wrap{max-width:900px;margin:28px auto;padding:20px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,#fde68a,#fb923c);display:flex;align-items:center;justify-content:center;font-weight:700}
-    h1{font-size:1.35rem;margin:0}
-    p.lead{margin:8px 0 18px;color:var(--muted)}
-    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06);margin-bottom:16px}
-    .grid{display:grid;grid-template-columns:1fr;gap:12px}
-    @media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
-    h2{margin:0 0 8px;font-size:1.05rem}
-    ul{margin:0;padding-left:18px}
-    li{margin:8px 0;color:#0f172a}
-    .muted{color:var(--muted);font-size:0.95rem}
-    .actions{display:flex;gap:10px;flex-wrap:wrap}
-    .btn{display:inline-block;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:600}
-    .btn-primary{background:var(--accent);color:white}
-    .btn-ghost{background:transparent;border:1px solid rgba(15,23,42,0.06)}
-    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:0.95rem}
-    .small{font-size:0.95rem}
-    .contact{display:flex;flex-direction:column;gap:6px}
-    .kicker{font-size:0.86rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | ArerajDham.in</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#fffaf2;
+  color:#3d2b1f;
+  line-height:1.7;
+}
+.header{
+  background:linear-gradient(135deg,#fff3d6,#ffe8b0);
+  border-bottom:3px solid #e3a21a;
+  padding:28px 18px;
+  text-align:center;
+}
+.header h1{
+  margin:0;
+  color:#a94709;
+  font-size:clamp(28px,5vw,42px);
+}
+.header p{
+  margin:8px auto 0;
+  max-width:800px;
+  font-size:16px;
+}
+.container{
+  max-width:950px;
+  margin:35px auto;
+  padding:0 18px;
+}
+.card{
+  background:#fff;
+  border:1px solid #edb64b;
+  border-radius:18px;
+  padding:28px;
+  margin-bottom:22px;
+  box-shadow:0 5px 18px rgba(150,90,0,.08);
+}
+h2{
+  color:#b6530b;
+  margin-top:0;
+  border-bottom:2px solid #f0bd55;
+  padding-bottom:8px;
+}
+.steps{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+.step{
+  background:#fff8e9;
+  border:1px solid #f0c66c;
+  border-radius:14px;
+  padding:18px;
+}
+.step strong{color:#a94709}
+.notice{
+  background:#fff4dc;
+  border-left:5px solid #d98200;
+  border-radius:10px;
+  padding:18px;
+}
+.footer{
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:22px 15px;
+  margin-top:40px;
+}
+.footer a{color:#fff;text-decoration:underline;margin:0 7px}
+.footer small{color:#e7bd55}
+@media(max-width:650px){
+  .card{padding:20px}
+  .steps{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
-  <main class="wrap" role="main">
-    <header>
-      <div class="brand">
-        <div class="logo" aria-hidden>AD</div>
-        <div>
-          <h1>ArerajDham.in</h1>
-          <div class="muted small">सोमेश्वरनाथ महादेव मंदिर, अरेराज — जानकारी | मार्गदर्शन | ऑनलाइन पूजा</div>
-        </div>
-      </div>
-      <nav aria-label="मुख्य नेविगेशन">
-        <a href="#about" class="muted small">About</a>
-      </nav>
-    </header>
 
-    <section id="about" class="card" aria-labelledby="about-heading">
-      <h2 id="about-heading">हमारे बारे में</h2>
-      <p>ArerajDham.in उन भक्तों के लिए बनाया गया एक सरल और विश्वसनीय ऑनलाइन माध्यम है,
-जो किसी कारणवश अरेराज स्थित सोमेश्वरनाथ महादेव मंदिर तक स्वयं नहीं पहुँच पाते।
-हमारा उद्देश्य है कि दूर-दराज में रहने वाले भक्त भी
-बाबा सोमेश्वरनाथ की कृपा, आस्था और पूजा से जुड़े रह सकें।</p>
+<header class="header">
+  <h1>🔱 ArerajDham.in</h1>
+  <p>अरेराज धाम से संबंधित पूजा सेवाओं की जानकारी और पंडा/पुजारी से संपर्क की सुविधा</p>
+</header>
 
-      <p>यह वेबसाइट मंदिर से संबंधित आवश्यक, स्पष्ट और विश्वसनीय जानकारी
-एक ही स्थान पर उपलब्ध कराने का प्रयास है—
-ताकि हर भक्त अपनी श्रद्धा और भावना को सहज रूप से व्यक्त कर सके।</p>
+<main class="container">
 
-      <h3>📌 हमारा उद्देश्य</h3>
-      <ul>
-        <li>दूरस्थ भक्तों तक सही और आवश्यक जानकारी पहुँचाना</li>
-        <li>पूजा–पाठ के विवरण व प्रक्रिया को सरल भाषा में उपलब्ध कराना</li>
-        <li>मंदिर की परंपराओं और धार्मिक महत्व को सम्मानपूर्वक साझा करना</li>
-        <li>त्योहारों, आयोजनों और दर्शन समय की अद्यतन जानकारी देना</li>
-        <li>उन भक्तों की सहायता करना जो मंदिर नहीं आ पाते पर भक्ति से जुड़े रहना चाहते हैं</li>
-      </ul>
+<section class="card">
+  <h2>हमारे बारे में</h2>
+  <p>
+    <strong>ArerajDham.in</strong> एक स्वतंत्र ऑनलाइन प्लेटफॉर्म है, जिसका उद्देश्य
+    भक्तों को अरेराज धाम से संबंधित पूजा सेवाओं की जानकारी एक स्थान पर उपलब्ध कराना
+    और पूजा के लिए संबंधित <strong>पंडा/पुजारी से संपर्क करने की सुविधा</strong> प्रदान करना है।
+  </p>
+  <p>
+    इस प्लेटफॉर्म के माध्यम से भक्त उपलब्ध पूजा सेवाओं की जानकारी देख सकते हैं,
+    अपनी पसंद के पंडा/पुजारी का चयन कर सकते हैं और <strong>Booking Request</strong> भेज सकते हैं।
+  </p>
+</section>
 
-      <h3>⭐ हम क्या प्रदान करते हैं</h3>
-      <ul>
-        <li><strong>मंदिर का संक्षिप्त इतिहास एवं धार्मिक महत्व:</strong> मंदिर की परंपरा, मान्यता और आध्यात्मिक महत्व को सरल रूप में प्रस्तुत किया गया है।</li>
-        <li><strong>दैनिक एवं विशेष दर्शन समय:</strong> साधारण दिन और विशेष अवसरों के दर्शन समय की ताज़ा और स्पष्ट जानकारी।</li>
-        <li><strong>प्रमुख पूजा–पाठ की जानकारी:</strong> रुद्राभिषेक, पार्थिव पूजा, महामृत्युंजय जाप, गृह शांति आदि पूजाओं की प्रक्रिया और आवश्यक विवरण।</li>
-        <li><strong>घर बैठे ऑनलाइन पूजा एवं बुकिंग सुविधा:</strong> दूरस्थ भक्तों के लिए पूजा/अनुष्ठान की ऑनलाइन बुकिंग की जानकारी।</li>
-        <li><strong>पर्व–त्योहार एवं आयोजनों की जानकारी:</strong> सावन, महाशिवरात्रि, मंडल पूजा और विशेष पर्वों की विस्तृत अपडेट।</li>
-        <li><strong>संपर्क जानकारी और मार्गदर्शन:</strong> भक्तों के लिए आवश्यक सहायता और निर्देश।</li>
-        <li><strong>फोटो, वीडियो और आध्यात्मिक सामग्री:</strong> दूर बैठे भक्तों को भी मंदिर की भक्ति भावना से जोड़ने का माध्यम।</li>
-      </ul>
+<section class="card">
+  <h2>हमारा उद्देश्य</h2>
+  <p>
+    हमारा उद्देश्य पूजा से संबंधित आवश्यक जानकारी को भक्तों के लिए सरल और सुविधाजनक
+    तरीके से उपलब्ध कराना तथा उपलब्ध पंडा/पुजारी से संपर्क करने की प्रक्रिया को आसान बनाना है।
+  </p>
+</section>
 
-      <h3>⭐ हमारी प्रतिबद्धता</h3>
-      <ul>
-        <li><strong>सत्यता और विश्वसनीयता:</strong> जानकारी को सही और अद्यतन रखने का निरंतर प्रयास।</li>
-        <li><strong>सरल और सम्मानजनक प्रस्तुति:</strong> बिना किसी अतिशयोक्ति और प्रचार के सामग्री प्रस्तुत करना।</li>
-        <li><strong>दूरदराज के भक्तों का ध्यान:</strong> जो भक्त मंदिर नहीं आ पाते, उन्हें समान सुविधा प्रदान करना।</li>
-        <li><strong>गोपनीयता और सुरक्षा:</strong> उपयोगकर्ताओं की जानकारी का सम्मान व सुरक्षा।</li>
-        <li><strong>सभी के लिए आसान पहुँच:</strong> वेबसाइट की सामग्री सभी भक्तों को समान रूप से उपलब्ध।</li>
-      </ul>
+<section class="card">
+  <h2>Booking Process</h2>
+  <div class="steps">
+    <div class="step"><strong>1. पूजा सेवा चुनें</strong><br>अपनी आवश्यकता के अनुसार उपलब्ध पूजा सेवा की जानकारी देखें।</div>
+    <div class="step"><strong>2. पंडा/पुजारी चुनें</strong><br>उपलब्ध पंडा/पुजारी की जानकारी देखकर अपनी पसंद का चयन करें।</div>
+    <div class="step"><strong>3. Booking Request भेजें</strong><br>चयनित पंडा/पुजारी को पूजा के लिए Booking Request भेजें।</div>
+    <div class="step"><strong>4. आगे की व्यवस्था</strong><br>तारीख, समय, शुल्क तथा अन्य आवश्यक बातों की पुष्टि संबंधित पंडा/पुजारी से की जाती है।</div>
+  </div>
+</section>
 
-      <h3>📌 निष्कर्ष</h3>
-      <p>ArerajDham.in का उद्देश्य केवल जानकारी और मार्गदर्शन प्रदान करना है।
-हम चाहते हैं कि हर व्यक्ति—चाहे वह मंदिर आ सके या नहीं—
-<strong>बाबा सोमेश्वरनाथ के आशीर्वाद और भक्ति भावना से जुड़े रह सके।</strong></p>
-    </section>
+<section class="card">
+  <h2>महत्वपूर्ण जानकारी</h2>
+  <div class="notice">
+    <strong>ArerajDham.in एक स्वतंत्र ऑनलाइन प्लेटफॉर्म है।</strong><br>
+    यह मंदिर प्रशासन की आधिकारिक वेबसाइट नहीं है।
+    पूजा सेवा, उपलब्धता, शुल्क एवं Booking से संबंधित अंतिम व्यवस्था
+    संबंधित पंडा/पुजारी से संपर्क के माध्यम से होती है।
+  </div>
+</section>
 
-    <footer>
-      <div class="muted small">ArerajDham.in — सूचना एवं ऑनलाइन पूजा-बुकिंग मार्गदर्शन हेतु।</div>
-    </footer>
-  </main>
+</main>
+
+<footer class="footer">
+  <div>
+    <a href="index.html">Home</a> |
+    <a href="contact.html">Contact Us</a> |
+    <a href="privacy-policy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms &amp; Conditions</a> |
+    <a href="disclaimer.html">Disclaimer</a>
+  </div>
+  <p><small>© 2026 ArerajDham.in — All Rights Reserved</small></p>
+</footer>
+
 </body>
 </html>
