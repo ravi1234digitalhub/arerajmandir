@@ -3,29 +3,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ArerajDham.in Disclaimer - वेबसाइट की भूमिका, पूजा सेवा, Booking Request और Online Payment से संबंधित महत्वपूर्ण जानकारी।">
 <title>Disclaimer | ArerajDham.in</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:#fffaf2;color:#3d2b1f;line-height:1.7}
-.header{background:linear-gradient(135deg,#fff3d6,#ffe8b0);border-bottom:3px solid #e3a21a;padding:28px 18px;text-align:center}
-.header h1{margin:0;color:#a94709;font-size:clamp(28px,5vw,42px)}
-.header p{margin:8px auto 0;max-width:800px;font-size:16px}
-.container{max-width:950px;margin:35px auto;padding:0 18px}
-.card{background:#fff;border:1px solid #edb64b;border-radius:18px;padding:28px;margin-bottom:22px;box-shadow:0 5px 18px rgba(150,90,0,.08)}
-h2{color:#b6530b;margin-top:0;border-bottom:2px solid #f0bd55;padding-bottom:8px}
-.notice{background:#fff4dc;border-left:5px solid #d98200;border-radius:10px;padding:18px}
-ul{padding-left:24px}
-.footer{background:#111;color:#fff;text-align:center;padding:22px 15px;margin-top:40px}
-.footer a{color:#fff;text-decoration:underline;margin:0 7px}
-.footer small{color:#e7bd55}
-@media(max-width:650px){.card{padding:20px}}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#f8f5ef;
+  color:#2f2924;
+  line-height:1.75;
+}
+.header{
+  background:linear-gradient(135deg,#7f1d1d,#b45309);
+  color:#fff;
+  padding:42px 18px 38px;
+  text-align:center;
+}
+.header .icon{font-size:34px;margin-bottom:6px}
+.header h1{margin:0;font-size:clamp(30px,5vw,44px);letter-spacing:.2px}
+.header p{margin:7px auto 0;max-width:780px;font-size:16px;color:#fff7ed}
+.container{max-width:960px;margin:34px auto;padding:0 18px}
+.card{
+  background:#fff;
+  border:1px solid #e6d5b8;
+  border-radius:16px;
+  padding:28px 30px;
+  margin-bottom:20px;
+  box-shadow:0 5px 20px rgba(71,45,20,.07);
+}
+.card h2{
+  margin:0 0 15px;
+  color:#8f2d14;
+  font-size:22px;
+  border-bottom:1px solid #ecd8b8;
+  padding-bottom:9px;
+}
+.card p{margin:8px 0}
+.card ul{margin:8px 0;padding-left:23px}
+.notice{
+  background:#fff8e8;
+  border:1px solid #e7c77e;
+  border-left:5px solid #b45309;
+  border-radius:10px;
+  padding:17px 18px;
+}
+.notice strong{color:#8f2d14}
+.contact{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-top:15px;
+}
+.contact div{
+  background:#faf7f0;
+  border:1px solid #eadbc4;
+  border-radius:10px;
+  padding:14px;
+}
+.label{font-size:13px;color:#766658}
+.value{font-weight:700;color:#3d3026}
+.footer{
+  background:#211b17;
+  color:#eee;
+  text-align:center;
+  padding:25px 15px;
+  margin-top:40px;
+}
+.footer a{color:#f8d48c;text-decoration:none;margin:0 7px}
+.footer a:hover{text-decoration:underline}
+.footer small{color:#cfc5bc}
+@media(max-width:650px){
+  .header{padding:34px 16px}
+  .card{padding:22px 19px}
+  .contact{grid-template-columns:1fr}
+  .footer a{display:inline-block;margin:4px 5px}
+}
 </style>
 </head>
 <body>
 
 <header class="header">
-  <h1>📢 Disclaimer</h1>
-  <p>ArerajDham.in के संबंध में महत्वपूर्ण जानकारी</p>
+  <div class="icon">📜</div>
+  <h1>Disclaimer</h1>
+  <p>ArerajDham.in के संबंध में महत्वपूर्ण जानकारी और अस्वीकरण</p>
 </header>
 
 <main class="container">
@@ -67,7 +129,7 @@ ul{padding-left:24px}
 </section>
 
 <section class="card">
-  <h2>जानकारी की शुद्धता</h2>
+  <h2>जानकारी की शुद्धता और उपलब्धता</h2>
   <p>
     वेबसाइट पर उपलब्ध जानकारी को उपयोगी और सही रखने का प्रयास किया जाता है। फिर भी
     पूजा सेवाओं, पंडा/पुजारी की उपलब्धता, शुल्क, समय या अन्य विवरण में समय के साथ
@@ -94,22 +156,27 @@ ul{padding-left:24px}
 
 <section class="card">
   <h2>संपर्क</h2>
-  <p>
-    <strong>वेबसाइट संचालक</strong><br>
-    📞 मोबाइल/WhatsApp: 7250580787<br>
-    📧 Email: arerajdham108@gmail.com
-  </p>
+  <div class="contact">
+    <div>
+      <div class="label">संपर्क</div>
+      <div class="value">वेबसाइट संचालक</div>
+    </div>
+    <div>
+      <div class="label">मोबाइल / WhatsApp</div>
+      <div class="value">7250580787</div>
+    </div>
+    <div>
+      <div class="label">Email</div>
+      <div class="value">arerajdham108@gmail.com</div>
+    </div>
+  </div>
 </section>
 
 </main>
 
 <footer class="footer">
-  <div>
-    <a href="index.html">Home</a> |
-    <a href="about-us.html">About Us</a> |
-    <a href="contact.html">Contact Us</a> |
-    <a href="privacy-policy.html">Privacy Policy</a> |
-    <a href="terms.html">Terms &amp; Conditions</a>
+  <div style="text-align:center;">
+    <a href="index.html" style="display:inline-block;background:#f4a300;color:#fff;text-decoration:none;padding:12px 32px;border-radius:10px;font-weight:700;box-shadow:0 4px 10px rgba(0,0,0,.18);">🏠 Home</a>
   </div>
   <p><small>© 2026 ArerajDham.in — All Rights Reserved</small></p>
 </footer>
