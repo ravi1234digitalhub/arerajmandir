@@ -1400,31 +1400,202 @@ setInterval(()=>{
 <hr class="separator"/>
 
 <hr class="separator"/>
-<section class="history" id="history">
-<h2>
-    📜 पौराणिक एवं ऐतिहासिक महत्व
-   </h2>
-<p>
-    **सोमेश्वरनाथ महादेव मंदिर** बिहार के पूर्वी चंपारण ज़िले में स्थित एक अति प्राचीन एवं जागृत शिव तीर्थ है।
-   </p>
-<h3>
-    🕉️ प्रभु श्री राम का संबंध
-   </h3>
-<p>
-    मान्यता है कि **त्रेता युग में भगवान श्री राम** ने माता सीता के साथ विवाह के पश्चात जनकपुर से अयोध्या लौटते समय यहाँ शिवलिंग की स्थापना कर पूजा की थी। इसी कारण यह स्थान अत्यंत पवित्र और सिद्ध माना जाता है।
-   </p>
-<h3>
-    🌕 नामकरण और महत्ता
-   </h3>
-<p>
-    इस मंदिर की स्थापना **चंद्रमा (सोम)** ने की थी, इसलिए इसे **सोमेश्वरनाथ** कहा जाता है। यहाँ स्थापित शिवलिंग को **स्वयंभू (स्वयं प्रकट)** माना जाता है, जिससे इसकी दिव्यता और बढ़ जाती है। यह मंदिर **मनोकामना महादेव** के नाम से भी प्रसिद्ध है।
-   </p>
-<h3 style="color: #000000; font-weight: 700;">
-    🔔 धार्मिक परंपराएँ
-   </h3>
-<p style="font-size: 18px; color: #ff6600; font-weight: 700; margin-top: 15px; line-height: 1.6;">
-    **श्रावण मास** में यहाँ लाखों श्रद्धालु जलाभिषेक करते हैं। विवाह के बाद नवविवाहित जोड़े सुखमय दांपत्य जीवन के लिए यहाँ माथा टेकने आते हैं। मुंडन संस्कार और रुद्राभिषेक भी यहाँ धार्मिक मान्यता के अनुसार विशेष रूप से फलदायी माने जाते हैं।
-   </p>
+<style>
+.areraj-history-section{
+  margin:32px auto;
+  max-width:1180px;
+  padding:28px 22px 30px;
+  background:linear-gradient(135deg,#fffaf1 0%,#fff4df 52%,#fffaf3 100%);
+  border:1px solid #f2c36b;
+  border-radius:22px;
+  box-shadow:0 8px 28px rgba(133,76,20,.12);
+  color:#3d2a1c;
+}
+.areraj-history-title{
+  text-align:center;
+  color:#a63d08;
+  font-size:30px;
+  margin:0 0 20px;
+  padding:0 0 14px;
+  border-bottom:2px solid #e9a42d;
+}
+.areraj-history-intro{
+  background:rgba(255,255,255,.7);
+  border:1px solid #f3d39a;
+  border-radius:16px;
+  padding:18px 20px;
+  font-size:18px;
+  line-height:1.85;
+  margin-bottom:18px;
+}
+.areraj-history-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+}
+.areraj-history-card{
+  background:#fffdf8;
+  border:1px solid #f0c878;
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 4px 14px rgba(120,65,15,.08);
+}
+.areraj-history-card h3{
+  margin:0 0 10px;
+  text-align:center;
+  color:#b94e0b;
+  font-size:21px;
+}
+.areraj-history-card p{
+  margin:0;
+  font-size:17px;
+  line-height:1.8;
+}
+.areraj-belief{
+  margin-top:18px;
+  padding:20px;
+  border-radius:17px;
+  background:linear-gradient(90deg,#fff7e5,#fffdf7,#fff7e5);
+  border:1px solid #edbd58;
+  text-align:center;
+}
+.areraj-belief h3{
+  margin:0 0 10px;
+  color:#9f3a06;
+  font-size:24px;
+}
+.areraj-belief p{
+  margin:0;
+  font-size:18px;
+  line-height:1.85;
+}
+.areraj-history-highlights{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:12px;
+  margin-top:18px;
+}
+.areraj-highlight{
+  background:#fffdf8;
+  border:1px solid #f1cb82;
+  border-radius:14px;
+  padding:15px 10px;
+  text-align:center;
+}
+.areraj-highlight .icon{
+  font-size:27px;
+  display:block;
+  margin-bottom:7px;
+}
+.areraj-highlight strong{
+  display:block;
+  color:#a63d08;
+  font-size:16px;
+  margin-bottom:5px;
+}
+.areraj-highlight span{
+  font-size:14px;
+  line-height:1.5;
+}
+@media(max-width:800px){
+  .areraj-history-grid{grid-template-columns:1fr}
+  .areraj-history-highlights{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:520px){
+  .areraj-history-section{padding:20px 12px;border-radius:16px}
+  .areraj-history-title{font-size:24px}
+  .areraj-history-intro,.areraj-history-card p,.areraj-belief p{font-size:16px}
+  .areraj-history-card h3{font-size:19px}
+  .areraj-history-highlights{grid-template-columns:1fr}
+}
+</style>
+
+<section class="areraj-history-section" id="history">
+  <h2 class="areraj-history-title">📜 पौराणिक एवं ऐतिहासिक महत्व</h2>
+
+  <div class="areraj-history-intro">
+    <strong>🔱 सोमेश्वरनाथ महादेव मंदिर</strong> बिहार के पूर्वी चंपारण जिले में स्थित एक प्राचीन एवं
+    प्रसिद्ध शिव तीर्थ है। यह स्थान धार्मिक आस्था, स्थानीय परंपराओं और सांस्कृतिक विरासत के कारण
+    श्रद्धालुओं के लिए विशेष महत्व रखता है। सदियों से भक्त यहाँ भगवान शिव के दर्शन, पूजा-अर्चना
+    और विभिन्न धार्मिक संस्कारों के लिए आते रहे हैं।
+  </div>
+
+  <div class="areraj-history-grid">
+    <div class="areraj-history-card">
+      <h3>🕉️ प्रभु श्री राम का संबंध</h3>
+      <p>
+        धार्मिक मान्यता के अनुसार <strong>त्रेता युग में भगवान श्री राम</strong> माता सीता के साथ
+        विवाह के पश्चात जनकपुर से अयोध्या लौटते समय इस क्षेत्र से गुजरे थे। मान्यता है कि उन्होंने
+        यहाँ भगवान शिव की पूजा-अर्चना की थी। इसी परंपरा के कारण यह स्थान भक्तों के बीच अत्यंत
+        पवित्र और श्रद्धा का केंद्र माना जाता है।
+      </p>
+    </div>
+
+    <div class="areraj-history-card">
+      <h3>🌕 नामकरण और महत्ता</h3>
+      <p>
+        धार्मिक परंपरा में इस मंदिर का संबंध <strong>चंद्रमा (सोम)</strong> की शिव-आराधना से जोड़ा
+        जाता है, जिसके कारण इसे <strong>सोमेश्वरनाथ</strong> कहा जाता है। यहाँ स्थापित शिवलिंग को
+        धार्मिक मान्यता के अनुसार <strong>स्वयंभू</strong> माना जाता है। इसी आस्था के कारण यह
+        स्थान <strong>मनोकामना महादेव</strong> के नाम से भी प्रसिद्ध है।
+      </p>
+    </div>
+
+    <div class="areraj-history-card">
+      <h3>🔔 धार्मिक परंपराएँ</h3>
+      <p>
+        <strong>श्रावण मास</strong> में बड़ी संख्या में श्रद्धालु जलाभिषेक एवं भगवान शिव की पूजा
+        करते हैं। विवाह के बाद नवविवाहित जोड़े, मुंडन संस्कार कराने वाले परिवार तथा रुद्राभिषेक
+        जैसे धार्मिक अनुष्ठान करने वाले भक्त भी अपनी आस्था के अनुसार यहाँ आते हैं।
+      </p>
+    </div>
+
+    <div class="areraj-history-card">
+      <h3>🌺 आस्था और सांस्कृतिक विरासत</h3>
+      <p>
+        सोमेश्वरनाथ महादेव धाम केवल पूजा-अर्चना का स्थान ही नहीं, बल्कि क्षेत्र की धार्मिक और
+        सांस्कृतिक परंपराओं से जुड़ा एक महत्वपूर्ण तीर्थ स्थल है। यहाँ आने वाले श्रद्धालु दर्शन,
+        प्रार्थना और अपनी पारिवारिक धार्मिक परंपराओं के अनुसार विभिन्न अनुष्ठान करते हैं।
+      </p>
+    </div>
+  </div>
+
+  <div class="areraj-belief">
+    <h3>🔱 श्रद्धालुओं के लिए धार्मिक महत्व</h3>
+    <p>
+      भक्त यहाँ भगवान शिव के दर्शन कर <strong>मनोकामना, सुख-शांति, पारिवारिक मंगल और आध्यात्मिक
+      आस्था</strong> के लिए प्रार्थना करते हैं। विभिन्न धार्मिक अवसरों पर पूजा-पाठ और संस्कारों
+      की परंपरा इस धाम की धार्मिक पहचान को और विशेष बनाती है।
+    </p>
+  </div>
+
+  <div class="areraj-history-highlights">
+    <div class="areraj-highlight">
+      <span class="icon">🛕</span>
+      <strong>आस्था का केंद्र</strong>
+      <span>सदियों से भक्तों की श्रद्धा से जुड़ा तीर्थ</span>
+    </div>
+    <div class="areraj-highlight">
+      <span class="icon">🙏</span>
+      <strong>मनोकामना</strong>
+      <span>धार्मिक मान्यता के अनुसार प्रार्थना और पूजा</span>
+    </div>
+    <div class="areraj-highlight">
+      <span class="icon">🏛️</span>
+      <strong>सांस्कृतिक धरोहर</strong>
+      <span>धर्म, परंपरा और स्थानीय संस्कृति का संगम</span>
+    </div>
+    <div class="areraj-highlight">
+      <span class="icon">👨‍👩‍👧</span>
+      <strong>विशेष अवसर</strong>
+      <span>विवाह, मुंडन और अन्य धार्मिक संस्कार</span>
+    </div>
+    <div class="areraj-highlight">
+      <span class="icon">🌿</span>
+      <strong>श्रावण महिमा</strong>
+      <span>श्रावण में विशेष पूजा और जलाभिषेक की परंपरा</span>
+    </div>
+  </div>
 </section>
 <hr class="separator"/>
 <section id="parthiv-puja-booking" style="background: linear-gradient(135deg, #f5f3ff, #e0f7fa); padding: 30px; text-align: center; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); margin-top: 40px;">
@@ -1459,20 +1630,89 @@ setInterval(()=>{
 <hr class="separator"/>
 
 <hr class="separator"/>
-<section class="joti">
-<h2>
-    🛕 श्री सोमेश्वरनाथ महादेव धाम, अरेराज (बिहार)
-   </h2>
-<p>
-    बिहार के पूर्वी चंपारण ज़िले में स्थित सोमेश्वरनाथ महादेव मंदिर, प्राचीनतम शिव तीर्थों में से एक है।
-        मान्यता है कि त्रेता युग में भगवान श्रीराम ने यहाँ स्वयं शिवलिंग की स्थापना की थी।
-        सावन मास में लाखों श्रद्धालु जलाभिषेक करने आते हैं।
-   </p>
-<p>
-    यहाँ रुद्राभिषेक, महामृत्युंजय जाप, विवाह पूजन, नागपंचमी विशेष पूजा, और श्रृंगार सेवा अत्यंत फलदायी मानी जाती है।
-        भक्त ऑनलाइन बुकिंग के माध्यम से भी पूजा करा सकते हैं।
-   </p>
-
+<section class="joti" id="dham-parichay">
+<style>
+#dham-parichay{
+  background:linear-gradient(135deg,#fffaf0,#fff3d6,#fffaf0);
+  border:2px solid #d79a28;
+  border-radius:22px;
+  padding:28px 22px;
+  margin:28px auto;
+  max-width:1050px;
+  box-shadow:0 8px 24px rgba(120,70,0,.12);
+}
+#dham-parichay h2{
+  color:#8b3d00;
+  border:0;
+  margin:0 0 18px;
+  font-size:28px;
+  text-align:center;
+}
+.dham-intro{
+  background:#fff;
+  border-left:5px solid #d79a28;
+  border-radius:14px;
+  padding:18px;
+  line-height:1.9;
+  color:#4a3828;
+  text-align:justify;
+}
+.dham-points{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:18px;
+}
+.dham-point{
+  background:#fff;
+  border:1px solid #ecd39b;
+  border-radius:15px;
+  padding:16px;
+  text-align:center;
+  box-shadow:0 4px 12px rgba(100,60,0,.07);
+}
+.dham-point h3{margin:4px 0 8px;color:#9a4b08;font-size:18px}
+.dham-point p{margin:0;color:#5d5147;line-height:1.7;font-size:15px}
+.dham-note{
+  margin-top:18px;
+  padding:14px 16px;
+  background:#fff4dc;
+  border:1px dashed #c98a22;
+  border-radius:12px;
+  color:#5a3a16;
+  line-height:1.7;
+  text-align:center;
+}
+@media(max-width:700px){
+  #dham-parichay{padding:22px 14px}
+  #dham-parichay h2{font-size:22px}
+  .dham-points{grid-template-columns:1fr}
+  .dham-intro{text-align:left}
+}
+</style>
+<h2>🛕 श्री सोमेश्वरनाथ महादेव धाम, अरेराज (बिहार)</h2>
+<div class="dham-intro">
+  <strong>अरेराज धाम</strong> श्रद्धालुओं के लिए दर्शन, पूजा-अर्चना और धार्मिक आस्था से जुड़ा महत्वपूर्ण स्थल है। 
+  यहाँ आने वाले भक्त भगवान सोमेश्वरनाथ महादेव के दर्शन कर अपनी श्रद्धा अर्पित करते हैं। 
+  धाम का वातावरण धार्मिक परंपराओं, भक्ति और शिव आराधना से जुड़ी अनुभूति प्रदान करता है।
+</div>
+<div class="dham-points">
+  <div class="dham-point">
+    <h3>🔱 शिव आराधना</h3>
+    <p>भक्त यहाँ भगवान शिव के दर्शन एवं पूजा-अर्चना के लिए आते हैं और अपनी श्रद्धा अर्पित करते हैं।</p>
+  </div>
+  <div class="dham-point">
+    <h3>🌿 धार्मिक अवसर</h3>
+    <p>सावन सहित विभिन्न धार्मिक अवसरों पर धाम में श्रद्धालुओं की विशेष आस्था और सहभागिता देखने को मिलती है।</p>
+  </div>
+  <div class="dham-point">
+    <h3>🙏 पूजा एवं सेवा</h3>
+    <p>पूजा से संबंधित जानकारी तथा उपलब्ध सेवा के लिए भक्त वेबसाइट पर संबंधित पंडा/पुजारी से संपर्क कर सकते हैं।</p>
+  </div>
+</div>
+<div class="dham-note">
+  📌 <strong>महत्वपूर्ण जानकारी:</strong> पूजा सेवा, उपलब्धता, शुल्क एवं booking से संबंधित अंतिम व्यवस्था संबंधित पंडा/पुजारी से संपर्क के माध्यम से तय होती है।
+</div>
 </section>
 
 
@@ -2169,7 +2409,7 @@ function sendGenericWhatsApp(event) {
   <div style="line-height:2;">
     <a href="about.html" style="color:#fff; margin:0 7px;">About Us</a> |
     <a href="contact.html" style="color:#fff; margin:0 7px;">Contact Us</a> |
-    <a href="privacy-policy.html" style="color:#fff; margin:0 7px;">Privacy Policy</a> |
+    <a href="privacy.html" style="color:#fff; margin:0 7px;">Privacy Policy</a> |
     <a href="terms.html" style="color:#fff; margin:0 7px;">Terms &amp; Conditions</a> |
     <a href="disclaimer.html" style="color:#fff; margin:0 7px;">Disclaimer</a>
   </div>
