@@ -2464,12 +2464,20 @@ loadGithubDailyVideos();
       'privacy':'गोपनीयता','privacy policy':'प्राइवेसी पॉलिसी',
       'online puja':'ऑनलाइन पूजा','online worship':'ऑनलाइन पूजा',
       'home service':'घर बैठे सेवा','home puja':'घर बैठे पूजा',
-      'puja and services':'पूजा एवं सेवा','puja services':'पूजा सेवाएँ',
-      'all puja list':'सभी पूजा की सूची','special puja':'विशेष पूजा',
-      'rudrabhishek':'रुद्राभिषेक','mahamrityunjaya':'महामृत्युंजय',
+      'puja and services':'पूजा एवं सेवा','puja services':'पूजा सेवाएँ','services':'सेवा',
+      'all puja list':'सभी पूजा की सूची','all puja':'सभी पूजा की सूची','puja list':'पूजा सूची',
+      'special puja':'विशेष पूजा','rudrabhishek':'रुद्राभिषेक','rudra abhishek':'रुद्राभिषेक',
+      'mahamrityunjaya':'महामृत्युंजय','maha mrityunjaya':'महामृत्युंजय',
       'parthiv puja':'पार्थिव पूजा','parthiv shiv puja':'पार्थिव शिव पूजा',
       'someshwar chalisa':'सोमेश्वर चालीसा','religious importance':'धार्मिक महत्व',
-      'festivals and events':'प्रमुख पर्व एवं आयोजन','about us':'हमारे बारे में'
+      'festivals and events':'प्रमुख पर्व एवं आयोजन','festival and events':'प्रमुख पर्व एवं आयोजन',
+      'how to reach':'कैसे पहुँचें','directions':'कैसे पहुँचें','photo gallery':'फोटो गैलरी',
+      'home service':'घर बैठे सेवा','home puja service':'घर बैठे पूजा सेवा',
+      'online puja booking':'ऑनलाइन पूजा बुकिंग','puja booking':'पूजा बुकिंग',
+      'panda booking':'पंडा बुकिंग','contact information':'संपर्क जानकारी',
+      'about us':'हमारे बारे में','privacy policy':'प्राइवेसी पॉलिसी',
+      'temple history':'अरेराज धाम का इतिहास','history of temple':'अरेराज धाम का इतिहास',
+      'someshwarnath mahadev':'सोमेश्वरनाथ महादेव','today video':'आज का वीडियो'
     };
     // Also translate individual English/Roman-Hindi words so phrases such as
     // "Puja and Services" can find Hindi headings like "पूजा एवं सेवा".
@@ -2487,7 +2495,8 @@ loadGithubDailyVideos();
     };
     const wordTranslated=raw.split(/\s+/).map(function(word){return wordAliases[word] || word;}).join(' ');
     const q=aliases[raw] || wordTranslated;
-    const terms=Array.from(new Set([raw,q,aliases[raw]].filter(Boolean)));
+    const translatedParts=raw.split(/\s+/).map(function(word){return wordAliases[word] || word;});
+    const terms=Array.from(new Set([raw,q,aliases[raw],...translatedParts].filter(Boolean)));
     const skip='script,style,noscript,nav,header,footer,.ad-search,button,input,textarea,select,option';
     const all=Array.from(document.querySelectorAll('h1,h2,h3,h4,h5,h6,p,li,td,th,a,summary,section,article,div'));
     const matches=all.filter(function(el){
