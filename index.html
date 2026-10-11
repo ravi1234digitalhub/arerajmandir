@@ -2566,6 +2566,47 @@ loadGithubDailyVideos();
 })();
 </script>
 
+
+<style id="hero-cls-stability-fix">
+/* Reserve one stable box; slide images never affect document flow. */
+.hero-slider{
+  position:relative!important;
+  display:block!important;
+  width:100%!important;
+  height:clamp(260px, 42vw, 520px)!important;
+  min-height:260px!important;
+  overflow:hidden!important;
+  contain:layout paint;
+}
+.hero-slider .hero-bg{
+  position:absolute!important;
+  inset:0!important;
+}
+.hero-slider img.hero-slide{
+  position:absolute!important;
+  inset:0!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:100%!important;
+  margin:0!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  opacity:0!important;
+  visibility:hidden!important;
+}
+.hero-slider img.hero-slide.active{
+  opacity:1!important;
+  visibility:visible!important;
+}
+@media(max-width:768px){
+  .hero-slider{
+    height:clamp(250px, 78vw, 380px)!important;
+    min-height:250px!important;
+  }
+}
+</style>
+
 </body>
 
 <style id="panda-photo-stable-css">
