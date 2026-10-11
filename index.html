@@ -3,23 +3,29 @@
 <html lang="hi">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1KW9B7M298">
-
-const bg=document.querySelector('.hero-bg');
-function updateBg(){
- const a=document.querySelector('.hero-slide.active');
- if(a) bg.style.backgroundImage='url('+a.src+')';
-}
-updateBg();
-setInterval(updateBg,500);
-</script>
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1KW9B7M298"></script>
 <script>
-   window.dataLayer = window.dataLayer || [];
+  window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-1KW9B7M298');
-  </script>
+</script>
+<script>
+  // Keep the blurred hero background in sync with the active slide.
+  document.addEventListener('DOMContentLoaded', function () {
+    function updateHeroBackground() {
+      const bg = document.querySelector('.hero-bg');
+      const activeSlide = document.querySelector('.hero-slide.active');
+      if (bg && activeSlide && activeSlide.src) {
+        bg.style.backgroundImage = 'url("' + activeSlide.src + '")';
+      }
+    }
+    updateHeroBackground();
+    window.setInterval(updateHeroBackground, 1000);
+  });
+</script>
+
+
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>
@@ -2335,58 +2341,7 @@ function sendParthivWhatsApp(){
     document.getElementById("reusable-puja-form-section").scrollIntoView({behavior:'smooth'});
 }
   </script>
-<!-- AUTO ADDED WORKING PUJA FORM -->
-<section id="reusable-puja-form-section" style="display:none;background:#fff3e0;padding:20px;margin:20px;border-radius:10px;border:2px solid #c75100;">
-<h3 id="puja-form-heading" style="color:#c75100;font-weight:900;">
-    📿 पूजा बुकिंग फॉर्म
-   </h3>
-<form id="generic-puja-order-form" onsubmit="sendGenericWhatsApp(event)">
-<input id="selected-puja-name" type="hidden"/>
-<input id="selected-puja-dakshina" type="hidden"/>
-<input id="generic-user-name" placeholder="पूरा नाम" required="" style="width:100%;padding:10px;margin-top:10px;" type="text"/>
-<input id="generic-user-phone" placeholder="मोबाइल नंबर (WhatsApp)" required="" style="width:100%;padding:10px;margin-top:10px;" type="tel"/>
-<textarea id="generic-user-sankalp" placeholder="संकल्प / पूरा पता" required="" style="width:100%;padding:10px;margin-top:10px;"></textarea>
-<button style="background:#c75100;color:white;padding:10px 20px;border:none;border-radius:8px;margin-top:10px;width:100%;">
-     WhatsApp पर भेजें
-    </button>
-</form>
-<center>
-<button onclick="closePujaBookingForm()" style="margin-top:15px;background:#8a3324;color:white;padding:8px 20px;border:none;border-radius:6px;">
-     ❌ फॉर्म बंद करें
-    </button>
-</center>
-</section>
-<script>
-   function openPujaBookingForm(name, amount) {
-    const pandaSection = document.getElementById("panda-booking-demo");
-    if (pandaSection) {
-        pandaSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-}
 
-function closePujaBookingForm() {
-    document.getElementById("reusable-puja-form-section").style.display = "none";
-}
-
-function sendGenericWhatsApp(event) {
-    event.preventDefault();
-
-    let puja = document.getElementById("selected-puja-name").value;
-    let name = document.getElementById("generic-user-name").value;
-    let mobile = document.getElementById("generic-user-phone").value;
-    let sankalp = document.getElementById("generic-user-sankalp").value;
-
-    let msg =
-        "📿 पूजा बुकिंग\n\n" +
-        "🙏 पूजा : " + puja + "\n" +
-        "👤 नाम : " + name + "\n" +
-        "📱 मोबाइल : " + mobile + "\n" +
-        "📍 संकल्प / पता : " + sankalp;
-
-    let url = "https://wa.me/917033066081?text=" + encodeURIComponent(msg);
-    window.open(url, "_blank");
-}
-  </script>
 <script>
    function scrollToForm() {
     const formSection = document.getElementById("reusable-puja-form-section");
