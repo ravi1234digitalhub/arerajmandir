@@ -2441,30 +2441,68 @@ loadGithubDailyVideos();
     const style=window.getComputedStyle(el);
     return style.display!=='none' && style.visibility!=='hidden' && style.opacity!=='0';
   }
+  var adSearchMatches=[];
+  var adSearchIndex=0;
   window.adSearch=function(){
     const input=getSearchInput();
-    const q=((input && input.value) || '').trim().toLocaleLowerCase('hi');
-    if(!q){ alert('कृपया खोजने के लिए शब्द लिखें।'); if(input) input.focus(); return; }
+    const raw=((input && input.value) || '').trim().toLocaleLowerCase('hi');
+    if(!raw){ alert('कृपया खोजने के लिए शब्द लिखें।'); if(input) input.focus(); return; }
 
+    // Common English/Roman-Hindi search words used on this Hindi website.
+    const aliases={
+      'puja':'पूजा','pooja':'पूजा','shiv':'शिव','mahadev':'महादेव',
+      'mandir':'मंदिर','temple':'मंदिर','history':'इतिहास','contact':'संपर्क',
+      'booking':'बुकिंग','book':'बुकिंग','dakshina':'दक्षिणा','prasad':'प्रसाद',
+      'video':'वीडियो','videos':'वीडियो','photo':'फोटो','photos':'फोटो','gallery':'गैलरी',
+      'how to reach':'कैसे पहुँचें','someshwar':'सोमेश्वरनाथ','someshwarnath':'सोमेश्वरनाथ',
+      'panda':'पंडा','panda booking':'पंडा','faq':'प्रश्न','privacy':'गोपनीयता',
+      'online puja':'ऑनलाइन पूजा','home service':'घर बैठे सेवा'
+    };
+    const q=aliases[raw] || raw;
+    const terms=Array.from(new Set([raw,q].filter(Boolean)));
     const skip='script,style,noscript,nav,header,footer,.ad-search,button,input,textarea,select,option';
-    const candidates=Array.from(document.querySelectorAll('h1,h2,h3,h4,h5,h6,p,li,td,th,a,summary,section,article,div'))
-      .filter(el=>!el.matches(skip) && isVisible(el) && (el.textContent||'').trim().length>0)
-      .filter(el=>!(el.parentElement && el.parentElement.closest(skip)))
-      .filter(el=>(el.textContent||'').toLocaleLowerCase('hi').includes(q));
+    const all=Array.from(document.querySelectorAll('h1,h2,h3,h4,h5,h6,p,li,td,th,a,summary,section,article,div'));
+    const matches=all.filter(function(el){
+      if(el.matches(skip) || !isVisible(el) || !(el.textContent||'').trim()) return false;
+      if(el.closest(skip)) return false;
+      // Exclude large wrapper elements when a smaller matching content element exists.
+      const text=(el.textContent||'').toLocaleLowerCase('hi');
+      if(!terms.some(function(term){ return text.includes(term); })) return false;
+      return !Array.from(el.children).some(function(child){
+        return isVisible(child) && terms.some(function(term){ return (child.textContent||'').toLocaleLowerCase('hi').includes(term); });
+      });
+    });
 
-    // Prefer the smallest visible matching content block, avoiding a whole-page container.
-    candidates.sort((a,b)=>(a.textContent||'').trim().length-(b.textContent||'').trim().length);
-    const found=candidates[0];
-    if(found){
-      found.scrollIntoView({behavior:'smooth',block:'center'});
-      const oldOutline=found.style.outline;
-      const oldOffset=found.style.outlineOffset;
-      found.style.outline='2px solid #f4a300';
-      found.style.outlineOffset='4px';
-      window.setTimeout(function(){ found.style.outline=oldOutline; found.style.outlineOffset=oldOffset; },1800);
-    }else{
-      alert('“'+q+'” इस पेज पर नहीं मिला। दूसरा शब्द लिखकर खोजें।');
+    // De-duplicate nested matches and prioritize meaningful content blocks.
+    adSearchMatches=matches.filter(function(el,idx){
+      return !matches.some(function(other,j){
+        return j!==idx && other.contains(el) && (other.textContent||'').trim().length < (el.textContent||'').trim().length;
+      });
+    }).sort(function(a,b){
+      const ay=a.getBoundingClientRect().top + window.scrollY;
+      const by=b.getBoundingClientRect().top + window.scrollY;
+      return ay-by;
+    });
+
+    if(!adSearchMatches.length){
+      alert('“'+raw+'” इस पेज के किसी दिखाई देने वाले सेक्शन में नहीं मिला। दूसरा शब्द लिखकर खोजें।');
       if(input){input.focus();input.select();}
+      return;
+    }
+    // Repeated searches for the same phrase move through every matching section.
+    if(window._adLastSearchQuery===raw){ adSearchIndex=(adSearchIndex+1)%adSearchMatches.length; }
+    else { adSearchIndex=0; window._adLastSearchQuery=raw; }
+    const found=adSearchMatches[adSearchIndex];
+    found.scrollIntoView({behavior:'smooth',block:'center'});
+    const oldOutline=found.style.outline;
+    const oldOffset=found.style.outlineOffset;
+    found.style.outline='3px solid #f4a300';
+    found.style.outlineOffset='4px';
+    window.setTimeout(function(){ found.style.outline=oldOutline; found.style.outlineOffset=oldOffset; },2200);
+    if(adSearchMatches.length>1){
+      // Briefly report how many sections match, without changing the page layout.
+      const status=document.getElementById('ad-search-status');
+      if(status) status.textContent='परिणाम '+(adSearchIndex+1)+' / '+adSearchMatches.length;
     }
   };
   document.addEventListener('DOMContentLoaded',function(){
