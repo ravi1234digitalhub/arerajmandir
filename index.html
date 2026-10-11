@@ -2450,16 +2450,44 @@ loadGithubDailyVideos();
 
     // Common English/Roman-Hindi search words used on this Hindi website.
     const aliases={
-      'puja':'पूजा','pooja':'पूजा','shiv':'शिव','mahadev':'महादेव',
-      'mandir':'मंदिर','temple':'मंदिर','history':'इतिहास','contact':'संपर्क',
-      'booking':'बुकिंग','book':'बुकिंग','dakshina':'दक्षिणा','prasad':'प्रसाद',
-      'video':'वीडियो','videos':'वीडियो','photo':'फोटो','photos':'फोटो','gallery':'गैलरी',
-      'how to reach':'कैसे पहुँचें','someshwar':'सोमेश्वरनाथ','someshwarnath':'सोमेश्वरनाथ',
-      'panda':'पंडा','panda booking':'पंडा','faq':'प्रश्न','privacy':'गोपनीयता',
-      'online puja':'ऑनलाइन पूजा','home service':'घर बैठे सेवा'
+      'puja':'पूजा','pooja':'पूजा','worship':'पूजा','prayer':'पूजा',
+      'shiv':'शिव','shiva':'शिव','mahadev':'महादेव','lord shiva':'महादेव',
+      'mandir':'मंदिर','temple':'मंदिर','history':'इतिहास','temple history':'मंदिर का इतिहास',
+      'contact':'संपर्क','contact us':'संपर्क','booking':'बुकिंग','book':'बुकिंग',
+      'dakshina':'दक्षिणा','donation':'दक्षिणा','prasad':'प्रसाद','holy offering':'प्रसाद',
+      'video':'वीडियो','videos':'वीडियो','today video':'आज का वीडियो',
+      'photo':'फोटो','photos':'फोटो','gallery':'गैलरी','photo gallery':'फोटो गैलरी',
+      'how to reach':'कैसे पहुँचें','directions':'कैसे पहुँचें','location':'लोकेशन',
+      'someshwar':'सोमेश्वरनाथ','someshwarnath':'सोमेश्वरनाथ','panda':'पंडा',
+      'priest':'पंडा','priests':'पंडा','panda booking':'पंडा बुकिंग',
+      'faq':'प्रश्न','frequently asked questions':'अक्सर पूछे जाने वाले प्रश्न',
+      'privacy':'गोपनीयता','privacy policy':'प्राइवेसी पॉलिसी',
+      'online puja':'ऑनलाइन पूजा','online worship':'ऑनलाइन पूजा',
+      'home service':'घर बैठे सेवा','home puja':'घर बैठे पूजा',
+      'puja and services':'पूजा एवं सेवा','puja services':'पूजा सेवाएँ',
+      'all puja list':'सभी पूजा की सूची','special puja':'विशेष पूजा',
+      'rudrabhishek':'रुद्राभिषेक','mahamrityunjaya':'महामृत्युंजय',
+      'parthiv puja':'पार्थिव पूजा','parthiv shiv puja':'पार्थिव शिव पूजा',
+      'someshwar chalisa':'सोमेश्वर चालीसा','religious importance':'धार्मिक महत्व',
+      'festivals and events':'प्रमुख पर्व एवं आयोजन','about us':'हमारे बारे में'
     };
-    const q=aliases[raw] || raw;
-    const terms=Array.from(new Set([raw,q].filter(Boolean)));
+    // Also translate individual English/Roman-Hindi words so phrases such as
+    // "Puja and Services" can find Hindi headings like "पूजा एवं सेवा".
+    const wordAliases={
+      'puja':'पूजा','pooja':'पूजा','worship':'पूजा','and':'एवं','services':'सेवा','service':'सेवा',
+      'shiv':'शिव','shiva':'शिव','mahadev':'महादेव','temple':'मंदिर','mandir':'मंदिर',
+      'history':'इतिहास','contact':'संपर्क','booking':'बुकिंग','book':'बुकिंग',
+      'dakshina':'दक्षिणा','donation':'दक्षिणा','prasad':'प्रसाद','video':'वीडियो','videos':'वीडियो',
+      'photo':'फोटो','photos':'फोटो','gallery':'गैलरी','panda':'पंडा','priest':'पंडा','priests':'पंडा',
+      'online':'ऑनलाइन','home':'घर','house':'घर','today':'आज','special':'विशेष','all':'सभी',
+      'list':'सूची','how':'कैसे','reach':'पहुँचें','location':'लोकेशन','privacy':'प्राइवेसी',
+      'policy':'पॉलिसी','religious':'धार्मिक','importance':'महत्व','festival':'पर्व','festivals':'पर्व',
+      'event':'आयोजन','events':'आयोजन','chalisa':'चालीसा','rudrabhishek':'रुद्राभिषेक',
+      'mahamrityunjaya':'महामृत्युंजय','parthiv':'पार्थिव','faq':'प्रश्न','about':'बारे','us':'हमारे'
+    };
+    const wordTranslated=raw.split(/\s+/).map(function(word){return wordAliases[word] || word;}).join(' ');
+    const q=aliases[raw] || wordTranslated;
+    const terms=Array.from(new Set([raw,q,aliases[raw]].filter(Boolean)));
     const skip='script,style,noscript,nav,header,footer,.ad-search,button,input,textarea,select,option';
     const all=Array.from(document.querySelectorAll('h1,h2,h3,h4,h5,h6,p,li,td,th,a,summary,section,article,div'));
     const matches=all.filter(function(el){
