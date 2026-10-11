@@ -2477,7 +2477,17 @@ loadGithubDailyVideos();
       'panda booking':'पंडा बुकिंग','contact information':'संपर्क जानकारी',
       'about us':'हमारे बारे में','privacy policy':'प्राइवेसी पॉलिसी',
       'temple history':'अरेराज धाम का इतिहास','history of temple':'अरेराज धाम का इतिहास',
-      'someshwarnath mahadev':'सोमेश्वरनाथ महादेव','today video':'आज का वीडियो'
+      'someshwarnath mahadev':'सोमेश्वरनाथ महादेव','today video':'आज का वीडियो',
+      'puja and service':'पूजा एवं सेवा','worship services':'पूजा सेवाएँ','all services':'सेवा',
+      'home worship service':'घर बैठे पूजा सेवा','puja at home':'घर बैठे पूजा सेवा',
+      'online booking':'ऑनलाइन बुकिंग','book a puja':'पूजा बुकिंग','select priest':'पंडा चुनें',
+      'choose panda':'पंडा चुनें','priest booking':'पंडा बुकिंग','temple information':'मंदिर जानकारी',
+      'religious stories':'शिव से जुड़ी कथाएँ','beliefs and traditions':'मान्यताएँ एवं परंपरा',
+      'major festivals':'प्रमुख पर्व एवं आयोजन','festivals':'पर्व','events':'आयोजन',
+      'photo gallery':'पूजा फोटो','contact details':'संपर्क जानकारी','get in touch':'संपर्क',
+      'terms and conditions':'नियम एवं शर्तें','disclaimer':'अस्वीकरण','about':'हमारे बारे में',
+      'about website':'वेबसाइट के बारे में','frequently asked questions':'अक्सर पूछे जाने वाले प्रश्न',
+      'how to book':'बुकिंग कैसे करें','payment':'भुगतान','prasad and bhasm':'प्रसाद एवं भस्म'
     };
     // Also translate individual English/Roman-Hindi words so phrases such as
     // "Puja and Services" can find Hindi headings like "पूजा एवं सेवा".
@@ -2491,7 +2501,11 @@ loadGithubDailyVideos();
       'list':'सूची','how':'कैसे','reach':'पहुँचें','location':'लोकेशन','privacy':'प्राइवेसी',
       'policy':'पॉलिसी','religious':'धार्मिक','importance':'महत्व','festival':'पर्व','festivals':'पर्व',
       'event':'आयोजन','events':'आयोजन','chalisa':'चालीसा','rudrabhishek':'रुद्राभिषेक',
-      'mahamrityunjaya':'महामृत्युंजय','parthiv':'पार्थिव','faq':'प्रश्न','about':'बारे','us':'हमारे'
+      'mahamrityunjaya':'महामृत्युंजय','parthiv':'पार्थिव','faq':'प्रश्न','about':'बारे','us':'हमारे',
+      'worship':'पूजा','at':'पर','choose':'चुनें','select':'चुनें','priest':'पंडा','details':'जानकारी',
+      'information':'जानकारी','stories':'कथाएँ','beliefs':'मान्यताएँ','traditions':'परंपरा',
+      'major':'प्रमुख','payment':'भुगतान','terms':'नियम','conditions':'शर्तें','disclaimer':'अस्वीकरण',
+      'website':'वेबसाइट','get':'प्राप्त','touch':'संपर्क','bhasm':'भस्म'
     };
     const wordTranslated=raw.split(/\s+/).map(function(word){return wordAliases[word] || word;}).join(' ');
     const q=aliases[raw] || wordTranslated;
