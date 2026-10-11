@@ -10,30 +10,6 @@
   gtag('js', new Date());
   gtag('config', 'G-1KW9B7M298');
 </script>
-<script>
-  // Keep the blurred hero background in sync with the active slide.
-  document.addEventListener('DOMContentLoaded', function () {
-    function updateHeroBackground() {
-      const bg = document.querySelector('.hero-bg');
-      const activeSlide = document.querySelector('.hero-slide.active');
-      if (bg && activeSlide && activeSlide.src) {
-        bg.style.backgroundImage = 'url("' + activeSlide.src + '")';
-      }
-    }
-    updateHeroBackground();
-    const slider = document.querySelector('.hero-slider');
-    if (slider && 'MutationObserver' in window) {
-      const observer = new MutationObserver(updateHeroBackground);
-      slider.querySelectorAll('.hero-slide').forEach(function (slide) {
-        observer.observe(slide, { attributes: true, attributeFilter: ['class'] });
-      });
-    } else {
-      window.setInterval(updateHeroBackground, 8000);
-    }
-  });
-</script>
-
-
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>
@@ -1192,27 +1168,11 @@ img{height:auto;}
 </style>
 
 
-<style id="hero-layout-stability">
-/* Reserve the hero area before image decoding; preserve slide sequence and side content. */
-.hero-slider{
-  position:relative;
-  box-sizing:border-box;
-  min-height:520px;
-}
-.hero-slider > img.hero-slide{
-  height:520px;
-  width:56%;
-  object-fit:contain;
-}
-@media(max-width:768px){
-  .hero-slider{
-    min-height:320px;
-  }
-  .hero-slider > img.hero-slide{
-    width:100%;
-    height:320px;
-    object-fit:contain;
-  }
+<style id="hero-bg-no-duplicate-image">
+.hero-slider > .hero-bg{
+  background-image:none!important;
+  background-color:#c75100;
+  background-image:linear-gradient(135deg,#c75100,#f4a300)!important;
 }
 </style>
 
@@ -2719,4 +2679,36 @@ loadGithubDailyVideos();
   display:block !important;
 }
 </style>
+
+<style id="final-stable-hero-layout">
+/* Keep the hero slider's footprint fixed so changing slides cannot move the page. */
+.hero-slider{position:relative!important;display:block!important;width:100%!important;height:clamp(260px,42vw,520px)!important;min-height:260px!important;overflow:hidden!important;contain:layout paint!important;}
+.hero-slider .hero-bg{position:absolute!important;inset:0!important;pointer-events:none!important;}
+.hero-slider > img.hero-slide{position:absolute!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;max-width:100%!important;margin:0!important;object-fit:contain!important;object-position:center!important;opacity:0!important;visibility:hidden!important;}
+.hero-slider > img.hero-slide.active{opacity:1!important;visibility:visible!important;}
+@media(max-width:768px){.hero-slider{height:clamp(250px,78vw,380px)!important;min-height:250px!important;}}
+@media(prefers-reduced-motion:reduce){.hero-slider *{animation:none!important;transition:none!important;}}
+</style>
+<script id="final-hero-background-sync">
+(function(){
+  function syncHeroBackground(){
+    var bg=document.querySelector('.hero-bg');
+    var active=document.querySelector('.hero-slide.active');
+    if(bg && active && active.getAttribute('src')) bg.style.backgroundImage='url("'+active.getAttribute('src')+'")';
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',syncHeroBackground,{once:true});
+  else syncHeroBackground();
+  document.addEventListener('load',function(e){if(e.target && e.target.classList && e.target.classList.contains('hero-slide')) syncHeroBackground();},true);
+})();
+</script>
+
 </html>
+
+
+<!-- CLS fix: reserve the hero slider space before images decode -->
+<style id="hero-cls-fix">
+.hero-slider{position:relative!important; height:520px!important; min-height:520px!important; overflow:hidden!important; contain:layout paint;}
+.hero-slider > img.hero-slide{position:absolute!important; inset:0!important; display:none; width:100%!important; height:100%!important; max-width:100%!important; margin:0!important; object-fit:cover!important; object-position:center!important;}
+.hero-slider > img.hero-slide.active{display:block!important;}
+@media(max-width:768px){.hero-slider{height:320px!important;min-height:320px!important;} .hero-slider > img.hero-slide{height:100%!important;}}
+</style>
