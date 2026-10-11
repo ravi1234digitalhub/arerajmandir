@@ -2434,14 +2434,46 @@ loadGithubDailyVideos();
 
 
 <script id="ad-header-js">
-function adSearch(){
-  const q=(document.querySelector('.ad-search input')?.value||'').trim().toLowerCase();
-  if(!q){alert('कृपया खोजने के लिए शब्द लिखें।');return;}
-  const els=[...document.querySelectorAll('body *')].filter(e=>e.children.length===0);
-  const found=els.find(e=>(e.textContent||'').toLowerCase().includes(q));
-  if(found){found.scrollIntoView({behavior:'smooth',block:'center'});}
-  else alert('इस शब्द की जानकारी इस पेज पर नहीं मिली।');
-}
+(function(){
+  function getSearchInput(){ return document.querySelector('.ad-search input[type="search"]'); }
+  function isVisible(el){
+    if(!el || !el.getClientRects().length) return false;
+    const style=window.getComputedStyle(el);
+    return style.display!=='none' && style.visibility!=='hidden' && style.opacity!=='0';
+  }
+  window.adSearch=function(){
+    const input=getSearchInput();
+    const q=((input && input.value) || '').trim().toLocaleLowerCase('hi');
+    if(!q){ alert('कृपया खोजने के लिए शब्द लिखें।'); if(input) input.focus(); return; }
+
+    const skip='script,style,noscript,nav,header,footer,.ad-search,button,input,textarea,select,option';
+    const candidates=Array.from(document.querySelectorAll('h1,h2,h3,h4,h5,h6,p,li,td,th,a,summary,section,article,div'))
+      .filter(el=>!el.matches(skip) && isVisible(el) && (el.textContent||'').trim().length>0)
+      .filter(el=>!(el.parentElement && el.parentElement.closest(skip)))
+      .filter(el=>(el.textContent||'').toLocaleLowerCase('hi').includes(q));
+
+    // Prefer the smallest visible matching content block, avoiding a whole-page container.
+    candidates.sort((a,b)=>(a.textContent||'').trim().length-(b.textContent||'').trim().length);
+    const found=candidates[0];
+    if(found){
+      found.scrollIntoView({behavior:'smooth',block:'center'});
+      const oldOutline=found.style.outline;
+      const oldOffset=found.style.outlineOffset;
+      found.style.outline='2px solid #f4a300';
+      found.style.outlineOffset='4px';
+      window.setTimeout(function(){ found.style.outline=oldOutline; found.style.outlineOffset=oldOffset; },1800);
+    }else{
+      alert('“'+q+'” इस पेज पर नहीं मिला। दूसरा शब्द लिखकर खोजें।');
+      if(input){input.focus();input.select();}
+    }
+  };
+  document.addEventListener('DOMContentLoaded',function(){
+    const input=getSearchInput();
+    if(input) input.addEventListener('keydown',function(event){
+      if(event.key==='Enter'){ event.preventDefault(); window.adSearch(); }
+    });
+  });
+})();
 </script>
 
 
