@@ -2588,3 +2588,12 @@ loadGithubDailyVideos();
 }
 </style>
 </html>
+
+
+<!-- CLS fix: reserve the hero slider space before images decode -->
+<style id="hero-cls-fix">
+.hero-slider{position:relative!important; height:520px!important; min-height:520px!important; overflow:hidden!important; contain:layout paint;}
+.hero-slider > img.hero-slide{position:absolute!important; inset:0!important; display:none; width:100%!important; height:100%!important; max-width:100%!important; margin:0!important; object-fit:cover!important; object-position:center!important;}
+.hero-slider > img.hero-slide.active{display:block!important;}
+@media(max-width:768px){.hero-slider{height:320px!important;min-height:320px!important;} .hero-slider > img.hero-slide{height:100%!important;}}
+</style>
