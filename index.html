@@ -1860,14 +1860,20 @@ font-weight:bold;width:auto;max-width:90%;
   box-shadow:0 10px 24px rgba(143,82,0,.12);
   text-align:center;
 }
-.panda-important-note:before{
-  content:"";
-  position:absolute;inset:0;
-  background:
-    radial-gradient(circle at 8% 50%,rgba(224,137,0,.10) 0 55px,transparent 56px),
-    radial-gradient(circle at 92% 50%,rgba(224,137,0,.10) 0 55px,transparent 56px);
+.panda-important-note:before,
+.panda-important-note:after{
+  content:"🔱";
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:58px;
+  line-height:1;
+  opacity:.72;
   pointer-events:none;
+  z-index:0;
 }
+.panda-important-note:before{left:28px}
+.panda-important-note:after{right:28px}
 .panda-important-note .pin-note-title{
   position:relative;
   display:inline-flex;
