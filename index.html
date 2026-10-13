@@ -1218,6 +1218,96 @@ img{height:auto;}
  .panda-single-whatsapp{font-size:17px}
 }
 </style>
+
+<style id="mobile-friendly-only-update">
+/* केवल मोबाइल लेआउट सुधार; मौजूदा सामग्री, लिंक और बुकिंग व्यवहार अपरिवर्तित */
+@media (max-width: 600px) {
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { max-width: 100%; }
+  body { overflow-x: hidden; }
+  img, video, iframe { max-width: 100%; }
+  .ad-site-topbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 12px;
+    padding: 7px 10px;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+  .ad-site-brandbar {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    padding: 12px 10px;
+  }
+  .ad-brand { min-width: 0; justify-content: center; }
+  .ad-brand-main { font-size: clamp(19px, 5.4vw, 24px); overflow-wrap: anywhere; }
+  .ad-brand-sub { font-size: 18px; }
+  .ad-brand-actions { width: 100%; min-width: 0; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .ad-search { width: min(100%, 340px); min-width: 0; }
+  .ad-search input { width: 100%; min-width: 0; }
+  .ad-contact-top { max-width: 100%; white-space: normal; text-align: center; }
+  .ad-nav {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+  }
+  .ad-nav > a, .ad-nav .ad-drop > button { flex: 0 0 auto; }
+  section { padding: 14px; }
+  h1 { overflow-wrap: anywhere; }
+  h2 { font-size: clamp(19px, 5.2vw, 22px); }
+  button, input, textarea, select { max-width: 100%; }
+  #prasad-order-form-container, #reusable-puja-form-section { padding: 14px; }
+  #prasad-order-form input[type="text"],
+  #prasad-order-form input[type="tel"],
+  #prasad-order-form textarea,
+  #prasad-order-form input[type="pincode"],
+  #generic-puja-order-form input[type="text"],
+  #generic-puja-order-form input[type="tel"],
+  #generic-puja-order-form textarea { width: 100%; }
+  .prasad-offer { margin: 12px 8px; padding: 18px 12px; }
+  .chalisa-content-wrapper { padding-left: 12px; padding-right: 12px; }
+  .doha-section { overflow-wrap: anywhere; }
+  .daily-video-gallery, .daily-video-section { max-width: 100%; }
+  .daily-video-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .daily-video-card { min-width: 0; }
+  .daily-video-card video { width: 100%; height: auto; }
+  #newYearPopup { width: calc(100% - 24px); max-width: 380px; }
+}
+@media (max-width: 380px) {
+  .ad-brand-icon { font-size: 32px; }
+  .ad-brand-main { font-size: 19px; }
+  .ad-nav > a, .ad-nav .ad-drop > button { padding: 8px 10px; font-size: 12px; }
+  .prasad-offer .offer-text { font-size: 16px; }
+}
+</style>
+
+
+<style id="mobile-booking-and-panda-heading-fix">
+@media (max-width: 600px) {
+  /* Keep the existing puja booking button fully inside the mobile screen. */
+  #parthiv-puja-booking > button {
+    display: block; width: 100%; max-width: 100%; box-sizing: border-box;
+    padding: 12px 10px !important; font-size: clamp(13px, 3.7vw, 17px) !important;
+    line-height: 1.45; white-space: normal; overflow-wrap: anywhere;
+  }
+  /* Keep decorative tridents inside the panda heading and reduce their size. */
+  .panda-demo-head { overflow: hidden; }
+  .panda-demo-head:before, .panda-demo-head:after {
+    top: 10px; font-size: 23px; opacity: .7;
+  }
+  .panda-demo-head:before { left: 8px; }
+  .panda-demo-head:after { right: 8px; }
+  .panda-demo-head h2 {
+    display: block; width: 100%; box-sizing: border-box;
+    padding: 10px 8px !important; font-size: clamp(17px, 4.5vw, 22px) !important;
+    line-height: 1.3; overflow-wrap: anywhere;
+  }
+  .panda-demo-head h2:before, .panda-demo-head h2:after { content: ""; }
+}
+</style>
+
 </head>
 <body>
 <div class="ad-site-topbar">
@@ -2667,4 +2757,18 @@ loadGithubDailyVideos();
   display:block !important;
 }
 </style>
+
+<style id="mobile-two-fixes-only">
+/* Mobile-only fix 1: show the active temple slide from the top of its frame. */
+@media (max-width: 768px) {
+  .hero-slider { position:relative !important; height:320px !important; min-height:320px !important; max-height:320px !important; overflow:hidden !important; background:#fff !important; }
+  .hero-slider > img.hero-slide { position:absolute !important; inset:0 !important; display:none !important; width:100% !important; height:100% !important; margin:0 !important; object-fit:cover !important; object-position:center center !important; }
+  .hero-slider > img.hero-slide.active { display:block !important; }
+  .hero-slider > .cap { z-index:4 !important; max-width:calc(100% - 90px) !important; white-space:normal !important; text-align:center !important; }
+  /* Mobile-only fix 2: remove oversized trident decorations behind important-note text. */
+  .panda-important-note:before, .panda-important-note:after { content:none !important; display:none !important; }
+  .panda-important-note { padding:24px 18px !important; }
+}
+</style>
+
 </html>
