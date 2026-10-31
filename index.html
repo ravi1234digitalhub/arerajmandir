@@ -2251,7 +2251,7 @@ function renderPujaList(list){
       <div class="puja-blog-content">
         <h3 class="puja-blog-title">🙏 ${puja.name}</h3>
         <p class="puja-blog-summary">${puja.labh} इस पूजा की विधि, आवश्यक सामग्री और पूजा के दौरान होने वाली प्रक्रिया के बारे में विस्तार से जानें।</p>
-        <a class="puja-blog-read" href="puja-vivaran.html?puja=${encodeURIComponent(puja.name)}">${puja.name} की पूरी जानकारी पढ़ें →</a>
+        <a class="puja-blog-read" href="${puja.name === 'शिव दर्शन' ? 'shiv-darshan.html' : `puja-vivaran.html?puja=${encodeURIComponent(puja.name)}`}">${puja.name} की पूरी जानकारी पढ़ें →</a>
       </div>`;
     card.onmouseover=()=>card.style.boxShadow="0 6px 16px rgba(92,48,9,.14)";
     card.onmouseout=()=>card.style.boxShadow="0 3px 10px rgba(92,48,9,.08)";
