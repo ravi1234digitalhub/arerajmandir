@@ -2707,4 +2707,76 @@ loadGithubDailyVideos();
 }
 </style>
 
+
+<style id="mobile-friendly-completed-sections">
+/* केवल पहले से तय किए गए hero और छह ब्लॉग कार्ड के मोबाइल लेआउट */
+@media (max-width: 600px) {
+  .hero-slider {
+    width: 100% !important;
+    height: 250px !important;
+    min-height: 250px !important;
+    max-height: 250px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+  }
+  .hero-slider > img.hero-slide,
+  .hero-slider img.hero-slide.active {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+  .areraj-blog-home {
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 16px 8px !important;
+    padding: 16px 10px !important;
+    border-radius: 12px !important;
+  }
+  .areraj-blog-home h2 {
+    font-size: 21px !important;
+    line-height: 1.45 !important;
+  }
+  .areraj-blog-card {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto auto auto auto !important;
+    gap: 9px !important;
+    padding: 11px !important;
+    min-width: 0 !important;
+  }
+  .areraj-topic-photo {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    height: 190px !important;
+    max-height: 48vw !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+  }
+  .areraj-blog-card h3 {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    font-size: 17px !important;
+    line-height: 1.5 !important;
+    overflow-wrap: anywhere !important;
+  }
+  .areraj-blog-card p {
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+    overflow-wrap: anywhere !important;
+  }
+  .areraj-blog-card a {
+    grid-column: 1 !important;
+    grid-row: 4 !important;
+    width: fit-content !important;
+    font-size: 14px !important;
+  }
+}
+</style>
+
 </html>
